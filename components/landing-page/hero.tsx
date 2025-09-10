@@ -6,14 +6,12 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 
 const companies = [
-  { name: "Google", logo: "/next.svg" },
-  { name: "Microsoft", logo: "/next.svg" },
-  { name: "Amazon", logo: "/next.svg" },
-  { name: "IBM", logo: "/next.svg" },
-  { name: "Meta", logo: "/next.svg" },
-  { name: "Apple", logo: "/next.svg" },
-  { name: "Netflix", logo: "/next.svg" },
-  { name: "Tesla", logo: "/next.svg" }
+  { name: "Google", logo: "/assets/amazon.png" },
+  { name: "Microsoft", logo: "/assets/jlr.png" },
+  { name: "Amazon", logo: "/assets/gms.jpg" },
+  { name: "IBM", logo: "/assets/ibm.webp" },
+  { name: "Meta", logo: "/assets/barclays.png" },
+  { name: "Apple", logo: "/assets/howden.png" },
 ]
 
 export default function Hero() {
@@ -114,7 +112,7 @@ export default function Hero() {
             <div className="relative overflow-hidden py-4">
               <div className="flex animate-scroll-left whitespace-nowrap">
                 {companies.map((company, index) => (
-                  <div key={index} className="flex items-center justify-center mx-6 w-20 h-12 grayscale hover:grayscale-0 transition-all duration-300 flex-shrink-0">
+                  <div key={index} className="flex items-center justify-center mx-6 w-20 h-12 transition-all duration-300 flex-shrink-0">
                     <Image
                       src={company.logo}
                       alt={`${company.name} logo`}
@@ -126,7 +124,7 @@ export default function Hero() {
                 ))}
                 {/* Duplicate set for seamless loop */}
                 {companies.map((company, index) => (
-                  <div key={`duplicate-${index}`} className="flex items-center justify-center mx-6 w-20 h-12 grayscale hover:grayscale-0 transition-all duration-300 flex-shrink-0">
+                  <div key={`duplicate-${index}`} className="flex items-center justify-center mx-6 w-20 h-12 transition-all duration-300 flex-shrink-0">
                     <Image
                       src={company.logo}
                       alt={`${company.name} logo`}
