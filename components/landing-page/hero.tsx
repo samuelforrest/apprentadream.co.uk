@@ -1,48 +1,107 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaVolumeMute } from "react-icons/fa";
 import Image from "next/image";
+import { useRef, useState } from "react";
 
 const companies = [
-  { name: "Google", logo: "/globe.svg" },
-  { name: "Microsoft", logo: "/vercel.svg" },
+  { name: "Google", logo: "/next.svg" },
+  { name: "Microsoft", logo: "/next.svg" },
   { name: "Amazon", logo: "/next.svg" },
-  { name: "IBM", logo: "/file.svg" },
-  { name: "Meta", logo: "/window.svg" },
-  { name: "Apple", logo: "/globe.svg" },
-  { name: "Netflix", logo: "/vercel.svg" },
+  { name: "IBM", logo: "/next.svg" },
+  { name: "Meta", logo: "/next.svg" },
+  { name: "Apple", logo: "/next.svg" },
+  { name: "Netflix", logo: "/next.svg" },
   { name: "Tesla", logo: "/next.svg" }
 ]
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+  };
+
+  const handleMuteToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
   return (
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl mx-auto">
-        <div className="items-center">
-        {/* Hero Content - Centered */}
-        <div className="text-center">
+        {/* Hero Section - Two Columns on Desktop, Single Column on Mobile */}
+        <div className="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-16 pt-24 sm:pt-32 md:pt-0">
+          {/* Left Column - Hero Content */}
+          <div className="flex-1 text-center md:text-left">
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
-          Unlock your 
-          
-            <span
-          className="bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent"> potential</span>
+              Unlock your 
+              <span className="text-green-600"> potential</span>
             </h1>
         
-        {/* Subtext */}
+            {/* Subtext */}
             <p className="text-lg md:text-xl font-bold tracking-tight text-gray-600 mb-8">
-          Succeed in top apprenticeships with our all-in-one preparation platform.
+              Succeed in top apprenticeships with our all-in-one preparation platform.
             </p>
         
-        {/* Buttons */}
-            <div className="flex gap-4 justify-center">
-            <Button size="lg" className="px-8 py-6 text-lg bg-green-700">
+            {/* Buttons */}
+            <div className="flex gap-5 justify-center md:justify-start">
+              <Button size="lg" className="px-8 py-6 text-lg bg-green-700 rounded-xl">
                 <FaWhatsapp style={{ width: "1.5rem", height: "1.5rem" }}/>Join WhatsApp
-            </Button>
+              </Button>
 
-            <Button size="lg" variant="outline" className="px-8 py-6 text-lg ">
+              <Button size="lg" variant="outline" className="px-8 py-6 text-lg rounded-xl">
                 Learn More
-            </Button>
+              </Button>
             </div>
-        </div>
+          </div>
+
+          {/* Right Column - Native Video Player */}
+          <div className="flex-1 mt-8 md:mt-0">
+            <div className="aspect-video w-full relative">
+              <video
+                ref={videoRef}
+                className="w-full h-full rounded-xl shadow-lg object-cover cursor-pointer"
+                preload="metadata"
+                muted
+                autoPlay
+                poster="/placeholder-video-thumbnail.jpg"
+                onClick={handleVideoClick}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+              >
+                <source src="/assets/demo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Mute Button - Top Right Corner */}
+              {isMuted && (
+                <div 
+                  className="absolute top-4 right-4 cursor-pointer"
+                  onClick={handleMuteToggle}
+                >
+                  <div className="bg-black bg-opacity-50 rounded-full p-3 hover:bg-opacity-70 transition-all duration-300">
+                    <FaVolumeMute className="text-white text-xl" />
+                  </div>
+                </div>
+              )}
+            </div>
+            <p className="text-grey-500 text-sm pt-3 text-center">Watch this short introduction video to Apprentadream</p>
+          </div>
         </div>
         
         
