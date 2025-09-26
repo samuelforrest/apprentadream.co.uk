@@ -42,7 +42,7 @@ export default function Hero() {
   return (
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl mx-auto">
         {/* Hero Section - Two Columns on Desktop, Single Column on Mobile */}
-        <div className="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-16 pt-24 sm:pt-32 md:pt-0">
+        <div className="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-16 pt-35z sm:pt-32 md:pt-0">
           {/* Left Column - Hero Content */}
           <div className="flex-1 text-center md:text-left">
             {/* Headline */}

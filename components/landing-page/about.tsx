@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 export default function About() {
     return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-20">
+    <section id="about" className="py-8 sm:py-12 md:py-16 lg:py-20">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl mx-auto">
       {/* Heading */}
       <div className="text-center mb-8 sm:mb-12">
@@ -24,15 +24,15 @@ export default function About() {
             <p>Gain practice with our mock 1-hour arctic-shores style assesment, and detailed results.</p>
             <ul className="mt-6 space-y-2 text-gray-700">
                 
-                <li className="hover:font-bold font-medium">
+                <li className="hover:font-bold  hover:cursor-pointer font-medium">
                   <CheckCircle className="w-4 h-4 inline text-green-500 mr-2" />Get ahead of the competition</li>
-                <li className="hover:font-bold font-medium">
+                <li className="hover:font-bold  hover:cursor-pointer font-medium">
                   <CheckCircle className="w-4 h-4 inline text-green-500 mr-2" />Prepare for the test</li>
 
             </ul>
           </CardContent>
           <CardFooter className="mt-auto pt-4">
-            <Button size="sm" variant="outline" className="text-sm">
+            <Button size="sm" variant="outline" className="text-sm cursor-pointer">
               Learn More
             </Button>
           </CardFooter>
@@ -48,15 +48,15 @@ export default function About() {
             
             <ul className="space-y-2 md:mt-6 text-gray-700">
                 
-                <li className="hover:font-bold font-medium">
+                <li className="hover:font-bold  hover:cursor-pointer font-medium">
                   <CheckCircle className="w-4 h-4 inline text-green-500 mr-2" />Get valuable advice</li>
-                <li className="hover:font-bold font-medium">
+                <li className="hover:font-bold  hover:cursor-pointer font-medium">
                   <CheckCircle className="w-4 h-4 inline text-green-500 mr-2" />Tailor and improve your CV</li>
 
             </ul>
           </CardContent>
           <CardFooter className="mt-auto pt-4">
-            <Button size="sm" variant="outline" className="text-sm">
+            <Button size="sm" variant="outline" className="text-sm cursor-pointer">
               Learn More
             </Button>
           </CardFooter>
@@ -72,20 +72,20 @@ export default function About() {
 
             <ul className="space-y-2 md:mt-6 text-gray-700">
                 
-                <li className="hover:font-bold font-medium">
+                <li className="hover:font-bold hover:cursor-pointer font-medium">
                   <CheckCircle className="w-4 h-4 inline text-green-500 mr-2" />AI careers assistant</li>
-                <li className="hover:font-bold font-medium">
+                <li className="hover:font-bold hover:cursor-pointer font-medium">
                   <CheckCircle className="w-4 h-4 inline text-green-500 mr-2" />AI CV review</li>
-                <li className="hover:font-bold font-medium">
+                <li className="hover:font-bold hover:cursor-pointer font-medium">
                   <CheckCircle className="w-4 h-4 inline text-green-500 mr-2" />AI LinkedIn poster</li>
-                <li className="hover:font-bold font-medium">
+                <li className="hover:font-bold hover:cursor-pointer font-medium">
                   <CheckCircle className="w-4 h-4 inline text-green-500 mr-2" />AI Apprenticeship Tracker</li>
                   
 
             </ul>
           </CardContent>
           <CardFooter className="mt-auto pt-1">
-            <Button size="sm" variant="outline" className="text-sm">
+            <Button size="sm" variant="outline" className="text-sm cursor-pointer">
               Learn More
             </Button>
           </CardFooter>
