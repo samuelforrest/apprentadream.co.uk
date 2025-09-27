@@ -6,14 +6,12 @@ export default function About() {
     return (
     <section id="about" className="py-8 sm:py-12 md:py-16 lg:py-20">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl mx-auto">
-      {/* Heading */}
       <div className="text-center mb-8 sm:mb-12">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-4 sm:mb-8">
           Why Join Apprentadream
         </h2>
       </div>
 
-      {/* Responsive Grid */}
       <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <Card className="w-full h-full flex flex-col">
           <CardHeader>

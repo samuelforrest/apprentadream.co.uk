@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { FaWhatsapp, FaVolumeMute } from "react-icons/fa";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import Link from "next/link";
 
 const companies = [
   { name: "Google", logo: "/assets/amazon.png" },
@@ -41,34 +42,32 @@ export default function Hero() {
 
   return (
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl mx-auto">
-        {/* Hero Section - Two Columns on Desktop, Single Column on Mobile */}
+
         <div className="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-16 pt-35z sm:pt-32 md:pt-0">
-          {/* Left Column - Hero Content */}
+
           <div className="flex-1 text-center md:text-left">
-            {/* Headline */}
+
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
               Unlock your 
-              <span className="text-green-600"> potential</span>
+              <span> potential</span>
             </h1>
         
-            {/* Subtext */}
             <p className="text-lg md:text-xl font-bold tracking-tight text-gray-600 mb-8">
               Succeed in top apprenticeships with our all-in-one preparation platform.
             </p>
         
-            {/* Buttons */}
             <div className="flex gap-5 justify-center md:justify-start">
-              <Button size="lg" className="px-8 py-6 text-lg bg-green-700 rounded-xl">
-                <FaWhatsapp style={{ width: "1.5rem", height: "1.5rem" }}/>Join WhatsApp
-              </Button>
-
-              <Button size="lg" variant="outline" className="px-8 py-6 text-lg rounded-xl">
-                Learn More
-              </Button>
+              <Link href="/join">
+                <Button size="lg" className="px-8 py-6 text-lg text-white bg-green-700 rounded-xl cursor-pointer">
+                  <FaWhatsapp style={{ width: "1.5rem", height: "1.5rem" }}/>Join Apprentadream
+                </Button>
+              </Link>
+                <Button size="lg" variant="outline" className="px-8 py-6 text-lg rounded-xl cursor-pointer">
+                  Learn More
+                </Button>
             </div>
           </div>
 
-          {/* Right Column - Native Video Player */}
           <div className="flex-1 mt-8 md:mt-0">
             <div className="aspect-video w-full relative">
               <video
@@ -86,7 +85,6 @@ export default function Hero() {
                 Your browser does not support the video tag.
               </video>
               
-              {/* Mute Button - Top Right Corner */}
               {isMuted && (
                 <div 
                   className="absolute top-4 right-4 cursor-pointer"
@@ -103,7 +101,6 @@ export default function Hero() {
         </div>
         
         
-        {/* Company Partners Carousel - Full Width Centered */}
         <div className="w-full mt-12 sm:mt-20 md:mt-25">
           <div className="w-3/4 mx-auto">
             <p className="text-sm text-gray-500 text-center mb-6">
@@ -122,7 +119,6 @@ export default function Hero() {
                     />
                   </div>
                 ))}
-                {/* Duplicate set for seamless loop */}
                 {companies.map((company, index) => (
                   <div key={`duplicate-${index}`} className="flex items-center justify-center mx-6 w-20 h-12 transition-all duration-300 flex-shrink-0">
                     <Image
