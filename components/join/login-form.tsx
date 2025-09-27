@@ -28,6 +28,7 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"div">) {
   const [copied, setCopied] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -49,6 +50,7 @@ export function LoginForm({
   const router = useRouter();
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault(); //stop normal form submission
+    setIsSubmitting(true);
 
     const data = new FormData();
     data.append("Full Name", formData.fullname);
@@ -67,13 +69,15 @@ export function LoginForm({
       );
 
       if (response.ok) {
-        router.push("/join-success"); // target sucsess
+        router.push("/success"); // target success
       } else {
         alert("Submission failed. Try again.");
+        setIsSubmitting(false);
       }
     } catch (error) {
       console.error(error);
       alert("Something went wrong. Try again.");
+      setIsSubmitting(false);
     }
   };
 
@@ -175,8 +179,20 @@ export function LoginForm({
                 </Select>
               </div>
               <div className="flex flex-col gap-3">
-                <Button type="submit" className="w-full">
-                  Join Now
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+
+
+                {/*Spinner while joining*/}
+                  {isSubmitting ? (
+                    <div className="flex items-center justify-center gap-2">
+                      <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                      Joining
+                    </div>
+                  ) : (
+                    "Join Now"
+                  )}
+
+
                 </Button>
               </div>
             </div>
