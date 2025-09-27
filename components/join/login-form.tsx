@@ -99,7 +99,7 @@ export function LoginForm({
             <div className="flex flex-col gap-6">
                 <div className="grid gap-3">
                 <div className="flex items-center">
-                  <Label htmlFor="text">Full Name</Label>
+                  <Label htmlFor="text">Full Name *</Label>
                 </div>
                 <Input 
                   id="fullname" 
@@ -124,7 +124,7 @@ export function LoginForm({
               </div>
               <div className="grid gap-3">
                 <div className="flex items-center">
-                  <Label htmlFor="phone">Phone</Label>
+                  <Label htmlFor="phone">Phone *</Label>
                 </div>
                 <Input 
                   id="phone" 
@@ -136,7 +136,7 @@ export function LoginForm({
                 />
               </div>
               <div className="grid gap-3">
-                <Label>I am currently</Label>
+                <Label>I am currently *</Label>
                 <Select 
                   name="Status" 
                   value={formData.status}
