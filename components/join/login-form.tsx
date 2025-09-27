@@ -144,7 +144,7 @@ export function LoginForm({
                   required
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select your current status" />
+                    <SelectValue placeholder="Type of student" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="student">Year 11 student</SelectItem>
@@ -179,10 +179,10 @@ export function LoginForm({
                 </Select>
               </div>
               <div className="flex flex-col gap-3">
+
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
 
 
-                {/*Spinner while joining*/}
                   {isSubmitting ? (
                     <div className="flex items-center justify-center gap-2">
                       <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
@@ -197,14 +197,15 @@ export function LoginForm({
               </div>
             </div>
             <div className="mt-8 text-center text-sm">
-      Let your friends join Apprentadream{" "}
-      <button
-        onClick={handleCopy}
-        className="underline underline-offset-4 hover:text-blue-600"
-      >
-        {copied ? "Copied!" : "Copy link"}
-      </button>
-    </div>
+                Let your friends join - {" "}
+                <button
+                    onClick={handleCopy}
+                    className="underline underline-offset-5 hover:text-blue-600 hover:font-bold"
+                >
+                    {copied ? "Copied!" : "Copy link"}
+                </button>
+            </div>
+
           </form>
         </CardContent>
       </Card>
