@@ -1,7 +1,8 @@
 "use client"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -27,14 +28,55 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"div">) {
   const [copied, setCopied] = useState(false)
+  const [formData, setFormData] = useState({
+    fullname: "",
+    email: "",
+    phone: "",
+    status: "",
+    referral: "",
+  })
 
   const handleCopy = async () => {
-    {
-      await navigator.clipboard.writeText("https://apprentadream.com/joi") //WILL NEED TO REPLACE WITH ACTUAL URL
+    try {
+      await navigator.clipboard.writeText("https://apprentadream.com/join") //WILL NEED TO REPLACE WITH ACTUAL URL
       setCopied(true)
       setTimeout(() => setCopied(false), 3000)
+    } catch (err) {
+      console.error("Failed to copy: ", err)
     }
   }
+
+  const router = useRouter();
+  const handleSubmit = async(e: React.FormEvent) => {
+    e.preventDefault(); //stop normal form submission
+
+    const data = new FormData();
+    data.append("Full Name", formData.fullname);
+    data.append("Email", formData.email);
+    data.append("Phone", formData.phone);
+    data.append("Status", formData.status);
+    data.append("Referral", formData.referral);
+
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbww930MnREtL4uH1WqoWufeColEjQh1hPE7tLciQaL4OjZ2lm91WydGzfRgdmGi1bL1/exec",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      if (response.ok) {
+        router.push("/join-success"); // target sucsess
+      } else {
+        alert("Submission failed. Try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Try again.");
+    }
+  };
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -46,14 +88,23 @@ export function LoginForm({
         </CardHeader>
         <CardContent>
             
-          <form>
+          <form
+            onSubmit={handleSubmit}
+          >
             
             <div className="flex flex-col gap-6">
                 <div className="grid gap-3">
                 <div className="flex items-center">
                   <Label htmlFor="text">Full Name</Label>
                 </div>
-                <Input id="fullname" type="text" required />
+                <Input 
+                  id="fullname" 
+                  type="text" 
+                  name="Full Name" 
+                  value={formData.fullname}
+                  onChange={(e) => setFormData({...formData, fullname: e.target.value})}
+                  required 
+                />
               </div>
               <div className="grid gap-3">
                 <Label htmlFor="email">Email</Label>
@@ -61,6 +112,9 @@ export function LoginForm({
                   id="email"
                   type="email"
                   placeholder="sam@gmail.com"
+                  name="Email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
                   required
                 />
               </div>
@@ -68,11 +122,23 @@ export function LoginForm({
                 <div className="flex items-center">
                   <Label htmlFor="phone">Phone</Label>
                 </div>
-                <Input id="password" type="tel" required />
+                <Input 
+                  id="phone" 
+                  name="Phone" 
+                  type="tel" 
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  required 
+                />
               </div>
               <div className="grid gap-3">
                 <Label>I am currently</Label>
-                <Select name="status" required>
+                <Select 
+                  name="Status" 
+                  value={formData.status}
+                  onValueChange={(value) => setFormData({...formData, status: value})}
+                  required
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select your current status" />
                   </SelectTrigger>
@@ -80,17 +146,23 @@ export function LoginForm({
                     <SelectItem value="student">Year 11 student</SelectItem>
                     <SelectItem value="graduate">Year 12 student</SelectItem>
                     <SelectItem value="professional">Year 13 student</SelectItem>
-                    <SelectItem value="otherstudent">International / Other student</SelectItem>
                     <SelectItem value="gapyear">Gap Year student</SelectItem>
                     <SelectItem value="careerchange">Career change</SelectItem>
+                    <SelectItem value="internationalstudent">International Student</SelectItem>
+                    <SelectItem value="otherstudent">Other</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="grid gap-3">
                 <Label>Who told you about Apprentadream?</Label>
-                <Select name="refferal" required>
+                <Select 
+                  name="Referral" 
+                  value={formData.referral}
+                  onValueChange={(value) => setFormData({...formData, referral: value})}
+                  required
+                >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select refferal" />
+                    <SelectValue placeholder="Select referral" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="linkedin">LinkedIn</SelectItem>
@@ -98,13 +170,10 @@ export function LoginForm({
                     <SelectItem value="instagram">Instagram</SelectItem>
                     <SelectItem value="online">Online</SelectItem>
                     <SelectItem value="friendfamily">Friend/Family</SelectItem>
-                    <SelectItem value="otherrefferal">Other</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
-
-
-
               <div className="flex flex-col gap-3">
                 <Button type="submit" className="w-full">
                   Join Now
