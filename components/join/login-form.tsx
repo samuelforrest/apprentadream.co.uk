@@ -40,7 +40,7 @@ export function LoginForm({
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText("https://apprentadream.com/join") //WILL NEED TO REPLACE WITH ACTUAL URL
+      await navigator.clipboard.writeText("https://joinapprentadream.vercel.app")
       setCopied(true)
       setTimeout(() => setCopied(false), 3000)
     } catch (err) {
@@ -50,7 +50,7 @@ export function LoginForm({
 
   const router = useRouter();
   const handleSubmit = async(e: React.FormEvent) => {
-    e.preventDefault(); //stop normal form submission
+    e.preventDefault();
     setIsSubmitting(true);
 
     const data = new FormData();
