@@ -10,8 +10,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Apprentadream",
-  description: "Apprentadream is the place to achieve top apprenticeship offers",
+  title: "Join Apprentadream WhatsApp",
+  description: "Apprentadream is the community to achieve top apprenticeship offers",
 };
 
 export default function RootLayout({
