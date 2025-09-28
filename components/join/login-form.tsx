@@ -35,6 +35,7 @@ export function LoginForm({
     phone: "",
     status: "",
     referral: "",
+    linkedin: "",
   })
 
   const handleCopy = async () => {
@@ -58,6 +59,7 @@ export function LoginForm({
     data.append("Phone", formData.phone);
     data.append("Status", formData.status);
     data.append("Referral", formData.referral);
+    data.append("Linkedin", formData.linkedin);
 
     try {
       const response = await fetch(
@@ -87,7 +89,7 @@ export function LoginForm({
         <CardHeader>
           <CardTitle>Join Apprentadream</CardTitle>
           <CardDescription>
-            The only apprenticeship community you need
+            * These fields are required.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -121,6 +123,7 @@ export function LoginForm({
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                 />
               </div>
+              
               <div className="grid gap-3">
                 <div className="flex items-center">
                   <Label htmlFor="phone">Phone *</Label>
@@ -175,6 +178,17 @@ export function LoginForm({
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
+              </div>
+              <div className="grid gap-3">
+                <Label htmlFor="linkedin">LinkedIn Username / Link</Label>
+                <Input
+                  id="linkedin"
+                  type="text"
+                  placeholder="linkedin.com/in/billgates"
+                  name="Linkedin"
+                  value={formData.linkedin}
+                  onChange={(e) => setFormData({...formData, linkedin: e.target.value})}
+                />
               </div>
               <div className="flex flex-col gap-3">
 
