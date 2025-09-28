@@ -8,7 +8,7 @@ export default function JoinPage() {
                 <div className="w-full max-w-md space-y-6">
                     <div className="text-center space-y-4 pt-8 md:pt-0">
                         <div>
-                           <Image src="/ad.png" alt="logo" width="100" height="50" className="mx-auto"/>
+                           <Image src="/ad.png" alt="logo" width="100" height="50" className="mx-auto" priority/>
                         </div>
                         <h1 className="text-3xl md:text-4xl font-bold text-white">Join Apprentadream</h1>
                         <p className="text-base md:text-lg text-white/90 px-4 pb-5">Complete the signup form below to gain access to the WhatsApp community instantly.</p>

@@ -10,7 +10,7 @@ export default function Success () {
                         <div className="flex min-h-svh w-full items-center justify-center flex-col p-6 md:p-10">
                             <div className="flex-col items-center">
                                 <div>
-                                    <Image src="/ad.png" alt="logo" width="100" height="50" className="mx-auto"/>
+                                    <Image src="/ad.png" alt="logo" width="100" height="50" className="mx-auto" priority/>
                                 </div>
                                 <p className="text-4xl font-bold text-center p-7 text-white">Welcome to the Apprentadream Community!</p>
                                 <p className="text-lg text-center text-white">Click the link below to join the WhatsApp Community instantly.</p>
