@@ -149,9 +149,9 @@ export function LoginForm({
                     <SelectValue placeholder="Type of student" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="student">Year 11 student</SelectItem>
-                    <SelectItem value="graduate">Year 12 student</SelectItem>
-                    <SelectItem value="professional">Year 13 student</SelectItem>
+                    <SelectItem value="y11student">Year 11 student</SelectItem>
+                    <SelectItem value="y12student">Year 12 student</SelectItem>
+                    <SelectItem value="y13student">Year 13 student</SelectItem>
                     <SelectItem value="gapyear">Gap Year student</SelectItem>
                     <SelectItem value="careerchange">Career change</SelectItem>
                     <SelectItem value="internationalstudent">International Student</SelectItem>
