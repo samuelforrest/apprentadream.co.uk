@@ -119,7 +119,6 @@ export function LoginForm({
                   name="Email"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  required
                 />
               </div>
               <div className="grid gap-3">
@@ -163,7 +162,6 @@ export function LoginForm({
                   name="Referral" 
                   value={formData.referral}
                   onValueChange={(value) => setFormData({...formData, referral: value})}
-                  required
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select referral" />
