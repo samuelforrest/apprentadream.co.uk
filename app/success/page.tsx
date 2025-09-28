@@ -15,7 +15,7 @@ export default function Success () {
                                 <p className="text-4xl font-bold text-center p-7 text-white">Welcome to the Apprentadream Community!</p>
                                 <p className="text-lg text-center text-white">Click the link below to join the WhatsApp Community instantly.</p>
                                 <div className="flex justify-center mt-10">
-                                    <Link href="/join">
+                                    <Link href="https://chat.whatsapp.com/Kek6I8hE2wQBj8Znp97Q2f">
                                         <Button size="lg" className="px-8 py-6 text-lg text-white bg-green-700 rounded-xl cursor-pointer">
                                         <FaWhatsapp style={{ width: "1.5rem", height: "1.5rem" }}/>Join WhatsApp Community
                                         </Button>
