@@ -141,6 +141,10 @@ export default function Terms() {
               All third-party processors used by Apprentadream are contractually bound to protect your data and 
               process it only under our instructions.
             </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
+            If any data is transferred outside the United Kingdom or European Economic Area, we ensure that appropriate safeguards 
+            such as the UK International Data Transfer Agreement (IDTA) are in place.
+            </p>
           </section>
 
           {/* Section 8 */}
