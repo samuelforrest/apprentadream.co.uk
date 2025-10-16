@@ -20,6 +20,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useState } from "react"
+import Link from "next/link";
 
 
 
@@ -206,13 +207,17 @@ export function LoginForm({
 
 
                 </Button>
+                <div className="text-center text-sm mb-2">
+                <p>By pressing &apos;Join Now&apos; you agree to our <Link href="/terms" className="underline underline-offset-2">Terms</Link></p>
+               </div>
               </div>
+
             </div>
-            <div className="mt-8 text-center text-sm">
+            <div className="text-center text-sm">
                 Let your friends join - {" "}
                 <button
                     onClick={handleCopy}
-                    className="underline underline-offset-5 hover:text-blue-600 hover:font-bold"
+                    className="underline underline-offset-2 hover:text-blue-600 hover:font-bold"
                 >
                     {copied ? "Copied!" : "Copy link"}
                 </button>
