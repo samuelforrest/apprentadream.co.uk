@@ -100,7 +100,7 @@ export default function Terms() {
               5. Data Storage and Retention
             </h2>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
-              <li>Your data is stored securely on a private spreedsheet with strict access privileges, accessible only by Appretadream.</li>
+              <li>Your data is stored securely in encrypted cloud storage accessible only by Apprentadream authorised personnel. Data access is restricted and monitored to prevent unauthorised use.</li>
               <li>We retain your personal data only for as long as you remain subscribed to our mailing list or until you request deletion.</li>
             </ul>
           </section>
@@ -149,7 +149,7 @@ export default function Terms() {
               8. Cookies and Tracking
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              This form itself does not use cookies. However, our website may use cookies to improve user experience. 
+              Our website may use cookies to improve user experience. 
               You can adjust your browser settings to block or delete cookies at any time.
             </p>
           </section>
@@ -164,16 +164,13 @@ export default function Terms() {
             </p>
             <div className="border border-white rounded-lg p-6 space-y-2">
               <p className="text-base sm:text-lg text-gray-300">
-                <span className="font-semibold text-white">Data Controller:</span> Apprentadream
+                <span className="font-semibold text-white">Data Controller:</span> Apprentadream - Samuel Forrest temporary data controller.
               </p>
               <p className="text-base sm:text-lg text-gray-300">
                 <span className="font-semibold text-white">Email:</span>{" "}
-                <a href="mailto:privacy@apprentadream.co.uk" className="text-white hover:underline underline-offset-4">
-                  privacy@apprentadream.co.uk
+                <a href="mailto:sam@samuelforrest.me" className="text-white hover:underline underline-offset-4">
+                  sam@samuelforrest.me
                 </a>
-              </p>
-              <p className="text-base sm:text-lg text-gray-300">
-                <span className="font-semibold text-white">Registered Address:</span> [Insert your registered address once confirmed]
               </p>
             </div>
           </section>
@@ -185,7 +182,7 @@ export default function Terms() {
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               You may unsubscribe from our mailing list at any time by clicking the &ldquo;Unsubscribe&rdquo; link in any of 
-              our emails or by contacting us directly. Once unsubscribed, your data will be deleted within 30 days.
+              our emails or by contacting us directly. Once unsubscribed, your data will be deleted within 30 days. You can request for removal of any of your data from the data controller.
             </p>
           </section>
 
@@ -204,7 +201,7 @@ export default function Terms() {
           <section className="pt-8 border-t border-gray-800">
             <div className="border border-white/50 rounded-lg p-6">
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
-                By submitting this form, you confirm that you have read and understood these Terms & Conditions 
+                By submitting this form to join the Apprentadream Community, you confirm that you have read and understood these Terms & Conditions 
                 and consent to Apprentadream processing your personal data as described above.
               </p>
             </div>
