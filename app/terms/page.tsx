@@ -100,7 +100,7 @@ export default function Terms() {
               5. Data Storage and Retention
             </h2>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
-              <li>Your data is stored securely on servers located in the UK and/or the European Economic Area (EEA).</li>
+              <li>Your data is stored securely on a private spreedsheet with strict access privileges, accessible only by Appretadream.</li>
               <li>We retain your personal data only for as long as you remain subscribed to our mailing list or until you request deletion.</li>
             </ul>
           </section>
@@ -114,11 +114,13 @@ export default function Terms() {
               Under the UK GDPR, you have the following rights:
             </p>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
+            <li>The right to be informed about how your data is used</li>
               <li>The right to access your personal data.</li>
               <li>The right to correct any inaccuracies.</li>
               <li>The right to request deletion (&ldquo;right to be forgotten&rdquo;).</li>
               <li>The right to restrict or object to processing.</li>
               <li>The right to data portability.</li>
+              <li>The right to object to how data is processed in certain circumstances</li>
             </ul>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
               You can exercise these rights at any time by contacting us (see Section 9).
