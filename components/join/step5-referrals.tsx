@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { LucideHandshake, Megaphone } from "lucide-react";
+import { Link, ListCheckIcon, LucideHandshake, Megaphone } from "lucide-react";
 
 interface Step5ReferralsProps {
   referralLink: string;
@@ -12,11 +12,8 @@ interface Step5ReferralsProps {
 export function Step5Referrals({ referralLink, copied, onCopy }: Step5ReferralsProps) {
   return (
     <div className="space-y-6">
-      <div className="text-left mb-9">
-        <p className="text-gray-600">Share your unique referral link with friends, family and on LinkedIn.</p>
-      </div>
 
-      <Label className="text-black font-semibold">Your Unique Referral Link</Label>
+      <Label className="text-black font-semibold text-md"><Link className="h-5 w-5" /> Your Unique Referral Link</Label>
       <div className="flex gap-2">
         <Input
           value={referralLink}
@@ -27,54 +24,30 @@ export function Step5Referrals({ referralLink, copied, onCopy }: Step5ReferralsP
           type="button"
           onClick={onCopy}
           variant="outline"
-          className="shrink-0 border-green-500 text-green-600 hover:bg-green-50"
+          className="shrink-0 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white"
         >
           {copied ? "✓ Copied!" : "Copy"}
         </Button>
       </div>
-      <p className="text-xs text-gray-500 mt-2">
-        💡 Share this link with anyone interested in apprenticeships. When they sign up using your link, you&apos;ll earn points toward the prize!
-      </p>
 
-      <div className="bg-white/50 rounded-lg p-4 mt-4">
-        <h4 className="font-semibold text-black mb-2 flex items-center gap-2">
-          <Megaphone className="h-4 w-4" />
-          How it works:
+      <div className="gap-2">
+        <h4 className="font-semibold text-black mb-4 flex items-center gap-2">
+          <ListCheckIcon className="h-5 w-5" />
+          Instructions
         </h4>
-        <ul className="space-y-2 text-sm text-gray-700">
+        <ol className="space-y-2 text-sm text-gray-700">
           <li className="flex items-start gap-2">
-            <span>1️⃣</span>
-            <span>Copy your unique referral link above</span>
+            <span>1. Copy your unique referral link above</span>
           </li>
           <li className="flex items-start gap-2">
-            <span>2️⃣</span>
-            <span>Share it via WhatsApp, Instagram, TikTok, or any platform</span>
+            <span>2. Share it via WhatsApp, Instagram, TikTok, or any platform</span>
           </li>
           <li className="flex items-start gap-2">
-            <span>3️⃣</span>
-            <span>Each person who joins using your link earns you 10 points</span>
+            <span>3. Top referrer wins the £25 Amazon voucher and will recieve an email / text message</span>
           </li>
-          <li className="flex items-start gap-2">
-            <span>🏆</span>
-            <span>Top referrer wins the £25 Amazon voucher!</span>
-          </li>
-        </ul>
+        </ol>
       </div>
 
-      <div className="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-lg p-4 mt-4">
-        <div className="flex items-center gap-2 mb-2">
-          <LucideHandshake className="h-5 w-5 text-green-600" />
-          <h4 className="font-semibold text-black">Win £25 Amazon Voucher!</h4>
-        </div>
-        <p className="text-sm text-gray-700">
-          Whoever refers the most valid connections will receive a <span className="font-bold text-green-600">£25 Amazon Gift Voucher</span>
-        </p>
-        <p className="text-xs text-gray-500 mt-2">Draw date: 31st January 2025</p>
-      </div>
-
-      <div className="text-center text-xs text-gray-500">
-        <p>Track your referrals and ranking on the leaderboard below the form</p>
-      </div>
     </div>
   );
 }
