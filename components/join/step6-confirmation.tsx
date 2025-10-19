@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Label } from "@/components/ui/label";
 import { FaWhatsapp } from "react-icons/fa";
 import { Handshake, Megaphone } from "lucide-react";
 
@@ -7,12 +6,12 @@ export function Step6Confirmation() {
   return (
     <div className="space-y-6">
       <div>
-        <h4 className="font-bold text-black mb-6 text-lg text-left">What Happens Next?</h4>
+        <h4 className="font-semibold text-black mb-6 text-lg text-left">What do I get?</h4>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           <div className="flex flex-col items-center text-center space-y-2">
             <span className="text-4xl"><FaWhatsapp className="h-10 w-10 text-green-500"/></span>
             <p className="font-medium text-black">Instant WhatsApp Access</p>
-            <p className="text-sm text-gray-600">Join 1,000+ apprenticeship seekers</p>
+            <p className="text-sm text-gray-600">Join 2,200+ members</p>
           </div>
           <div className="flex flex-col items-center text-center space-y-2">
             <span className="text-4xl"><Megaphone className="h-10 w-10 text-red-500"/></span>
@@ -28,7 +27,7 @@ export function Step6Confirmation() {
       </div>
 
     <div className="border border-white/20 rounded-lg p-2 sm:p-3">
-  <label className="flex items-start gap-3 text-sm cursor-pointer">
+  <label className="flex items-start gap-2 text-sm cursor-pointer">
     <input
       type="checkbox"
       required
