@@ -112,6 +112,28 @@ export function Step4Diversity({ formData, onUpdate }: Step4DiversityProps) {
           </SelectContent>
         </Select>
       </div>
+      <div className="space-y-2">
+        <Label htmlFor="religion">Religion</Label>
+        <Select
+          value={formData.socioeconomicStatus}
+          onValueChange={(value) => onUpdate({ socioeconomicStatus: value })}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Select..." />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="working-class">No Religion</SelectItem>
+            <SelectItem value="middle-class">Christian (including Church of England, Catholic, Protestant and all other Christian denominations)</SelectItem>
+            <SelectItem value="upper-middle-class">Muslim</SelectItem>
+            <SelectItem value="upper-class">Hindu</SelectItem>
+            <SelectItem value="jewish">Jewish</SelectItem>
+            <SelectItem value="sikh">Sikh</SelectItem>
+            <SelectItem value="buddhist">Buddhist</SelectItem>
+            <SelectItem value="other">Other religion or belief</SelectItem>
+            <SelectItem value="prefer-not-to-say-religion">Prefer not to say</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
     </div>
   );
 }
