@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { ArrowRight, ChartNoAxesCombined, Users } from "lucide-react";
+import { ShimmerButton } from "../ui/shimmer-button";
 
 interface SplashScreenProps {
   onStart: () => void;
@@ -85,27 +85,21 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
         </div>
         
         {/* Start Button */}
-        <div className="mb-8">
-            <Button
+        <div className="mb-8 flex justify-center">
+            <ShimmerButton
                 onClick={onStart}
-                size="lg"
-                className="
-                bg-blue-600
-                hover:bg-blue-500 
-                text-white font-semibold text-lg 
-                px-9 py-6 rounded-full shadow-lg
-                transform transition-transform duration-200 ease-out
-                hover:scale-105
-                cursor-pointer
-                will-change-transform
-                translate-z-0
-                "
+                shimmerColor="#3b82f6"
+                shimmerSize="0.5em"
+                shimmerDuration="2s"
+                borderRadius="9999px"
+                background="rgb(37 99 235)"
+                className="text-white font-semibold text-base px-6 py-3 shadow-lg hover:scale-105"
             >
                 <div className="flex items-center gap-2">
                 Join the WhatsApp Community
-                    <ArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </div>
-            </Button>
+            </ShimmerButton>
         </div>
         
         {/* Stats tagline */}
