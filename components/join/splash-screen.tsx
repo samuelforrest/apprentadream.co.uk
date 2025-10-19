@@ -34,15 +34,26 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
         
         {/* Start Button */}
         <div className="pt-4">
-          <Button
-            onClick={onStart}
-            size="lg"
-            className="bg-blue-600 hover:bg-blue-800 hover:scale-105 text-white font-semibold text-lg px-12 py-6 rounded-full shadow-lg"
-          >
-            <div className="flex items-center gap-2">
-              Join the WhatsApp Community <span><ArrowRight/></span>
-            </div>
-          </Button>
+            <Button
+                onClick={onStart}
+                size="lg"
+                className="
+                bg-blue-600
+                hover:bg-blue-500 
+                text-white font-semibold text-lg 
+                px-9 py-6 rounded-full shadow-lg
+                transform transition-transform duration-200 ease-out
+                hover:scale-105
+                cursor-pointer
+                will-change-transform
+                translate-z-0
+                "
+            >
+                <div className="flex items-center gap-2">
+                Join the WhatsApp Community
+                    <ArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
+                </div>
+            </Button>
         </div>
         
         {/* Stats tagline */}
@@ -53,7 +64,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-2xl text-white"><ChartNoAxesCombined/></span>
-            <span><span className="font-bold text-white">Record</span> offer rate</span>
+            <span><span className="font-bold text-white">Top</span> offer rates</span>
           </div>
         </div>
       </div>

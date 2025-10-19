@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { FormData, countryCodes } from "./types";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { FormData, countryCodeGroups } from "./types";
 
 interface Step1BasicInfoProps {
   formData: FormData;
@@ -12,7 +12,7 @@ interface Step1BasicInfoProps {
 export function Step1BasicInfo({ formData, errors, onUpdate }: Step1BasicInfoProps) {
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="firstName">First Name *</Label>
           <Input
@@ -65,17 +65,33 @@ export function Step1BasicInfo({ formData, errors, onUpdate }: Step1BasicInfoPro
             value={formData.countryCode}
             onValueChange={(value) => onUpdate({ countryCode: value })}
           >
-            <SelectTrigger className="w-[120px]">
-              <SelectValue />
+            <SelectTrigger className="w-[100px]">
+              <SelectValue>
+                {formData.countryCode && (
+                  <>
+                    {formData.countryCode}{' '}
+                    {countryCodeGroups
+                      .flatMap(g => g.codes)
+                      .find(c => c.code === formData.countryCode)?.country
+                    }
+                  </>
+                )}
+              </SelectValue>
             </SelectTrigger>
-            <SelectContent>
-              {countryCodes.map((country) => (
-                <SelectItem key={country.code} value={country.code}>
-                  {country.code} ({country.country})
-                </SelectItem>
+            <SelectContent className="max-h-[300px] overflow-y-auto">
+              {countryCodeGroups.map((group) => (
+                <SelectGroup key={group.region}>
+                  <SelectLabel>{group.region}</SelectLabel>
+                  {group.codes.map((country) => (
+                    <SelectItem key={country.code} value={country.code}>
+                      {country.code} {country.name}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
               ))}
             </SelectContent>
           </Select>
+
           <Input
             type="tel"
             placeholder="7123456789"

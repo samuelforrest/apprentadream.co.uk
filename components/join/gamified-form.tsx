@@ -153,11 +153,11 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
   const getSectionName = (step: number): string => {
     switch (step) {
       case 1:
-        return "Basic Information";
+        return "Basic information";
       case 2:
-        return "Industries of Interest";
+        return "Which Industries interest you?";
       case 3:
-        return "Connect your social accounts";
+        return "Connect your social media accounts";
       case 4:
         return "Diversity Information";
       case 5:
@@ -260,12 +260,16 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
     }
   };
 
+
+  // This decides whether you can continue to the next step (i.e. the next button shows)
   const isStepValid = () => {
     switch (currentStep) {
+      // Basic Information
       case 1:
         return formData.firstName && formData.lastName && formData.mobile && formData.email;
+      // Industries of Interest
       case 2:
-        return formData.industries.length > 0;
+        return formData.industries.length > 0 && formData.apprenticeshipLevel;
       case 3:
       case 4:
       case 5:
