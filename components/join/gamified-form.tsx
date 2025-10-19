@@ -374,7 +374,9 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       // With no-cors mode, we can't read the response, so we assume success if no error is thrown
       if (response.type === 'opaque' || response.ok) {
         console.log("Form submitted successfully!");
-        router.push("/success");
+        // Pass the referral code to the success page so user can copy their link
+        const successUrl = referralCode ? `/success?ref=${referralCode}` : "/success";
+        router.push(successUrl);
       } else {
         console.error("Submission failed with status:", response.status);
         alert(`Submission failed with status: ${response.status}. Please try again.`);
