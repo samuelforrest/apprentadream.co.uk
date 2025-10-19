@@ -61,9 +61,9 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
   // Main splash screen
   return (
     <div className="flex flex-col items-center justify-center animate-in fade-in duration-700">
-      <div className="text-center space-y-8 px-4">
+      <div className="text-center px-4">
         {/* Logo */}
-        <div>
+        <div className="mb-4">
           <Image 
             src="/ad.png" 
             alt="logo" 
@@ -75,7 +75,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
         </div>
         
         {/* Title */}
-        <div className="space-y-4">
+        <div className="space-y-4 mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
             Join Apprentadream
           </h1>
@@ -85,7 +85,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
         </div>
         
         {/* Start Button */}
-        <div className="pt-4">
+        <div className="mb-8">
             <Button
                 onClick={onStart}
                 size="lg"
@@ -109,7 +109,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
         </div>
         
         {/* Stats tagline */}
-        <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400 pt-2">
+        <div className="flex flex-wrap items-center justify-center gap-12 text-sm text-gray-400 pt-2">
           <div className="flex items-center gap-2">
             <span className="text-2xl text-white"><Users/></span>
             <span><span className="font-bold text-white">2,200+</span> members</span>
