@@ -15,7 +15,7 @@ export function Step6Confirmation() {
           </div>
           <div className="flex flex-col items-center text-center space-y-2">
             <span className="text-4xl"><Megaphone className="h-10 w-10 text-red-500"/></span>
-            <p className="font-semibold text-black">Weekly Opportunities</p>
+            <p className="font-semibold text-black">Daily Opportunities</p>
             <p className="text-sm text-gray-600">New apprenticeships posted daily</p>
           </div>
           <div className="flex flex-col items-center text-center space-y-2 col-span-2 md:col-span-1 justify-self-center">

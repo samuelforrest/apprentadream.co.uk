@@ -31,24 +31,8 @@ export function Step5Referrals({ referralLink, copied, onCopy }: Step5ReferralsP
       </div>
 
       <div className="gap-2">
-        <h4 className="font-semibold text-black mb-4 flex items-center gap-2">
-          <ListCheckIcon className="h-5 w-5" />
-          Instructions
-        </h4>
-        <ol className="space-y-2 text-sm text-gray-700">
-          <li className="flex items-start gap-2">
-            <span>1. Copy your unique referral link above</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span>2. Share it via WhatsApp, Instagram, TikTok, or any platform</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span>3. There is no leaderboard so you need to <b>get sharing sending copying!</b></span>
-          </li>
-          <li className="flex items-start gap-2">
-            <span>4. Top referrer wins the £25 Amazon voucher and will recieve an email / text message</span>
-          </li>
-        </ol>
+        
+        
       </div>
 
     </div>
