@@ -14,8 +14,38 @@ import { Step4AdditionalQuestions } from "./step4-additional-questions";
 import { Step5Referrals } from "./step5-referrals";
 import { Step6Confirmation } from "./step6-confirmation";
 import type { FormData } from "./types";
+import confetti from "canvas-confetti"
+
+export function ConfettiFireworks() {
+  const handleClick = () => {
+    const duration = 5 * 1000
+    const animationEnd = Date.now() + duration
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 }
+    const randomInRange = (min: number, max: number) =>
+      Math.random() * (max - min) + min
+    const interval = window.setInterval(() => {
+      const timeLeft = animationEnd - Date.now()
+      if (timeLeft <= 0) {
+        return clearInterval(interval)
+      }
+      const particleCount = 50 * (timeLeft / duration)
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+      })
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+      })
+    }, 250)
+  }
+  return handleClick
+}
 
 export function GamifiedForm({ className, ...props }: React.ComponentProps<"div">) {
+  const handleClick = ConfettiFireworks();
   const router = useRouter();
   const [showSplash, setShowSplash] = useState(true);
   const [currentStep, setCurrentStep] = useState(1);
@@ -314,7 +344,7 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbww930MnREtL4uH1WqoWufeColEjQh1hPE7tLciQaL4OjZ2lm91WydGzfRgdmGi1bL1/exec",
+        "",
         {
           method: "POST",
           body: data,
@@ -434,6 +464,7 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
                       type="submit"
                       disabled={isSubmitting}
                       className="flex-1"
+                      onClick={handleClick}
                     >
                       {isSubmitting ? (
                         <div className="flex items-center justify-center gap-2">

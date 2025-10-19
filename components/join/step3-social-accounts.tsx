@@ -12,7 +12,7 @@ interface Step3SocialAccountsProps {
 export function Step3SocialAccounts({ formData, errors, onUpdate, onErrorClear }: Step3SocialAccountsProps) {
   return (
     <div className="space-y-4 mb-4">
-      <div className="text-left mb-8 md:mb-12">
+      <div className="text-left mb-10 md:mb-12">
         <p className="text-sm text-black mb-2">This section is optional. When we launch our online platform, these will be added to your profile. We highly recommend you add them.</p>
       </div>
 
@@ -23,7 +23,7 @@ export function Step3SocialAccounts({ formData, errors, onUpdate, onErrorClear }
   </span>
 </div>
 
-      <div className="space-y-2 pt-2">
+      <div className="space-y-2 pt-5">
         <Label htmlFor="linkedinUrl">LinkedIn Profile URL</Label>
         <Input
           id="linkedinUrl"
