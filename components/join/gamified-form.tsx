@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -44,7 +44,8 @@ export function ConfettiFireworks() {
   return handleClick
 }
 
-export function GamifiedForm({ className, ...props }: React.ComponentProps<"div">) {
+// Component that handles search params
+function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">) {
   const handleClick = ConfettiFireworks();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -357,23 +358,39 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
     data.append("Client Timestamp", new Date().toISOString());
 
     try {
+      console.log("Submitting to Google Sheets...");
+      
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbw6QdhnfAMhoXWLpSrp0Pr0-bSNvLrag-roT3BcxKtEUhqT1W2N2V_dw929a1QAU9FgcQ/exec", // Paste your deployed web app URL here
+        "https://script.google.com/macros/s/AKfycbw6QdhnfAMhoXWLpSrp0Pr0-bSNvLrag-roT3BcxKtEUhqT1W2N2V_dw929a1QAU9FgcQ/exec",
         {
           method: "POST",
           body: data,
+          mode: 'no-cors', // This helps with CORS issues
         }
       );
 
-      if (response.ok) {
+      console.log("Response received:", response);
+      
+      // With no-cors mode, we can't read the response, so we assume success if no error is thrown
+      if (response.type === 'opaque' || response.ok) {
+        console.log("Form submitted successfully!");
         router.push("/success");
       } else {
-        alert("Submission failed. Try again.");
+        console.error("Submission failed with status:", response.status);
+        alert(`Submission failed with status: ${response.status}. Please try again.`);
         setIsSubmitting(false);
       }
     } catch (error) {
-      console.error(error);
-      alert("Something went wrong. Try again.");
+      console.error("Fetch error:", error);
+      
+      // Provide more detailed error information
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        alert("Network error: Please check your internet connection and try again.");
+      } else if (error instanceof Error) {
+        alert(`Error: ${error.message}. Please try again.`);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
       setIsSubmitting(false);
     }
   };
@@ -497,5 +514,16 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
         </>
       )}
     </div>
+  );
+}
+
+// Main export component with Suspense wrapper
+export function GamifiedForm({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">
+      <div className="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent"></div>
+    </div>}>
+      <GamifiedFormInner className={className} {...props} />
+    </Suspense>
   );
 }
