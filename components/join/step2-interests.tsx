@@ -15,7 +15,7 @@ export function Step2Interests({ formData, errors, onUpdate, onIndustryToggle }:
   return (
     <div className="space-y-6">
       <div className="space-y-4">
-        <Label>Apprenticeship Level</Label>
+        <Label>Ideal Apprenticeship Level *</Label>
         <Select
           value={formData.apprenticeshipLevel}
           onValueChange={(value) => onUpdate({ apprenticeshipLevel: value })}

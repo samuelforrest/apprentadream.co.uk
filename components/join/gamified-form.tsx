@@ -10,7 +10,7 @@ import { SplashScreen } from "./splash-screen";
 import { Step1BasicInfo } from "./step1-basic-info";
 import { Step2Interests } from "./step2-interests";
 import { Step3SocialAccounts } from "./step3-social-accounts";
-import { Step4Diversity } from "./step4-diversity";
+import { Step4AdditionalQuestions } from "./step4-additional-questions";
 import { Step5Referrals } from "./step5-referrals";
 import { Step6Confirmation } from "./step6-confirmation";
 import type { FormData } from "./types";
@@ -362,7 +362,7 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
 
                 {/* Step 4: Diversity Information */}
                 {currentStep === 4 && (
-                  <Step4Diversity
+                  <Step4AdditionalQuestions
                     formData={formData}
                     onUpdate={updateFormData}
                   />

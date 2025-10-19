@@ -7,7 +7,7 @@ interface Step4AdditionalQuestionsProps {
   onUpdate: (updates: Partial<FormData>) => void;
 }
 
-export function Step4Diversity({ formData, onUpdate }: Step4AdditionalQuestionsProps) {
+export function Step4AdditionalQuestions({ formData, onUpdate }: Step4AdditionalQuestionsProps) {
   return (
     <div className="space-y-4">
       <div className="text-left mb-6">
@@ -15,7 +15,7 @@ export function Step4Diversity({ formData, onUpdate }: Step4AdditionalQuestionsP
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="sex">Sex</Label>
+        <Label htmlFor="sex">I am currently</Label>
         <Select
           value={formData.sex}
           onValueChange={(value) => onUpdate({ sex: value })}
