@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -47,6 +47,7 @@ export function ConfettiFireworks() {
 export function GamifiedForm({ className, ...props }: React.ComponentProps<"div">) {
   const handleClick = ConfettiFireworks();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [showSplash, setShowSplash] = useState(true);
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,6 +55,7 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
   const [referralCode, setReferralCode] = useState("");
   const [referralLinkCopied, setReferralLinkCopied] = useState(false);
   const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [referrerCode, setReferrerCode] = useState<string>("");
   
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
@@ -76,6 +78,14 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
   referral: "",
   confidenceLevel: "50",
   });
+
+  // Detect referral code from URL
+  useEffect(() => {
+    const refCode = searchParams.get('ref');
+    if (refCode) {
+      setReferrerCode(refCode);
+    }
+  }, [searchParams]);
 
   // Generate unique referral code: 4 random digits + last 4 digits of phone number
   const generateReferralCode = (mobile: string) => {
@@ -337,14 +347,18 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
     data.append("Confidence Level", formData.confidenceLevel);
     data.append("Referral Source", formData.referral)
     
-    // Referral Code and Link
-    data.append("Referral Code", referralCode);
-    data.append("Referral Link", getReferralLink());
+    // Referral Tracking
+    data.append("Referred By Code", referrerCode); // Who referred this user
+    data.append("User Referral Code", referralCode); // This user's own code
+    data.append("User Referral Link", getReferralLink()); // This user's own link
     data.append("Referral Link Copied", referralLinkCopied ? "Yes" : "No");
+    
+    // Add client-side timestamp for backup
+    data.append("Client Timestamp", new Date().toISOString());
 
     try {
       const response = await fetch(
-        "",
+        "https://script.google.com/macros/s/AKfycbw6QdhnfAMhoXWLpSrp0Pr0-bSNvLrag-roT3BcxKtEUhqT1W2N2V_dw929a1QAU9FgcQ/exec", // Paste your deployed web app URL here
         {
           method: "POST",
           body: data,
