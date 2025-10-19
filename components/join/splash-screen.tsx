@@ -7,7 +7,10 @@ interface SplashScreenProps {
   onStart: () => void;
 }
 
-const sloganWords = ["skip", "the", "maybe", "get", "the", "yes"];
+const sloganWords = [
+  ["skip", "the", "maybe"],
+  ["get", "the", "yes"]
+];
 
 export function SplashScreen({ onStart }: SplashScreenProps) {
   const [showIntro, setShowIntro] = useState(true);
@@ -16,17 +19,19 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
   useEffect(() => {
     if (!showIntro) return;
     
+    const totalWords = sloganWords.flat().length;
+    
     // Show each word with a delay
-    const wordTimers = sloganWords.map((_, index) => {
+    const wordTimers = Array.from({ length: totalWords }, (_, index) => {
       return setTimeout(() => {
         setVisibleWords(index + 1);
-      }, index * 200); // 400ms between each word
+      }, index * 200); // 200ms between each word
     });
     
     // Transition to main splash screen after all words shown
     const transitionTimer = setTimeout(() => {
       setShowIntro(false);
-    }, sloganWords.length * 400 + 500); // Extra 1 second after last word
+    }, totalWords * 200 + 1000); // Extra 1 second after last word
     
     return () => {
       wordTimers.forEach(timer => clearTimeout(timer));
@@ -39,19 +44,29 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[80vh] animate-in fade-in duration-500">
         <div className="text-center space-y-4 px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-            {sloganWords.map((word, index) => (
-              <span
-                key={index}
-                className={`inline-block mx-2 transition-all duration-500 ${
-                  index < visibleWords 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-4'
-                }`}
-              >
-                {word}
-              </span>
-            ))}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white space-y-2">
+            {sloganWords.map((line, lineIndex) => {
+              const lineStartIndex = lineIndex * 3; // Each line has 3 words
+              return (
+                <div key={lineIndex} className="block">
+                  {line.map((word, wordIndex) => {
+                    const globalIndex = lineStartIndex + wordIndex;
+                    return (
+                      <span
+                        key={wordIndex}
+                        className={`inline-block mx-2 transition-all duration-500 ${
+                          globalIndex < visibleWords 
+                            ? 'opacity-100 translate-y-0' 
+                            : 'opacity-0 translate-y-4'
+                        }`}
+                      >
+                        {word}
+                      </span>
+                    );
+                  })}
+                </div>
+              );
+            })}
           </h1>
         </div>
       </div>
@@ -71,6 +86,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
             height={100} 
             className="mx-auto" 
             priority
+            loading="eager"
           />
         </div>
         
