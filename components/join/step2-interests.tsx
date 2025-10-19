@@ -42,7 +42,7 @@ export function Step2Interests({ formData, errors, onUpdate, onIndustryToggle }:
           type="multiple"
           value={formData.industries}
           onValueChange={onIndustryToggle}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 rounded-xl"
+          className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 rounded-xl"
         >
           {industries.map((industry) => (
             <ToggleGroupItem
