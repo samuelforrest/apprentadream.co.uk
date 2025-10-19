@@ -2,16 +2,16 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FormData } from "./types";
 
-interface Step4DiversityProps {
+interface Step4AdditionalQuestionsProps {
   formData: FormData;
   onUpdate: (updates: Partial<FormData>) => void;
 }
 
-export function Step4Diversity({ formData, onUpdate }: Step4DiversityProps) {
+export function Step4Diversity({ formData, onUpdate }: Step4AdditionalQuestionsProps) {
   return (
     <div className="space-y-4">
       <div className="text-left mb-6">
-        <p className="text-sm text-black mb-2">This section is optional. The data is not associated with you and is used for overall monitoring purposes only</p>
+        <p className="text-sm text-black mb-2">This section is optional and helps us understand our community better. Your responses are confidential and used for monitoring purposes only.</p>
       </div>
 
       <div className="space-y-2">
@@ -115,22 +115,22 @@ export function Step4Diversity({ formData, onUpdate }: Step4DiversityProps) {
       <div className="space-y-2">
         <Label htmlFor="religion">Religion</Label>
         <Select
-          value={formData.socioeconomicStatus}
-          onValueChange={(value) => onUpdate({ socioeconomicStatus: value })}
+          value={formData.religion}
+          onValueChange={(value) => onUpdate({ religion: value })}
         >
           <SelectTrigger>
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="working-class">No Religion</SelectItem>
-            <SelectItem value="middle-class">Christian (including Church of England, Catholic, Protestant and all other Christian denominations)</SelectItem>
-            <SelectItem value="upper-middle-class">Muslim</SelectItem>
-            <SelectItem value="upper-class">Hindu</SelectItem>
+            <SelectItem value="no-religion">No Religion</SelectItem>
+            <SelectItem value="christian">Christian (including Church of England, Catholic, Protestant and all other Christian denominations)</SelectItem>
+            <SelectItem value="muslim">Muslim</SelectItem>
+            <SelectItem value="hindu">Hindu</SelectItem>
             <SelectItem value="jewish">Jewish</SelectItem>
             <SelectItem value="sikh">Sikh</SelectItem>
             <SelectItem value="buddhist">Buddhist</SelectItem>
             <SelectItem value="other">Other religion or belief</SelectItem>
-            <SelectItem value="prefer-not-to-say-religion">Prefer not to say</SelectItem>
+            <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
           </SelectContent>
         </Select>
       </div>

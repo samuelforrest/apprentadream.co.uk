@@ -18,12 +18,13 @@ export interface FormData {
   twitterUsername: string;
   website: string;
   
-  // Diversity Information
+  // Additional Questions
   sex: string;
   gender: string;
   sexualOrientation: string;
   ethnicity: string;
   socioeconomicStatus: string;
+  religion: string;
 }
 
 // Country codes for phone numbers organized by region

@@ -43,6 +43,7 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
     sexualOrientation: "",
     ethnicity: "",
     socioeconomicStatus: "",
+    religion: "",
   });
 
   // Generate unique referral code: 4 random digits + last 4 digits of phone number
@@ -159,7 +160,7 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
       case 3:
         return "Connect your social media accounts";
       case 4:
-        return "Diversity Information";
+        return "Additional Questions (Optional)";
       case 5:
         return "🎁 Refer Friends and win a £25 Amazon  (optional)";
       case 6:
@@ -255,12 +256,13 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
     data.append("Twitter", formData.twitterUsername);
     data.append("Website", formData.website);
     
-    // Diversity Information (optional)
+    // Additional Questions (optional)
     data.append("Sex", formData.sex);
     data.append("Gender", formData.gender);
     data.append("Sexual Orientation", formData.sexualOrientation);
     data.append("Ethnicity", formData.ethnicity);
     data.append("Socioeconomic Status", formData.socioeconomicStatus);
+    data.append("Religion", formData.religion);
     
     // Referral Code and Link
     data.append("Referral Code", referralCode);
