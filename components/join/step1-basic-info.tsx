@@ -2,6 +2,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FormData, countryCodeGroups } from "./types";
+import * as Flags from 'country-flag-icons/react/3x2';
+
+type FlagComponents = Record<string, React.ComponentType<{ className?: string }>>;
 
 interface Step1BasicInfoProps {
   formData: FormData;
@@ -65,28 +68,37 @@ export function Step1BasicInfo({ formData, errors, onUpdate }: Step1BasicInfoPro
             value={formData.countryCode}
             onValueChange={(value) => onUpdate({ countryCode: value })}
           >
-            <SelectTrigger className="w-[100px]">
+            <SelectTrigger className="w-[120px]">
               <SelectValue>
-                {formData.countryCode && (
-                  <>
-                    {formData.countryCode}{' '}
-                    {countryCodeGroups
-                      .flatMap(g => g.codes)
-                      .find(c => c.code === formData.countryCode)?.country
-                    }
-                  </>
-                )}
+                {formData.countryCode && (() => {
+                  const country = countryCodeGroups
+                    .flatMap(g => g.codes)
+                    .find(c => c.code === formData.countryCode);
+                  const FlagComponent = country ? (Flags as FlagComponents)[country.country] : null;
+                  return (
+                    <div className="flex items-center gap-2">
+                      {FlagComponent && <FlagComponent className="w-5 h-4" />}
+                      <span>{formData.countryCode} {country?.country}</span>
+                    </div>
+                  );
+                })()}
               </SelectValue>
             </SelectTrigger>
             <SelectContent className="max-h-[300px] overflow-y-auto">
               {countryCodeGroups.map((group) => (
                 <SelectGroup key={group.region}>
                   <SelectLabel>{group.region}</SelectLabel>
-                  {group.codes.map((country) => (
-                    <SelectItem key={country.code} value={country.code}>
-                      {country.code} {country.name}
-                    </SelectItem>
-                  ))}
+                  {group.codes.map((country) => {
+                    const FlagComponent = (Flags as FlagComponents)[country.country];
+                    return (
+                      <SelectItem key={country.code} value={country.code}>
+                        <div className="flex items-center gap-2">
+                          {FlagComponent && <FlagComponent className="w-5 h-4" />}
+                          <span>{country.code} {country.name}</span>
+                        </div>
+                      </SelectItem>
+                    );
+                  })}
                 </SelectGroup>
               ))}
             </SelectContent>
