@@ -161,7 +161,7 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
       case 4:
         return "Diversity Information";
       case 5:
-        return "🎁 Refer Friends and win a £25 Amazon voucher";
+        return "🎁 Refer Friends and win a £25 Amazon  (optional)";
       case 6:
         return "Confirmation";
       default:
@@ -193,13 +193,42 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
   };
 
   const handleCopy = async () => {
+    const textToCopy = getReferralLink();
+    
     try {
-      await navigator.clipboard.writeText(getReferralLink());
-      setCopied(true);
-      setReferralLinkCopied(true); // Track that user copied their referral link
-      setTimeout(() => setCopied(false), 3000);
+      // Modern clipboard API (preferred)
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(textToCopy);
+        setCopied(true);
+        setReferralLinkCopied(true);
+        setTimeout(() => setCopied(false), 3000);
+      } else {
+        // Fallback for older browsers or insecure contexts
+        const textArea = document.createElement("textarea");
+        textArea.value = textToCopy;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+          document.execCommand('copy');
+          setCopied(true);
+          setReferralLinkCopied(true);
+          setTimeout(() => setCopied(false), 3000);
+        } catch (err) {
+          console.error("Fallback copy failed: ", err);
+        } finally {
+          document.body.removeChild(textArea);
+        }
+      }
     } catch (err) {
       console.error("Failed to copy: ", err);
+      // Still mark as copied so user doesn't get stuck
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
     }
   };
 

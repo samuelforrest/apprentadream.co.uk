@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { Label } from "@/components/ui/label";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function Step6Confirmation() {
   return (
     <div className="space-y-6">
       <div>
-        <h4 className="font-bold text-black mb-6 text-lg text-center">What Happens Next?</h4>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <h4 className="font-bold text-black mb-6 text-lg text-left">What Happens Next?</h4>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           <div className="flex flex-col items-center text-center space-y-2">
-            <span className="text-4xl">✅</span>
+            <span className="text-4xl"><FaWhatsapp className="h-10 w-10 text-green"/></span>
             <p className="font-medium text-black">Instant WhatsApp Access</p>
             <p className="text-sm text-gray-600">Join 1,000+ apprenticeship seekers</p>
           </div>
@@ -25,18 +26,26 @@ export function Step6Confirmation() {
         </div>
       </div>
 
-      <div className="border border-white/20 rounded-lg p-4">
-        <div className="flex items-start gap-2">
-          <input type="checkbox" required className="mt-1" />
-          <Label className="text-sm">
-            I agree to the{" "}
-            <Link href="/terms" className="text-purple-400 hover:underline" target="_blank">
-              Terms & Conditions
-            </Link>{" "}
-            and consent to Apprentadream processing my personal data
-          </Label>
-        </div>
-      </div>
+      <div className="border border-white/20 rounded-lg p-3 sm:p-4">
+  <label className="flex items-start gap-3 text-sm cursor-pointer">
+    <input
+      type="checkbox"
+      required
+      className="mt-0.5 h-5 w-5 shrink-0 accent-blue-600 cursor-pointer"
+    />
+    <span className="leading-snug text-gray-800">
+      I agree to the{" "}
+      <Link
+        href="/terms"
+        className="font-semibold hover:opacity-80"
+        target="_blank"
+      >
+        Terms &amp; Conditions
+      </Link>{" "}
+      and consent to Apprentadream processing my personal data.
+    </span>
+  </label>
+</div>
     </div>
   );
 }

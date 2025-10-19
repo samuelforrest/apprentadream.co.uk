@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link, ListCheckIcon, LucideHandshake, Megaphone } from "lucide-react";
+import { Link, ListCheckIcon } from "lucide-react";
 
 interface Step5ReferralsProps {
   referralLink: string;
@@ -43,7 +43,10 @@ export function Step5Referrals({ referralLink, copied, onCopy }: Step5ReferralsP
             <span>2. Share it via WhatsApp, Instagram, TikTok, or any platform</span>
           </li>
           <li className="flex items-start gap-2">
-            <span>3. Top referrer wins the £25 Amazon voucher and will recieve an email / text message</span>
+            <span>3. There is no leaderboard so you need to <b>get sharing sending copying!</b></span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span>4. Top referrer wins the £25 Amazon voucher and will recieve an email / text message</span>
           </li>
         </ol>
       </div>
