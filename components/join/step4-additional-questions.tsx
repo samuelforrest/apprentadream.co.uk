@@ -1,5 +1,6 @@
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
 import { FormData } from "./types";
 
 interface Step4AdditionalQuestionsProps {
@@ -106,51 +107,52 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
         )}
       </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="socioeconomic">Socioeconomic Status *</Label>
-        <Select
-          value={formData.socioeconomicStatus}
-          onValueChange={(value) => onUpdate({ socioeconomicStatus: value })}
-        >
-          <SelectTrigger className={errors.socioeconomicStatus ? "border-red-500" : ""}>
-            <SelectValue placeholder="Select..." />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="working-class">Working Class</SelectItem>
-            <SelectItem value="middle-class">Middle Class</SelectItem>
-            <SelectItem value="upper-middle-class">Upper Middle Class</SelectItem>
-            <SelectItem value="upper-class">Upper Class</SelectItem>
-            <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
-          </SelectContent>
-        </Select>
-        {errors.socioeconomicStatus && (
-          <p className="text-sm text-red-500">{errors.socioeconomicStatus}</p>
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="confidenceLevel">How confident do you feel about applying for apprenticeships? *</Label>
+          <div className="pt-2">
+            <Slider
+              id="confidenceLevel"
+              min={0}
+              max={100}
+              step={1}
+              value={[parseInt(formData.confidenceLevel) || 50]}
+              onValueChange={(value: number[]) => onUpdate({ confidenceLevel: value[0].toString() })}
+              className={errors.confidenceLevel ? "border-red-500" : ""}
+            />
+          </div>
+          <div className="flex justify-between text-xs text-muted-foreground">
+            <span>Not confident</span>
+            <span className="font-semibold text-white">{formData.confidenceLevel || 50}%</span>
+            <span>Very confident</span>
+          </div>
+        </div>
+        {errors.confidenceLevel && (
+          <p className="text-sm text-red-500">{errors.confidenceLevel}</p>
         )}
       </div>
       
       <div className="space-y-2">
-        <Label htmlFor="religion">Religion *</Label>
+        <Label htmlFor="referral">Referral</Label>
         <Select
-          value={formData.religion}
-          onValueChange={(value) => onUpdate({ religion: value })}
+          value={formData.referral}
+          onValueChange={(value) => onUpdate({ referral: value })}
         >
-          <SelectTrigger className={errors.religion ? "border-red-500" : ""}>
+          <SelectTrigger className={errors.referral ? "border-red-500" : ""}>
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="no-religion">No Religion</SelectItem>
-            <SelectItem value="christian">Christian (including Church of England, Catholic, Protestant and all other Christian denominations)</SelectItem>
-            <SelectItem value="muslim">Muslim</SelectItem>
-            <SelectItem value="hindu">Hindu</SelectItem>
-            <SelectItem value="jewish">Jewish</SelectItem>
-            <SelectItem value="sikh">Sikh</SelectItem>
-            <SelectItem value="buddhist">Buddhist</SelectItem>
-            <SelectItem value="other">Other religion or belief</SelectItem>
-            <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
+            <SelectItem value="friend-family">Friend / Family</SelectItem>
+            <SelectItem value="linkedin">LinkedIn</SelectItem>
+            <SelectItem value="tiktok">TikTok</SelectItem>
+            <SelectItem value="instagram">Instagram</SelectItem>
+            <SelectItem value="news">News Source</SelectItem>
+            <SelectItem value="networking">Networking Event</SelectItem>
+            <SelectItem value="other-source">Other</SelectItem>
           </SelectContent>
         </Select>
-        {errors.religion && (
-          <p className="text-sm text-red-500">{errors.religion}</p>
+        {errors.referral && (
+          <p className="text-sm text-red-500">{errors.referral}</p>
         )}
       </div>
     </div>

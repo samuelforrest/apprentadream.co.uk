@@ -43,7 +43,7 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
   mainMotivation: "",
   applyingUniversity: "",
   appliedBefore:"",
-  confidenceLevel: "",
+  confidenceLevel: "50",
   referral: "",
   });
 
