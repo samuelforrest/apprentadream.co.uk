@@ -19,12 +19,13 @@ export interface FormData {
   website: string;
   
   // Additional Questions
-  sex: string;
-  gender: string;
-  sexualOrientation: string;
-  ethnicity: string;
-  socioeconomicStatus: string;
-  religion: string;
+  studentType: string;
+  educationalCourse: string;
+  mainMotivation: string;
+  applyingUniversity: string;
+  appliedBefore: string;
+  confidenceLevel: string;
+  referral: string;
 }
 
 // Country codes for phone numbers organized by region

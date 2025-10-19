@@ -4,103 +4,115 @@ import { FormData } from "./types";
 
 interface Step4AdditionalQuestionsProps {
   formData: FormData;
+  errors: {[key: string]: string};
   onUpdate: (updates: Partial<FormData>) => void;
 }
 
-export function Step4AdditionalQuestions({ formData, onUpdate }: Step4AdditionalQuestionsProps) {
+export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4AdditionalQuestionsProps) {
   return (
-    <div className="space-y-4">
-      <div className="text-left mb-6">
-        <p className="text-sm text-black mb-2">This section is optional and helps us understand our community better. Your responses are confidential and used for monitoring purposes only.</p>
+    <div className="space-y-6">
+      <div className="space-y-2">
+        <Label htmlFor="studentType">I am currently *</Label>
+        <Select
+          value={formData.studentType}
+          onValueChange={(value) => onUpdate({ studentType: value })}
+        >
+          <SelectTrigger className={errors.studentType ? "border-red-500" : ""}>
+            <SelectValue placeholder="Select type of student" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="gap-year">Gap Year</SelectItem>
+            <SelectItem value="year-10-S3-student">Year 10 (S3) Student</SelectItem>
+            <SelectItem value="year-11-S4-student">Year 11 (S4) Student</SelectItem>
+            <SelectItem value="year-12-S5-student">Year 12 (S5) Student</SelectItem>
+            <SelectItem value="year-13-S6-student">Year 13 (S6) Student</SelectItem>
+            <SelectItem value="international-student">International Student</SelectItem>
+            <SelectItem value="career-change">Career Changer</SelectItem>
+            <SelectItem value="other">Other / not listed</SelectItem>
+          </SelectContent>
+        </Select>
+        {errors.studentType && (
+          <p className="text-sm text-red-500">{errors.studentType}</p>
+        )}
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="sex">I am currently</Label>
+        <Label htmlFor="educationalCourse">Main qualification working towards / achieved *</Label>
         <Select
-          value={formData.sex}
-          onValueChange={(value) => onUpdate({ sex: value })}
+          value={formData.educationalCourse}
+          onValueChange={(value) => onUpdate({ educationalCourse: value })}
         >
-          <SelectTrigger>
+          <SelectTrigger className={errors.educationalCourse ? "border-red-500" : ""}>
+            <SelectValue placeholder="Select course" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="a-levels">A Levels</SelectItem>
+            <SelectItem value="t-levels">T Levels</SelectItem>
+            <SelectItem value="btec">BTEC</SelectItem>
+            <SelectItem value="ib">IB</SelectItem>
+            <SelectItem value="scottish-highers">Scottish Highers</SelectItem>
+            <SelectItem value="gcse-igcse">GCSEs / IGCSEs</SelectItem>
+            <SelectItem value="national-4">National 4</SelectItem>
+            <SelectItem value="other">Other / not listed</SelectItem>
+          </SelectContent>
+        </Select>
+        {errors.educationalCourse && (
+          <p className="text-sm text-red-500">{errors.educationalCourse}</p>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="mainMotivation">What motivates you to do an apprenticeship? *</Label>
+        <Select
+          value={formData.mainMotivation}
+          onValueChange={(value) => onUpdate({ mainMotivation: value })}
+        >
+          <SelectTrigger className={errors.mainMotivation ? "border-red-500" : ""}>
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="male">Male</SelectItem>
-            <SelectItem value="female">Female</SelectItem>
-            <SelectItem value="intersex">Intersex</SelectItem>
-            <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
+            <SelectItem value="salary">Build wealth early</SelectItem>
+            <SelectItem value="work-experience">Gain experience</SelectItem>
+            <SelectItem value="avoid-debt">Avoid university debt</SelectItem>
+            <SelectItem value="start-early">Start my career early</SelectItem>
+            <SelectItem value="practical-hands-on">Prefer practical / hands on</SelectItem>
+            <SelectItem value="prestige-networking">Prestige and networking</SelectItem>
+            <SelectItem value="unsure-other">Other / unsure</SelectItem>
           </SelectContent>
         </Select>
+        {errors.mainMotivation && (
+          <p className="text-sm text-red-500">{errors.mainMotivation}</p>
+        )}
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="gender">Gender</Label>
+        <Label htmlFor="applyingUniversity">Are you applying / already at university?</Label>
         <Select
-          value={formData.gender}
-          onValueChange={(value) => onUpdate({ gender: value })}
+          value={formData.applyingUniversity}
+          onValueChange={(value) => onUpdate({ applyingUniversity: value })}
         >
-          <SelectTrigger>
+          <SelectTrigger className={errors.applyingUniversity ? "border-red-500" : ""}>
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="man">Man</SelectItem>
-            <SelectItem value="woman">Woman</SelectItem>
-            <SelectItem value="non-binary">Non-binary</SelectItem>
-            <SelectItem value="genderfluid">Genderfluid</SelectItem>
-            <SelectItem value="other">Other</SelectItem>
-            <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
+            <SelectItem value="yes">Yes</SelectItem>
+            <SelectItem value="no">No</SelectItem>
+            <SelectItem value="not-decided">Have not yet decided</SelectItem>
+            <SelectItem value="already-at-university">I&apos;m already at university</SelectItem>
           </SelectContent>
         </Select>
+        {errors.applyingUniversity && (
+          <p className="text-sm text-red-500">{errors.applyingUniversity}</p>
+        )}
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="orientation">Sexual Orientation</Label>
-        <Select
-          value={formData.sexualOrientation}
-          onValueChange={(value) => onUpdate({ sexualOrientation: value })}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Select..." />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="heterosexual">Heterosexual</SelectItem>
-            <SelectItem value="gay">Gay</SelectItem>
-            <SelectItem value="lesbian">Lesbian</SelectItem>
-            <SelectItem value="bisexual">Bisexual</SelectItem>
-            <SelectItem value="pansexual">Pansexual</SelectItem>
-            <SelectItem value="asexual">Asexual</SelectItem>
-            <SelectItem value="other">Other</SelectItem>
-            <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="ethnicity">Ethnicity</Label>
-        <Select
-          value={formData.ethnicity}
-          onValueChange={(value) => onUpdate({ ethnicity: value })}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Select..." />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="asian-asian-british">Asian / Asian British</SelectItem>
-            <SelectItem value="black-african-caribbean-black-british">Black / African / Caribbean / Black British</SelectItem>
-            <SelectItem value="mixed-multiple-ethnic">Mixed / Multiple Ethnic Groups</SelectItem>
-            <SelectItem value="white">White</SelectItem>
-            <SelectItem value="other">Other Ethnic Group</SelectItem>
-            <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="socioeconomic">Socioeconomic Status</Label>
+        <Label htmlFor="socioeconomic">Socioeconomic Status *</Label>
         <Select
           value={formData.socioeconomicStatus}
           onValueChange={(value) => onUpdate({ socioeconomicStatus: value })}
         >
-          <SelectTrigger>
+          <SelectTrigger className={errors.socioeconomicStatus ? "border-red-500" : ""}>
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
@@ -111,14 +123,18 @@ export function Step4AdditionalQuestions({ formData, onUpdate }: Step4Additional
             <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
           </SelectContent>
         </Select>
+        {errors.socioeconomicStatus && (
+          <p className="text-sm text-red-500">{errors.socioeconomicStatus}</p>
+        )}
       </div>
+      
       <div className="space-y-2">
-        <Label htmlFor="religion">Religion</Label>
+        <Label htmlFor="religion">Religion *</Label>
         <Select
           value={formData.religion}
           onValueChange={(value) => onUpdate({ religion: value })}
         >
-          <SelectTrigger>
+          <SelectTrigger className={errors.religion ? "border-red-500" : ""}>
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
@@ -133,6 +149,9 @@ export function Step4AdditionalQuestions({ formData, onUpdate }: Step4Additional
             <SelectItem value="prefer-not-to-say">Prefer not to say</SelectItem>
           </SelectContent>
         </Select>
+        {errors.religion && (
+          <p className="text-sm text-red-500">{errors.religion}</p>
+        )}
       </div>
     </div>
   );

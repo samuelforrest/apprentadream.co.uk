@@ -38,12 +38,13 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
     instagramUsername: "",
     twitterUsername: "",
     website: "",
-    sex: "",
-    gender: "",
-    sexualOrientation: "",
-    ethnicity: "",
-    socioeconomicStatus: "",
-    religion: "",
+    studentType: "",
+  educationalCourse: "",
+  mainMotivation: "",
+  applyingUniversity: "",
+  appliedBefore:"",
+  confidenceLevel: "",
+  referral: "",
   });
 
   // Generate unique referral code: 4 random digits + last 4 digits of phone number
@@ -88,7 +89,37 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
     return emailRegex.test(email);
   };
 
-  // Validate current step
+  // Check if current step is valid (for visual state)
+  const isStepValid = (): boolean => {
+    switch (currentStep) {
+      case 1:
+        return (
+          formData.firstName.trim().length >= 2 &&
+          formData.lastName.trim().length >= 2 &&
+          formData.mobile.trim() !== "" &&
+          formData.email.trim() !== "" &&
+          isValidEmail(formData.email)
+        );
+      case 2:
+        return formData.industries.length > 0 && formData.apprenticeshipLevel !== "";
+      case 3:
+        return true; // All fields optional
+      case 4:
+        return (
+          formData.studentType !== "" &&
+          formData.educationalCourse !== "" &&
+          formData.mainMotivation !== ""
+        );
+      case 5:
+        return true; // No validation needed
+      case 6:
+        return true; // Handled by submit button
+      default:
+        return false;
+    }
+  };
+
+  // Validate current step (shows errors)
   const validateStep = (): boolean => {
     const newErrors: {[key: string]: string} = {};
 
@@ -131,8 +162,19 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
           }
         }
         break;
-      // Steps 4, 5 are optional
+      // Step 4 - Additional Questions (all required)
       case 4:
+        if (!formData.studentType) {
+          newErrors.studentType = "Please select your student type";
+        }
+        if (!formData.educationalCourse) {
+          newErrors.educationalCourse = "Please select what course you are studying";
+        }
+        if (!formData.mainMotivation) {
+          newErrors.mainMotivation = "Please select your main motivation to apply for a Degree Apprenticeship";
+        }
+        break;
+      // Step 5 is optional
       case 5:
         break;
       case 6:
@@ -160,7 +202,7 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
       case 3:
         return "Connect your social media accounts";
       case 4:
-        return "Additional Questions (Optional)";
+        return "Additional Question";
       case 5:
         return "🎁 Refer Friends and win a £25 Amazon  (optional)";
       case 6:
@@ -256,13 +298,14 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
     data.append("Twitter", formData.twitterUsername);
     data.append("Website", formData.website);
     
-    // Additional Questions (optional)
-    data.append("Sex", formData.sex);
-    data.append("Gender", formData.gender);
-    data.append("Sexual Orientation", formData.sexualOrientation);
-    data.append("Ethnicity", formData.ethnicity);
-    data.append("Socioeconomic Status", formData.socioeconomicStatus);
-    data.append("Religion", formData.religion);
+    // Additional Questions
+    data.append("Student Type", formData.studentType);
+    data.append("Educational Course", formData.educationalCourse);
+    data.append("Main Motivation", formData.mainMotivation);
+    data.append("Applying University", formData.applyingUniversity);
+    data.append("Applied before", formData.appliedBefore);
+    data.append("Confidence Level", formData.confidenceLevel);
+    data.append("Referral Source", formData.referral)
     
     // Referral Code and Link
     data.append("Referral Code", referralCode);
@@ -288,27 +331,6 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
       console.error(error);
       alert("Something went wrong. Try again.");
       setIsSubmitting(false);
-    }
-  };
-
-
-  // This decides whether you can continue to the next step (i.e. the next button shows)
-  const isStepValid = () => {
-    switch (currentStep) {
-      // Basic Information
-      case 1:
-        return formData.firstName && formData.lastName && formData.mobile && formData.email;
-      // Industries of Interest
-      case 2:
-        return formData.industries.length > 0 && formData.apprenticeshipLevel;
-      case 3:
-      case 4:
-      case 5:
-        return true; // Optional steps
-      case 6:
-        return true;
-      default:
-        return false;
     }
   };
 
@@ -360,10 +382,11 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
                   />
                 )}
 
-                {/* Step 4: Diversity Information */}
+                {/* Step 4: Additional Questions */}
                 {currentStep === 4 && (
                   <Step4AdditionalQuestions
                     formData={formData}
+                    errors={errors}
                     onUpdate={updateFormData}
                   />
                 )}
@@ -399,8 +422,10 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
                     <Button
                       type="button"
                       onClick={handleNext}
-                      disabled={!isStepValid()}
-                      className="flex-1"
+                      className={cn(
+                        "flex-1",
+                        !isStepValid() && "opacity-50 cursor-not-allowed"
+                      )}
                     >
                       Next →
                     </Button>
