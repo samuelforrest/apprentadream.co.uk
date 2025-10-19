@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChartNoAxesCombined, Users } from "lucide-react";
@@ -6,17 +7,68 @@ interface SplashScreenProps {
   onStart: () => void;
 }
 
+const sloganWords = ["skip", "the", "maybe", "get", "the", "yes"];
+
 export function SplashScreen({ onStart }: SplashScreenProps) {
+  const [showIntro, setShowIntro] = useState(true);
+  const [visibleWords, setVisibleWords] = useState<number>(0);
+  
+  useEffect(() => {
+    if (!showIntro) return;
+    
+    // Show each word with a delay
+    const wordTimers = sloganWords.map((_, index) => {
+      return setTimeout(() => {
+        setVisibleWords(index + 1);
+      }, index * 200); // 400ms between each word
+    });
+    
+    // Transition to main splash screen after all words shown
+    const transitionTimer = setTimeout(() => {
+      setShowIntro(false);
+    }, sloganWords.length * 400 + 500); // Extra 1 second after last word
+    
+    return () => {
+      wordTimers.forEach(timer => clearTimeout(timer));
+      clearTimeout(transitionTimer);
+    };
+  }, [showIntro]);
+  
+  // Animated intro screen
+  if (showIntro) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[80vh] animate-in fade-in duration-500">
+        <div className="text-center space-y-4 px-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+            {sloganWords.map((word, index) => (
+              <span
+                key={index}
+                className={`inline-block mx-2 transition-all duration-500 ${
+                  index < visibleWords 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-4'
+                }`}
+              >
+                {word}
+              </span>
+            ))}
+          </h1>
+        </div>
+      </div>
+    );
+  }
+  
+  // Main splash screen
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh]">
+    <div className="flex flex-col items-center justify-center animate-in fade-in duration-700">
       <div className="text-center space-y-8 px-4">
         {/* Logo */}
         <div>
           <Image 
             src="/ad.png" 
             alt="logo" 
-            width={150} 
-            height={75} 
+            width={250} 
+            height={100} 
             className="mx-auto" 
             priority
           />
