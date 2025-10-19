@@ -4,9 +4,8 @@ import { Handshake, Megaphone } from "lucide-react";
 
 export function Step6Confirmation() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pt-3">
       <div>
-        <h4 className="font-semibold text-black mb-4 text-lg text-left">What do I get?</h4>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           <div className="flex flex-col items-center text-center space-y-2">
             <span className="text-4xl"><FaWhatsapp className="h-10 w-10 text-green-500"/></span>

@@ -24,8 +24,8 @@ export interface FormData {
   mainMotivation: string;
   applyingUniversity: string;
   appliedBefore: string;
-  confidenceLevel: string;
   referral: string;
+  confidenceLevel: string;
 }
 
 // Country codes for phone numbers organized by region

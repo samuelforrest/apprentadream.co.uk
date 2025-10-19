@@ -43,8 +43,8 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
   mainMotivation: "",
   applyingUniversity: "",
   appliedBefore:"",
-  confidenceLevel: "50",
   referral: "",
+  confidenceLevel: "50",
   });
 
   // Generate unique referral code: 4 random digits + last 4 digits of phone number
@@ -202,11 +202,11 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
       case 3:
         return "Connect your social media accounts";
       case 4:
-        return "Additional Question";
+        return "Additional Questions";
       case 5:
-        return "🎁 Refer Friends and win a £25 Amazon  (optional)";
+        return "Refer Friends for points";
       case 6:
-        return "Confirmation";
+        return "What you're about to unlock...";
       default:
         return "";
     }
@@ -433,7 +433,7 @@ export function GamifiedForm({ className, ...props }: React.ComponentProps<"div"
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex-1 bg-blue-500"
+                      className="flex-1"
                     >
                       {isSubmitting ? (
                         <div className="flex items-center justify-center gap-2">

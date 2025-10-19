@@ -49,7 +49,7 @@ export function Step2Interests({ formData, errors, onUpdate, onIndustryToggle }:
               key={industry}
               value={industry}
               aria-label={industry}
-              className="data-[state=on]:bg-blue-600 data-[state=on]:text-white rounded-lg border-2"
+              className="data-[state=on]:bg-black data-[state=on]:text-white rounded-lg border-2"
             >
               {industry}
             </ToggleGroupItem>

@@ -62,7 +62,7 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
         )}
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-2 pb-4">
         <Label htmlFor="mainMotivation">What motivates you to do an apprenticeship? *</Label>
         <Select
           value={formData.mainMotivation}
@@ -85,8 +85,14 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
           <p className="text-sm text-red-500">{errors.mainMotivation}</p>
         )}
       </div>
+      <div className="relative my-8">
+  <hr className="border-t border-gray-300" />
+  <span className="absolute left-1/2 -top-2 -translate-x-1/2 md:left-1/2 md:-top-3 md:-translate-x-1/2 bg-white px-2 text-xs md:text-sm text-gray-500">
+    Optional questions
+  </span>
+</div>
 
-      <div className="space-y-2">
+      <div className="space-y-2 pt-5">
         <Label htmlFor="applyingUniversity">Are you applying / already at university?</Label>
         <Select
           value={formData.applyingUniversity}
@@ -107,30 +113,6 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
         )}
       </div>
 
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="confidenceLevel">How confident do you feel about applying for apprenticeships? *</Label>
-          <div className="pt-2">
-            <Slider
-              id="confidenceLevel"
-              min={0}
-              max={100}
-              step={1}
-              value={[parseInt(formData.confidenceLevel) || 50]}
-              onValueChange={(value: number[]) => onUpdate({ confidenceLevel: value[0].toString() })}
-              className={errors.confidenceLevel ? "border-red-500" : ""}
-            />
-          </div>
-          <div className="flex justify-between text-xs text-muted-foreground">
-            <span>Not confident</span>
-            <span className="font-semibold text-white">{formData.confidenceLevel || 50}%</span>
-            <span>Very confident</span>
-          </div>
-        </div>
-        {errors.confidenceLevel && (
-          <p className="text-sm text-red-500">{errors.confidenceLevel}</p>
-        )}
-      </div>
       
       <div className="space-y-2">
         <Label htmlFor="referral">Referral</Label>
@@ -155,6 +137,41 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
           <p className="text-sm text-red-500">{errors.referral}</p>
         )}
       </div>
+      <div className="space-y-4">
+  <div className="space-y-2">
+    <Label htmlFor="confidenceLevel">
+      How confident are you about getting one?
+    </Label>
+
+    <div className="pt-2">
+      <Slider
+        id="confidenceLevel"
+        min={0}
+        max={100}
+        step={1}
+        value={[parseInt(formData.confidenceLevel) || 50]}
+        onValueChange={(value: number[]) =>
+          onUpdate({ confidenceLevel: value[0].toString() })
+        }
+        className={`${
+          errors.confidenceLevel ? "border-red-500" : ""
+        } cursor-pointer bg-black`}
+      />
+    </div>
+
+    <div className="flex justify-between text-xs text-muted-foreground">
+      <span>Not confident</span>
+      <span className="font-semibold text-white">
+        {formData.confidenceLevel || 50}%
+      </span>
+      <span>Very confident</span>
+    </div>
+  </div>
+
+  {errors.confidenceLevel && (
+    <p className="text-sm text-red-500">{errors.confidenceLevel}</p>
+  )}
+</div>
     </div>
   );
 }

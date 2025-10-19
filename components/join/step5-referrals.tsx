@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link, ListCheckIcon } from "lucide-react";
+import { Gift, Link } from "lucide-react";
 
 interface Step5ReferralsProps {
   referralLink: string;
@@ -13,7 +13,11 @@ export function Step5Referrals({ referralLink, copied, onCopy }: Step5ReferralsP
   return (
     <div className="space-y-6">
 
-      <Label className="text-black font-semibold text-md"><Link className="h-5 w-5" /> Your Unique Referral Link</Label>
+        <div className="text-start text-sm">
+            <p>We will soon be launching an online platform. Those who referr 3+ people using their link will get <span className="inline-flex items-center gap-1"><Gift className="h-4 w-4 text-blue-600"/></span> feebies when we launch!</p>
+        </div>
+
+      <Label className="text-black font-semibold text-md"><Link className="h-5 w-5 text-blue-600" /> Your Unique Referral Link</Label>
       <div className="flex gap-2">
         <Input
           value={referralLink}

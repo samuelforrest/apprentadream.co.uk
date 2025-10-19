@@ -11,12 +11,19 @@ interface Step3SocialAccountsProps {
 
 export function Step3SocialAccounts({ formData, errors, onUpdate, onErrorClear }: Step3SocialAccountsProps) {
   return (
-    <div className="space-y-4">
-      <div className="text-left mb-6">
-        <p className="text-sm text-black mb-2">This section is optional. When we launch our online platform, these will be added to your profile.</p>
+    <div className="space-y-4 mb-4">
+      <div className="text-left mb-8 md:mb-12">
+        <p className="text-sm text-black mb-2">This section is optional. When we launch our online platform, these will be added to your profile. We highly recommend you add them.</p>
       </div>
 
-      <div className="space-y-2">
+      <div className="relative my-8">
+  <hr className="border-t border-gray-300" />
+  <span className="absolute left-1/2 -top-2 -translate-x-1/2 md:left-1/2 md:-top-3 md:-translate-x-1/2 bg-white px-2 text-xs md:text-sm text-gray-500">
+    Optional questions
+  </span>
+</div>
+
+      <div className="space-y-2 pt-2">
         <Label htmlFor="linkedinUrl">LinkedIn Profile URL</Label>
         <Input
           id="linkedinUrl"
