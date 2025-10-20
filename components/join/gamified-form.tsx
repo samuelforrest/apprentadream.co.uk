@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -14,34 +14,33 @@ import { Step4AdditionalQuestions } from "./step4-additional-questions";
 import { Step5Referrals } from "./step5-referrals";
 import { Step6Confirmation } from "./step6-confirmation";
 import type { FormData } from "./types";
-import confetti from "canvas-confetti"
+import confetti from "canvas-confetti";
 
 export function ConfettiFireworks() {
   const handleClick = () => {
-    const duration = 5 * 1000
-    const animationEnd = Date.now() + duration
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 }
-    const randomInRange = (min: number, max: number) =>
-      Math.random() * (max - min) + min
+    const duration = 5 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
     const interval = window.setInterval(() => {
-      const timeLeft = animationEnd - Date.now()
+      const timeLeft = animationEnd - Date.now();
       if (timeLeft <= 0) {
-        return clearInterval(interval)
+        return clearInterval(interval);
       }
-      const particleCount = 50 * (timeLeft / duration)
+      const particleCount = 50 * (timeLeft / duration);
       confetti({
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-      })
+      });
       confetti({
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-      })
-    }, 250)
-  }
-  return handleClick
+      });
+    }, 250);
+  };
+  return handleClick;
 }
 
 // Component that handles search params
@@ -55,9 +54,9 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   const [copied, setCopied] = useState(false);
   const [referralCode, setReferralCode] = useState("");
   const [referralLinkCopied, setReferralLinkCopied] = useState(false);
-  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [referrerCode, setReferrerCode] = useState<string>("");
-  
+
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -72,17 +71,17 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     twitterUsername: "",
     website: "",
     studentType: "",
-  educationalCourse: "",
-  mainMotivation: "",
-  applyingUniversity: "",
-  appliedBefore:"",
-  referral: "",
-  confidenceLevel: "50",
+    educationalCourse: "",
+    mainMotivation: "",
+    applyingUniversity: "",
+    appliedBefore: "",
+    referral: "",
+    confidenceLevel: "50",
   });
 
   // Detect referral code from URL
   useEffect(() => {
-    const refCode = searchParams.get('ref');
+    const refCode = searchParams.get("ref");
     if (refCode) {
       setReferrerCode(refCode);
     }
@@ -91,16 +90,16 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   // Generate unique referral code: 4 random digits + last 4 digits of phone number
   const generateReferralCode = (mobile: string) => {
     if (!mobile) return "";
-    
+
     // Extract only digits from mobile number
     const digits = mobile.replace(/\D/g, "");
-    
+
     // Get last 4 digits of phone number
     const lastFourDigits = digits.slice(-4).padStart(4, "0");
-    
+
     // Generate 4 random digits
     const randomFourDigits = Math.floor(1000 + Math.random() * 9000).toString();
-    
+
     // Combine: 4 random + 4 phone digits = 8 total
     return `${randomFourDigits}${lastFourDigits}`;
   };
@@ -109,14 +108,14 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   const updateFormData = (updates: Partial<FormData>) => {
     const newData = { ...formData, ...updates };
     setFormData(newData);
-    
+
     // Clear errors for updated fields
     const newErrors = { ...errors };
-    Object.keys(updates).forEach(key => {
+    Object.keys(updates).forEach((key) => {
       delete newErrors[key];
     });
     setErrors(newErrors);
-    
+
     // Generate referral code if we have mobile number
     if (newData.mobile && newData.mobile.length >= 4) {
       const code = generateReferralCode(newData.mobile);
@@ -162,7 +161,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
 
   // Validate current step (shows errors)
   const validateStep = (): boolean => {
-    const newErrors: {[key: string]: string} = {};
+    const newErrors: { [key: string]: string } = {};
 
     switch (currentStep) {
       case 1:
@@ -199,7 +198,8 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       case 3:
         if (formData.linkedinUrl && formData.linkedinUrl.trim()) {
           if (!formData.linkedinUrl.includes("linkedin.com/in")) {
-            newErrors.linkedinUrl = "Please enter a valid LinkedIn profile URL (must contain linkedin.com/in)";
+            newErrors.linkedinUrl =
+              "Please enter a valid LinkedIn profile URL (must contain linkedin.com/in)";
           }
         }
         break;
@@ -212,7 +212,8 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
           newErrors.educationalCourse = "Please select what course you are studying";
         }
         if (!formData.mainMotivation) {
-          newErrors.mainMotivation = "Please select your main motivation to apply for a Degree Apprenticeship";
+          newErrors.mainMotivation =
+            "Please select your main motivation to apply for a Degree Apprenticeship";
         }
         break;
       // Step 5 is optional
@@ -258,7 +259,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     if (!validateStep()) {
       return;
     }
-    
+
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -278,7 +279,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
 
   const handleCopy = async () => {
     const textToCopy = getReferralLink();
-    
+
     try {
       // Modern clipboard API (preferred)
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -296,9 +297,9 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
         document.body.appendChild(textArea);
         textArea.focus();
         textArea.select();
-        
+
         try {
-          document.execCommand('copy');
+          document.execCommand("copy");
           setCopied(true);
           setReferralLinkCopied(true);
           setTimeout(() => setCopied(false), 3000);
@@ -327,18 +328,18 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     data.append("Country Code", formData.countryCode);
     data.append("Mobile", formData.mobile);
     data.append("Email", formData.email);
-    
+
     // Interests
     data.append("Industries", formData.industries.join(", "));
     data.append("Apprenticeship Level", formData.apprenticeshipLevel);
-    
+
     // Social Accounts
     data.append("LinkedIn URL", formData.linkedinUrl);
     data.append("TikTok", formData.tiktokUsername);
     data.append("Instagram", formData.instagramUsername);
     data.append("Twitter", formData.twitterUsername);
     data.append("Website", formData.website);
-    
+
     // Additional Questions
     data.append("Student Type", formData.studentType);
     data.append("Educational Course", formData.educationalCourse);
@@ -346,33 +347,33 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     data.append("Applying University", formData.applyingUniversity);
     data.append("Applied before", formData.appliedBefore);
     data.append("Confidence Level", formData.confidenceLevel);
-    data.append("Referral Source", formData.referral)
-    
+    data.append("Referral Source", formData.referral);
+
     // Referral Tracking
     data.append("Referred By Code", referrerCode); // Who referred this user
     data.append("User Referral Code", referralCode); // This user's own code
     data.append("User Referral Link", getReferralLink()); // This user's own link
     data.append("Referral Link Copied", referralLinkCopied ? "Yes" : "No");
-    
+
     // Add client-side timestamp for backup
     data.append("Client Timestamp", new Date().toISOString());
 
     try {
       console.log("Submitting to Google Sheets...");
-      
+
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbw6QdhnfAMhoXWLpSrp0Pr0-bSNvLrag-roT3BcxKtEUhqT1W2N2V_dw929a1QAU9FgcQ/exec",
         {
           method: "POST",
           body: data,
-          mode: 'no-cors', // This helps with CORS issues
+          mode: "no-cors", // This helps with CORS issues
         }
       );
 
       console.log("Response received:", response);
-      
+
       // With no-cors mode, we can't read the response, so we assume success if no error is thrown
-      if (response.type === 'opaque' || response.ok) {
+      if (response.type === "opaque" || response.ok) {
         console.log("Form submitted successfully!");
         // Pass the referral code to the success page so user can copy their link
         const successUrl = referralCode ? `/success?ref=${referralCode}` : "/success";
@@ -384,9 +385,9 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       }
     } catch (error) {
       console.error("Fetch error:", error);
-      
+
       // Provide more detailed error information
-      if (error instanceof TypeError && error.message.includes('fetch')) {
+      if (error instanceof TypeError && error.message.includes("fetch")) {
         alert("Network error: Please check your internet connection and try again.");
       } else if (error instanceof Error) {
         alert(`Error: ${error.message}. Please try again.`);
@@ -413,16 +414,16 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
         <>
           <Card className="border-purple-500/20">
             <CardContent>
-              <ProgressBar currentStep={currentStep} totalSteps={totalSteps} sectionName={getSectionName(currentStep)} />
-              
+              <ProgressBar
+                currentStep={currentStep}
+                totalSteps={totalSteps}
+                sectionName={getSectionName(currentStep)}
+              />
+
               <form onSubmit={handleSubmit}>
                 {/* Step 1: Basic Information */}
                 {currentStep === 1 && (
-                  <Step1BasicInfo
-                    formData={formData}
-                    errors={errors}
-                    onUpdate={updateFormData}
-                  />
+                  <Step1BasicInfo formData={formData} errors={errors} onUpdate={updateFormData} />
                 )}
 
                 {/* Step 2: Interests */}
@@ -464,31 +465,21 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
                 )}
 
                 {/* Step 6: Confirmation */}
-                {currentStep === 6 && (
-                  <Step6Confirmation />
-                )}
+                {currentStep === 6 && <Step6Confirmation />}
 
                 {/* Navigation Buttons */}
                 <div className="flex gap-3 mt-8">
                   {currentStep > 1 && (
-                    <Button
-                      type="button"
-                      onClick={handleBack}
-                      variant="outline"
-                      className="flex-1"
-                    >
+                    <Button type="button" onClick={handleBack} variant="outline" className="flex-1">
                       ← Back
                     </Button>
                   )}
-                  
+
                   {currentStep < totalSteps ? (
                     <Button
                       type="button"
                       onClick={handleNext}
-                      className={cn(
-                        "flex-1",
-                        !isStepValid() && "opacity-50 cursor-not-allowed"
-                      )}
+                      className={cn("flex-1", !isStepValid() && "opacity-50 cursor-not-allowed")}
                     >
                       Next →
                     </Button>
@@ -522,9 +513,13 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
 // Main export component with Suspense wrapper
 export function GamifiedForm({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">
-      <div className="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent"></div>
-    </div>}>
+    <Suspense
+      fallback={
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent"></div>
+        </div>
+      }
+    >
       <GamifiedFormInner className={className} {...props} />
     </Suspense>
   );

@@ -5,17 +5,17 @@ export default function Terms() {
     <div className="min-h-screen bg-black w-full">
       <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
         <div className="mb-14 text-left">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="inline-flex items-center gap-2 text-white hover:underline underline-offset-4 transition-colors text-lg font-medium"
           >
-            <svg 
-              className="w-5 h-5" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
             Back to Home
           </Link>
@@ -24,34 +24,29 @@ export default function Terms() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
             Terms & Conditions
           </h1>
-          <p className="text-lg sm:text-xl text-gray-400">
-            Last updated: 20th October 2025
-          </p>
+          <p className="text-lg sm:text-xl text-gray-400">Last updated: 20th October 2025</p>
         </div>
-
 
         {/* Content */}
         <div className="space-y-8 sm:space-y-12 text-white">
           {/* Section 1 */}
           <section>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
-              1. Introduction
-            </h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">1. Introduction</h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              By submitting this form, you agree to the following Terms & Conditions and Privacy Notice. 
-              Apprentadream (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting your personal data and 
-              respecting your privacy in accordance with the UK General Data Protection Regulation (UK GDPR) 
-              and the Data Protection Act 2018.
+              By submitting this form, you agree to the following Terms & Conditions and Privacy
+              Notice. Apprentadream (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is
+              committed to protecting your personal data and respecting your privacy in accordance
+              with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act
+              2018.
             </p>
           </section>
 
           {/* Section 2 */}
           <section>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
-              2. Data We Collect
-            </h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">2. Data We Collect</h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-              When you complete the &ldquo;Join Apprentadream&rdquo; form, we collect the following information:
+              When you complete the &ldquo;Join Apprentadream&rdquo; form, we collect the following
+              information:
             </p>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
               <li>First Name</li>
@@ -86,11 +81,15 @@ export default function Terms() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
               <li>To add you to our Apprentadream member mailing list.</li>
-              <li>To contact you with updates, events, and relevant apprenticeship or career information.</li>
+              <li>
+                To contact you with updates, events, and relevant apprenticeship or career
+                information.
+              </li>
               <li>To understand user demographics and improve our services.</li>
             </ul>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
-              Your data will not be sold, traded, or shared with third parties for marketing purposes.
+              Your data will not be sold, traded, or shared with third parties for marketing
+              purposes.
             </p>
           </section>
 
@@ -100,9 +99,9 @@ export default function Terms() {
               4. Legal Basis for Processing
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              Our processing of your personal data is based on your consent under Article 6(1)(a) of the UK GDPR. 
-              You may withdraw your consent at any time by unsubscribing from our emails or contacting us directly 
-              (see Section 9).
+              Our processing of your personal data is based on your consent under Article 6(1)(a) of
+              the UK GDPR. You may withdraw your consent at any time by unsubscribing from our
+              emails or contacting us directly (see Section 9).
             </p>
           </section>
           <section>
@@ -110,11 +109,13 @@ export default function Terms() {
               4A. Use of Artificial Intelligence
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              We may use artificial intelligence (AI) and automated tools to analyse or categorise certain personal data you provide — for example, to match your interests to suitable apprenticeship opportunities, improve recommendations, or understand user trends.
-
-              All AI processing is conducted under our control, using GDPR-compliant systems.
-              AI tools do not make fully automated decisions that have a legal or significant effect on you.
-              You can request human review of any automated processing by contacting the Data Controller (see Section 9).
+              We may use artificial intelligence (AI) and automated tools to analyse or categorise
+              certain personal data you provide — for example, to match your interests to suitable
+              apprenticeship opportunities, improve recommendations, or understand user trends. All
+              AI processing is conducted under our control, using GDPR-compliant systems. AI tools
+              do not make fully automated decisions that have a legal or significant effect on you.
+              You can request human review of any automated processing by contacting the Data
+              Controller (see Section 9).
             </p>
           </section>
 
@@ -124,21 +125,26 @@ export default function Terms() {
               5. Data Storage and Retention
             </h2>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
-              <li>Your data is stored securely in encrypted cloud storage accessible only by Apprentadream authorised personnel. Data access is restricted and monitored to prevent unauthorised use.</li>
-              <li>We retain your personal data only for as long as you remain subscribed to our mailing list or until you request deletion.</li>
+              <li>
+                Your data is stored securely in encrypted cloud storage accessible only by
+                Apprentadream authorised personnel. Data access is restricted and monitored to
+                prevent unauthorised use.
+              </li>
+              <li>
+                We retain your personal data only for as long as you remain subscribed to our
+                mailing list or until you request deletion.
+              </li>
             </ul>
           </section>
 
           {/* Section 6 */}
           <section>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
-              6. Your Rights
-            </h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">6. Your Rights</h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
               Under the UK GDPR, you have the following rights:
             </p>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
-            <li>The right to be informed about how your data is used</li>
+              <li>The right to be informed about how your data is used</li>
               <li>The right to access your personal data.</li>
               <li>The right to correct any inaccuracies.</li>
               <li>The right to request deletion (&ldquo;right to be forgotten&rdquo;).</li>
@@ -157,17 +163,18 @@ export default function Terms() {
               7. Data Sharing and Third Parties
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-              We do not share your personal information with third parties except where required by law or where 
-              necessary to operate our services (e.g., secure mailing systems such as Mailchimp, Brevo, or similar 
-              UK GDPR-compliant providers).
+              We do not share your personal information with third parties except where required by
+              law or where necessary to operate our services (e.g., secure mailing systems such as
+              Mailchimp, Brevo, or similar UK GDPR-compliant providers).
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              All third-party processors used by Apprentadream are contractually bound to protect your data and 
-              process it only under our instructions.
+              All third-party processors used by Apprentadream are contractually bound to protect
+              your data and process it only under our instructions.
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
-            If any data is transferred outside the United Kingdom or European Economic Area, we ensure that appropriate safeguards 
-            such as the UK International Data Transfer Agreement (IDTA) are in place.
+              If any data is transferred outside the United Kingdom or European Economic Area, we
+              ensure that appropriate safeguards such as the UK International Data Transfer
+              Agreement (IDTA) are in place.
             </p>
           </section>
 
@@ -177,34 +184,41 @@ export default function Terms() {
               8. Cookies and Tracking
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-              Our website uses privacy-friendly analytics provided by Vercel to understand general usage trends such as page views and traffic sources. <br></br>
+              Our website uses privacy-friendly analytics provided by Vercel to understand general
+              usage trends such as page views and traffic sources. <br></br>
             </p>
-             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                These analytics do not use cookies, collect personal identifiers, or track individual visitors. They collect anonymized data.<br></br>
-             </p>
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
-                This helps us improve site performance and user experience while remaining fully compliant with the UK GDPR and the Privacy and Electronic Communications Regulations (PECR).<br></br>
-              </p>
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
-                Remeber that you can change your browser cookie settings as you wish for any site.
-              </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              These analytics do not use cookies, collect personal identifiers, or track individual
+              visitors. They collect anonymized data.<br></br>
+            </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
+              This helps us improve site performance and user experience while remaining fully
+              compliant with the UK GDPR and the Privacy and Electronic Communications Regulations
+              (PECR).<br></br>
+            </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
+              Remeber that you can change your browser cookie settings as you wish for any site.
+            </p>
           </section>
 
           {/* Section 9 */}
           <section>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
-              9. Contact Us
-            </h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">9. Contact Us</h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-              If you have any questions, concerns, or requests regarding your personal data, please contact us:
+              If you have any questions, concerns, or requests regarding your personal data, please
+              contact us:
             </p>
             <div className="border border-white rounded-lg p-6 space-y-2">
               <p className="text-base sm:text-lg text-gray-300">
-                <span className="font-semibold text-white">Data Controller:</span> Samuel Forrest (on behalf of Apprentadream)
+                <span className="font-semibold text-white">Data Controller:</span> Samuel Forrest
+                (on behalf of Apprentadream)
               </p>
               <p className="text-base sm:text-lg text-gray-300">
                 <span className="font-semibold text-white">Email:</span>{" "}
-                <a href="mailto:sam@samuelforrest.me" className="text-white hover:underline underline-offset-4">
+                <a
+                  href="mailto:sam@samuelforrest.me"
+                  className="text-white hover:underline underline-offset-4"
+                >
                   sam@samuelforrest.me
                 </a>
               </p>
@@ -217,8 +231,10 @@ export default function Terms() {
               10. Withdrawal of Consent & Unsubscribing
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              You may unsubscribe from our mailing list at any time by clicking the &ldquo;Unsubscribe&rdquo; link in any of 
-              our emails or by contacting us directly. Once unsubscribed, your data will be deleted within 30 days. You can request the removal of any of your data from the data controller.
+              You may unsubscribe from our mailing list at any time by clicking the
+              &ldquo;Unsubscribe&rdquo; link in any of our emails or by contacting us directly. Once
+              unsubscribed, your data will be deleted within 30 days. You can request the removal of
+              any of your data from the data controller.
             </p>
           </section>
 
@@ -227,13 +243,18 @@ export default function Terms() {
               11. Liability and User Conduct
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-              By joining or interacting with the Apprentadream Community, you agree to use the platform respectfully and lawfully. You must not submit false, misleading, or inappropriate information, or attempt to misuse our referral system or communications.
+              By joining or interacting with the Apprentadream Community, you agree to use the
+              platform respectfully and lawfully. You must not submit false, misleading, or
+              inappropriate information, or attempt to misuse our referral system or communications.
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              Apprentadream is not responsible for the accuracy or content of third-party resources, apprenticeship listings, or external links shared through our community.
+              Apprentadream is not responsible for the accuracy or content of third-party resources,
+              apprenticeship listings, or external links shared through our community.
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
-              While we take reasonable steps to maintain secure systems and accurate information, Apprentadream shall not be held liable for any indirect, incidental, or consequential loss arising from the use of our website, mailing list, or materials.
+              While we take reasonable steps to maintain secure systems and accurate information,
+              Apprentadream shall not be held liable for any indirect, incidental, or consequential
+              loss arising from the use of our website, mailing list, or materials.
             </p>
           </section>
 
@@ -252,8 +273,8 @@ export default function Terms() {
               13. Changes to This Notice
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              We may update these Terms & Conditions from time to time. Any significant changes will be communicated 
-              via email or posted on our website.
+              We may update these Terms & Conditions from time to time. Any significant changes will
+              be communicated via email or posted on our website.
             </p>
           </section>
 
@@ -261,8 +282,9 @@ export default function Terms() {
           <section className="pt-8 border-t border-gray-800">
             <div className="border border-white/50 rounded-lg p-6">
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
-                By submitting this form to join the Apprentadream Community, you confirm that you have read and understood these Terms & Conditions 
-                and consent to Apprentadream processing your personal data as described above.
+                By submitting this form to join the Apprentadream Community, you confirm that you
+                have read and understood these Terms & Conditions and consent to Apprentadream
+                processing your personal data as described above.
               </p>
             </div>
           </section>
@@ -270,17 +292,17 @@ export default function Terms() {
 
         {/* Back to Home Link */}
         <div className="mt-12 sm:mt-16 text-center">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="inline-flex items-center gap-2 text-white hover:underline underline-offset-4 text-lg font-medium"
           >
-            <svg 
-              className="w-5 h-5" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
             Back to Home
           </Link>

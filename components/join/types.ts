@@ -6,18 +6,18 @@ export interface FormData {
   countryCode: string;
   mobile: string;
   email: string;
-  
+
   // Interests
   industries: string[];
   apprenticeshipLevel: string;
-  
+
   // Social Accounts
   linkedinUrl: string;
   tiktokUsername: string;
   instagramUsername: string;
   twitterUsername: string;
   website: string;
-  
+
   // Additional Questions
   studentType: string;
   educationalCourse: string;
@@ -35,7 +35,7 @@ export const countryCodeGroups = [
     codes: [
       { code: "+44", country: "GB", name: "United Kingdom" },
       { code: "+353", country: "IE", name: "Ireland" },
-    ]
+    ],
   },
   {
     region: "Europe",
@@ -49,13 +49,11 @@ export const countryCodeGroups = [
       { code: "+46", country: "SE", name: "Sweden" },
       { code: "+47", country: "NO", name: "Norway" },
       { code: "+41", country: "CH", name: "Switzerland" },
-    ]
+    ],
   },
   {
     region: "Americas",
-    codes: [
-      { code: "+1", country: "US", name: "United States / Canada" },
-    ]
+    codes: [{ code: "+1", country: "US", name: "United States / Canada" }],
   },
   {
     region: "Asia & Pacific",
@@ -71,7 +69,7 @@ export const countryCodeGroups = [
       { code: "+62", country: "ID", name: "Indonesia" },
       { code: "+61", country: "AU", name: "Australia" },
       { code: "+64", country: "NZ", name: "New Zealand" },
-    ]
+    ],
   },
   {
     region: "Middle East & Africa",
@@ -80,12 +78,12 @@ export const countryCodeGroups = [
       { code: "+90", country: "TR", name: "Turkey" },
       { code: "+234", country: "NG", name: "Nigeria" },
       { code: "+27", country: "ZA", name: "South Africa" },
-    ]
-  }
+    ],
+  },
 ];
 
 // Flat list for backward compatibility
-export const countryCodes = countryCodeGroups.flatMap(group => group.codes);
+export const countryCodes = countryCodeGroups.flatMap((group) => group.codes);
 
 // Industries data
 export const industries = [
@@ -99,7 +97,7 @@ export const industries = [
   "Construction",
   "Retail",
   "Education",
-  "Other"
+  "Other",
 ];
 
 // Apprenticeship levels

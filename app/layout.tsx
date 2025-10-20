@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
-import { Analytics } from '@vercel/analytics/next';
-
+import { Analytics } from "@vercel/analytics/next";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -27,9 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-black">
-      <body
-        className={`${manrope.variable} antialiased font-sans bg-black`}
-      >
+      <body className={`${manrope.variable} antialiased font-sans bg-black`}>
         {children}
         <Analytics />
       </body>

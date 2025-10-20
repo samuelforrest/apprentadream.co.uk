@@ -12,18 +12,22 @@ interface Step5ReferralsProps {
 export function Step5Referrals({ referralLink, copied, onCopy }: Step5ReferralsProps) {
   return (
     <div className="space-y-6">
+      <div className="text-start text-sm">
+        <p>
+          We will soon be releasing something exciting. Those who refer 3+ people using their unique
+          link will get{" "}
+          <span className="inline-flex items-center gap-1">
+            <Gift className="h-4 w-4 text-blue-600" />
+          </span>{" "}
+          feebies when we launch!
+        </p>
+      </div>
 
-        <div className="text-start text-sm">
-            <p>We will soon be releasing something exciting. Those who refer 3+ people using their unique link will get <span className="inline-flex items-center gap-1"><Gift className="h-4 w-4 text-blue-600"/></span> feebies when we launch!</p>
-        </div>
-
-      <Label className="text-black font-semibold text-md"><Link className="h-5 w-5 text-blue-600" /> Your Unique Referral Link</Label>
+      <Label className="text-black font-semibold text-md">
+        <Link className="h-5 w-5 text-blue-600" /> Your Unique Referral Link
+      </Label>
       <div className="flex gap-2">
-        <Input
-          value={referralLink}
-          readOnly
-          className="flex-1 bg-white font-mono text-sm"
-        />
+        <Input value={referralLink} readOnly className="flex-1 bg-white font-mono text-sm" />
         <Button
           type="button"
           onClick={onCopy}
@@ -34,11 +38,7 @@ export function Step5Referrals({ referralLink, copied, onCopy }: Step5ReferralsP
         </Button>
       </div>
 
-      <div className="gap-2">
-        
-        
-      </div>
-
+      <div className="gap-2"></div>
     </div>
   );
 }

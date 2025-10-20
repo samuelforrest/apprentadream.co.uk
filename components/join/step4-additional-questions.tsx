@@ -1,15 +1,25 @@
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { FormData } from "./types";
 
 interface Step4AdditionalQuestionsProps {
   formData: FormData;
-  errors: {[key: string]: string};
+  errors: { [key: string]: string };
   onUpdate: (updates: Partial<FormData>) => void;
 }
 
-export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4AdditionalQuestionsProps) {
+export function Step4AdditionalQuestions({
+  formData,
+  errors,
+  onUpdate,
+}: Step4AdditionalQuestionsProps) {
   return (
     <div className="space-y-6">
       <div className="space-y-2">
@@ -33,9 +43,7 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
             <SelectItem value="Other / not listed">Other / not listed</SelectItem>
           </SelectContent>
         </Select>
-        {errors.studentType && (
-          <p className="text-sm text-red-500">{errors.studentType}</p>
-        )}
+        {errors.studentType && <p className="text-sm text-red-500">{errors.studentType}</p>}
       </div>
 
       <div className="space-y-2">
@@ -78,21 +86,22 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
             <SelectItem value="Gain experience">Gain experience</SelectItem>
             <SelectItem value="Avoid university debt">Avoid university debt</SelectItem>
             <SelectItem value="Start my career early">Start my career early</SelectItem>
-            <SelectItem value="Prefer practical / hands on learning">Prefer practical / hands on</SelectItem>
+            <SelectItem value="Prefer practical / hands on learning">
+              Prefer practical / hands on
+            </SelectItem>
             <SelectItem value="Prestige and networking">Prestige and networking</SelectItem>
             <SelectItem value="Other / unsure">Other / unsure</SelectItem>
           </SelectContent>
         </Select>
-        {errors.mainMotivation && (
-          <p className="text-sm text-red-500">{errors.mainMotivation}</p>
-        )}
+        {errors.mainMotivation && <p className="text-sm text-red-500">{errors.mainMotivation}</p>}
       </div>
+
       <div className="relative my-8">
-  <hr className="border-t border-gray-300" />
-  <span className="absolute left-1/2 -top-2 -translate-x-1/2 md:left-1/2 md:-top-3 md:-translate-x-1/2 bg-white px-2 text-xs md:text-sm text-gray-500">
-    Optional questions
-  </span>
-</div>
+        <hr className="border-t border-gray-300" />
+        <span className="absolute left-1/2 -top-2 -translate-x-1/2 md:left-1/2 md:-top-3 md:-translate-x-1/2 bg-white px-2 text-xs md:text-sm text-gray-500">
+          Optional questions
+        </span>
+      </div>
 
       <div className="space-y-2 pt-5">
         <Label htmlFor="applyingUniversity">Are you applying / at university?</Label>
@@ -107,7 +116,9 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
             <SelectItem value="Yes, applying to uni">Yes</SelectItem>
             <SelectItem value="No, not applying to uni">No</SelectItem>
             <SelectItem value="Have not decided">Have not yet decided</SelectItem>
-            <SelectItem value="I'm already at university">I&apos;m already at university</SelectItem>
+            <SelectItem value="I'm already at university">
+              I&apos;m already at university
+            </SelectItem>
           </SelectContent>
         </Select>
         {errors.applyingUniversity && (
@@ -126,24 +137,24 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="No">No</SelectItem>
-            <SelectItem value="Yes, did not reach further rounds">Yes, did not reach further rounds</SelectItem>
-            <SelectItem value="Yes, I reached assesment center stage">Yes, reached assesment center</SelectItem>
+            <SelectItem value="Yes, did not reach further rounds">
+              Yes, did not reach further rounds
+            </SelectItem>
+            <SelectItem value="Yes, I reached assesment center stage">
+              Yes, reached assesment center
+            </SelectItem>
             <SelectItem value="Yes, I declined an offer">Yes, declined an offer</SelectItem>
-            <SelectItem value="Yes, I'm a current apprentice">Yes, I&apos;m a current apprentice</SelectItem>
+            <SelectItem value="Yes, I'm a current apprentice">
+              Yes, I&apos;m a current apprentice
+            </SelectItem>
           </SelectContent>
         </Select>
-        {errors.appliedBefore && (
-          <p className="text-sm text-red-500">{errors.appliedBefore}</p>
-        )}
+        {errors.appliedBefore && <p className="text-sm text-red-500">{errors.appliedBefore}</p>}
       </div>
 
-      
       <div className="space-y-2">
         <Label htmlFor="referral">Referral</Label>
-        <Select
-          value={formData.referral}
-          onValueChange={(value) => onUpdate({ referral: value })}
-        >
+        <Select value={formData.referral} onValueChange={(value) => onUpdate({ referral: value })}>
           <SelectTrigger className={errors.referral ? "border-red-500" : ""}>
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
@@ -157,45 +168,37 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
             <SelectItem value="Other">Other</SelectItem>
           </SelectContent>
         </Select>
-        {errors.referral && (
-          <p className="text-sm text-red-500">{errors.referral}</p>
-        )}
+        {errors.referral && <p className="text-sm text-red-500">{errors.referral}</p>}
       </div>
       <div className="space-y-4">
-  <div className="space-y-2">
-    <Label htmlFor="confidenceLevel">
-      How confident are you about getting one?
-    </Label>
+        <div className="space-y-2">
+          <Label htmlFor="confidenceLevel">How confident are you about getting one?</Label>
 
-    <div className="pt-2">
-      <Slider
-        id="confidenceLevel"
-        min={0}
-        max={100}
-        step={1}
-        value={[parseInt(formData.confidenceLevel) || 50]}
-        onValueChange={(value: number[]) =>
-          onUpdate({ confidenceLevel: value[0].toString() })
-        }
-        className={`${
-          errors.confidenceLevel ? "border-red-500" : ""
-        } cursor-pointer bg-black`}
-      />
-    </div>
+          <div className="pt-2">
+            <Slider
+              id="confidenceLevel"
+              min={0}
+              max={100}
+              step={1}
+              value={[parseInt(formData.confidenceLevel) || 50]}
+              onValueChange={(value: number[]) =>
+                onUpdate({ confidenceLevel: value[0].toString() })
+              }
+              className={`${
+                errors.confidenceLevel ? "border-red-500" : ""
+              } cursor-pointer bg-black`}
+            />
+          </div>
 
-    <div className="flex justify-between text-xs text-muted-foreground">
-      <span>Not confident</span>
-      <span className="font-semibold text-white">
-        {formData.confidenceLevel || 50}%
-      </span>
-      <span>Very confident</span>
-    </div>
-  </div>
+          <div className="flex justify-between text-xs text-muted-foreground">
+            <span>Not confident</span>
+            <span className="font-semibold text-white">{formData.confidenceLevel || 50}%</span>
+            <span>Very confident</span>
+          </div>
+        </div>
 
-  {errors.confidenceLevel && (
-    <p className="text-sm text-red-500">{errors.confidenceLevel}</p>
-  )}
-</div>
+        {errors.confidenceLevel && <p className="text-sm text-red-500">{errors.confidenceLevel}</p>}
+      </div>
     </div>
   );
 }

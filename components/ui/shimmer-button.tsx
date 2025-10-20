@@ -1,21 +1,18 @@
-import React, { ComponentPropsWithoutRef, CSSProperties } from "react"
+import React, { ComponentPropsWithoutRef, CSSProperties } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 export interface ShimmerButtonProps extends ComponentPropsWithoutRef<"button"> {
-  shimmerColor?: string
-  shimmerSize?: string
-  borderRadius?: string
-  shimmerDuration?: string
-  background?: string
-  className?: string
-  children?: React.ReactNode
+  shimmerColor?: string;
+  shimmerSize?: string;
+  borderRadius?: string;
+  shimmerDuration?: string;
+  background?: string;
+  className?: string;
+  children?: React.ReactNode;
 }
 
-export const ShimmerButton = React.forwardRef<
-  HTMLButtonElement,
-  ShimmerButtonProps
->(
+export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
   (
     {
       shimmerColor = "#ffffff",
@@ -89,8 +86,8 @@ export const ShimmerButton = React.forwardRef<
           )}
         />
       </button>
-    )
+    );
   }
-)
+);
 
-ShimmerButton.displayName = "ShimmerButton"
+ShimmerButton.displayName = "ShimmerButton";

@@ -13,9 +13,7 @@ export function ProgressBar({ currentStep, totalSteps, sectionName }: ProgressBa
         <span className="text-sm font-medium text-black">
           Step {currentStep} of {totalSteps}
         </span>
-        <span className="text-sm font-medium text-black">
-          {Math.round(progress)}% Complete
-        </span>
+        <span className="text-sm font-medium text-black">{Math.round(progress)}% Complete</span>
       </div>
       <div className="w-full bg-white/20 rounded-full h-5 overflow-hidden border-2 border-blue-700">
         <div
