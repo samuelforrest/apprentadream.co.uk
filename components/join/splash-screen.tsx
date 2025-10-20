@@ -15,6 +15,7 @@ const sloganWords = [
 export function SplashScreen({ onStart }: SplashScreenProps) {
   const [showIntro, setShowIntro] = useState(true);
   const [visibleWords, setVisibleWords] = useState<number>(0);
+  const [hasSavedProgress, setHasSavedProgress] = useState(false);
 
   useEffect(() => {
     if (!showIntro) return;
@@ -41,6 +42,28 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
       clearTimeout(transitionTimer);
     };
   }, [showIntro]);
+
+  // Detect saved progress
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const has = Object.keys(localStorage).some((k) => k.startsWith("join-form."));
+      setHasSavedProgress(has);
+    } catch {
+      // ignore storage access issues
+    }
+  }, []);
+
+  const clearJoinFormStorage = () => {
+    if (typeof window === "undefined") return;
+    try {
+      Object.keys(localStorage)
+        .filter((k) => k.startsWith("join-form."))
+        .forEach((k) => localStorage.removeItem(k));
+    } catch {
+      // ignore
+    }
+  };
 
   // Animated intro screen
   if (showIntro) {
@@ -103,22 +126,56 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
           </p>
         </div>
 
-        {/* Start Button */}
-        <div className="mb-8 flex justify-center">
-          <ShimmerButton
-            onClick={onStart}
-            shimmerColor="#3b82f6"
-            shimmerSize="0.7em"
-            shimmerDuration="1.3s"
-            borderRadius="9999px"
-            background="rgb(37 99 235)"
-            className="text-white font-semibold text-base px-6 py-3 shadow-lg hover:scale-110"
-          >
-            <div className="flex items-center gap-2">
-              Join the WhatsApp Community
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </div>
-          </ShimmerButton>
+        {/* Start / Resume Buttons */}
+        <div className="mb-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+          {hasSavedProgress ? (
+            <>
+              <ShimmerButton
+                onClick={onStart}
+                shimmerColor="#3b82f6"
+                shimmerSize="0.7em"
+                shimmerDuration="1.3s"
+                borderRadius="9999px"
+                background="rgb(37 99 235)"
+                className="text-white font-semibold text-base px-6 py-3 shadow-lg hover:scale-110"
+              >
+                <div className="flex items-center gap-2">
+                  Resume your sign up
+                  <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </div>
+              </ShimmerButton>
+              <ShimmerButton
+                onClick={() => {
+                  clearJoinFormStorage();
+                  // Ensure in-memory state resets by reloading
+                  window.location.reload();
+                }}
+                shimmerColor="#9ca3af"
+                shimmerSize="0.7em"
+                shimmerDuration="1.3s"
+                borderRadius="9999px"
+                background="rgb(31 41 55)"
+                className="text-white font-semibold text-base px-6 py-3 shadow-lg hover:scale-110"
+              >
+                Start over
+              </ShimmerButton>
+            </>
+          ) : (
+            <ShimmerButton
+              onClick={onStart}
+              shimmerColor="#3b82f6"
+              shimmerSize="0.7em"
+              shimmerDuration="1.3s"
+              borderRadius="9999px"
+              background="rgb(37 99 235)"
+              className="text-white font-semibold text-base px-6 py-3 shadow-lg hover:scale-110"
+            >
+              <div className="flex items-center gap-2">
+                Join the WhatsApp Community
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </div>
+            </ShimmerButton>
+          )}
         </div>
 
         {/* Stats tagline */}

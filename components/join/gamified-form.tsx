@@ -16,6 +16,7 @@ import { Step5Referrals } from "./step5-referrals";
 import { Step6Confirmation } from "./step6-confirmation";
 import type { FormData } from "./types";
 import confetti from "canvas-confetti";
+import { usePersistentState } from "@/hooks/use-persistent-state";
 
 export function ConfettiFireworks() {
   const handleClick = () => {
@@ -49,7 +50,11 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   const handleClick = ConfettiFireworks();
   const searchParams = useSearchParams();
   const [showSplash, setShowSplash] = useState(true);
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep, clearStep] = usePersistentState<number>(
+    "join-form.step",
+    1,
+    { version: "v1" }
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -58,7 +63,9 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [referrerCode, setReferrerCode] = useState<string>("");
 
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData, clearFormData] = usePersistentState<FormData>(
+    "join-form.data",
+    {
     firstName: "",
     lastName: "",
     countryCode: "+44",
@@ -78,7 +85,9 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     appliedBefore: "",
     referral: "",
     confidenceLevel: "50",
-  });
+    },
+    { version: "v1" }
+  );
 
   // Detect referral code from URL
   useEffect(() => {
@@ -87,6 +96,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       setReferrerCode(refCode);
     }
   }, [searchParams]);
+
 
   // Generate unique referral code: 4 random digits + last 4 digits of phone number
   const generateReferralCode = (mobile: string) => {
@@ -381,6 +391,17 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
         // Show success state instead of redirecting
         setShowSuccess(true);
         setIsSubmitting(false);
+        // Clear persisted progress and data after success
+        try {
+          clearFormData();
+          clearStep();
+          // Also clear any other related keys
+          if (typeof window !== "undefined") {
+            Object.keys(localStorage)
+              .filter((k) => k.startsWith("join-form."))
+              .forEach((k) => localStorage.removeItem(k));
+          }
+        } catch {}
       } else {
         console.error("Submission failed with status:", response.status);
         alert(`Submission failed with status: ${response.status}. Please try again.`);
