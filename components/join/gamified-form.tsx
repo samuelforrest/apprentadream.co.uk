@@ -241,7 +241,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       case 2:
         return "Which Industries interest you?";
       case 3:
-        return "Connect your social media accounts";
+        return "Connect your social accounts";
       case 4:
         return "Additional Questions";
       case 5:
