@@ -42,26 +42,30 @@ export function Step2Interests({ formData, errors, onUpdate, onIndustryToggle }:
   };
 
   const handleCustomIndustryChange = (value: string) => {
-    const trimmedValue = value.trim();
-    
-    if (trimmedValue) {
-      // Keep "Other" and add/update the custom industry
-      const withoutCustom = formData.industries.filter(ind => 
-        industries.includes(ind) || ind === "Other"
-      );
-      
-      // Ensure "Other" is in the array and add the custom value
-      const withOther = withoutCustom.includes("Other") ? withoutCustom : [...withoutCustom, "Other"];
-      const updated = withOther.includes(trimmedValue) ? withOther : [...withOther, trimmedValue];
-      onIndustryToggle(updated);
-    } else {
-      // Clear custom value, keep "Other" selected if it was selected
-      const withoutCustom = formData.industries.filter(ind => 
-        industries.includes(ind) || ind === "Other"
-      );
-      onIndustryToggle(withoutCustom);
-    }
-  };
+  if (value) {
+    // Keep "Other" and add/update the custom industry
+    const withoutCustom = formData.industries.filter(ind =>
+      industries.includes(ind) || ind === "Other"
+    );
+
+    // Ensure "Other" is in the array and add the custom value
+    const withOther = withoutCustom.includes("Other")
+      ? withoutCustom
+      : [...withoutCustom, "Other"];
+
+    const updated = withOther.includes(value)
+      ? withOther
+      : [...withOther, value];
+
+    onIndustryToggle(updated);
+  } else {
+    // Clear custom value, keep "Other" selected if it was selected
+    const withoutCustom = formData.industries.filter(ind =>
+      industries.includes(ind) || ind === "Other"
+    );
+    onIndustryToggle(withoutCustom);
+  }
+};
 
   return (
     <div className="space-y-6">
