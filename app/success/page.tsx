@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { FaWhatsapp, FaShare, FaCheck } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 import { LinkIcon } from "lucide-react";
 
 function SuccessContent() {
@@ -94,7 +94,7 @@ function SuccessContent() {
                             size="lg"
                             className={`w-full max-w-md px-8 py-6 text-lg rounded-xl transition-all transform hover:scale-105 ${
                               copied 
-                                ? "text-white bg-green-600 hover:bg-green-700" 
+                                ? "text-white bg-blue-800 hover:bg-blue-900" 
                                 : "text-white bg-blue-600 hover:bg-blue-700"
                             }`}
                           >
@@ -106,7 +106,7 @@ function SuccessContent() {
                             ) : (
                               <>
                                 <LinkIcon className="w-6 h-6 mr-2" />
-                                Copy Your Referral Link
+                                Copy your unique referral link
                               </>
                             )}
                           </Button>
