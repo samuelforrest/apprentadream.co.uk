@@ -71,6 +71,7 @@ export default function Terms() {
               <li>Referral Source Identifiable Code</li>
               <li>Your own referral code & link </li>
               <li>Who you referred & if you copied your referral link</li>
+              <li>Your progress through the form</li>
               <li>The exact date and time you pressed submit</li>
             </ul>
           </section>
@@ -175,10 +176,18 @@ export default function Terms() {
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
               8. Cookies and Tracking
             </h2>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              Our website may use cookies to improve user experience. 
-              You can adjust your browser settings to block or delete cookies at any time.
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
+              Our website uses privacy-friendly analytics provided by Vercel to understand general usage trends such as page views and traffic sources. <br></br>
             </p>
+             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+                These analytics do not use cookies, collect personal identifiers, or track individual visitors. <br></br>
+             </p>
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
+                This helps us improve site performance and user experience while remaining fully compliant with the UK GDPR and the Privacy and Electronic Communications Regulations (PECR).<br></br>
+              </p>
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
+                You can change your browser cookie settings as you wish.
+              </p>
           </section>
 
           {/* Section 9 */}
