@@ -11,11 +11,11 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: "Apprentadream - Join the Community",
-  description: "Apprentadream is the community to achieve top apprenticeship offers",
+  description: "Skip the maybe, get the yes",
   icons: {
-    icon: "/ad.png",
-    shortcut: "/ad.png",
-    apple: "/ad.png",
+    icon: "/og.jpg",
+    shortcut: "/og.jpg",
+    apple: "/og.jpg",
   },
 };
 
