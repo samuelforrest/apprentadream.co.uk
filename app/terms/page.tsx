@@ -26,7 +26,7 @@ export default function Terms() {
             Terms & Conditions
           </h1>
           <p className="text-lg sm:text-xl text-gray-400">
-            Last updated: October 2025
+            Last updated: 20th October 2025
           </p>
         </div>
 
@@ -180,7 +180,7 @@ export default function Terms() {
             </p>
             <div className="border border-white rounded-lg p-6 space-y-2">
               <p className="text-base sm:text-lg text-gray-300">
-                <span className="font-semibold text-white">Data Controller:</span> Apprentadream - Samuel Forrest temporary data controller.
+                <span className="font-semibold text-white">Data Controller:</span> Samuel Forrest (on behalf of Apprentadream)
               </p>
               <p className="text-base sm:text-lg text-gray-300">
                 <span className="font-semibold text-white">Email:</span>{" "}
