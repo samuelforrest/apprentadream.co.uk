@@ -65,7 +65,7 @@ export default function Terms() {
               <li>Type of student / year</li>
               <li>Educational course</li>
               <li>Your motivation to do an apprenticeship</li>
-              <li>Whether you are applying to unversity</li>
+              <li>Whether you are applying to university</li>
               <li>Whether you have applied to apprenticeships before</li>
               <li>Your confidence level for apprenticeships</li>
               <li>Referral Source</li>
@@ -103,6 +103,18 @@ export default function Terms() {
               Our processing of your personal data is based on your consent under Article 6(1)(a) of the UK GDPR. 
               You may withdraw your consent at any time by unsubscribing from our emails or contacting us directly 
               (see Section 9).
+            </p>
+          </section>
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
+              4A. Use of Artificial Intelligence
+            </h2>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              We may use artificial intelligence (AI) and automated tools to analyse or categorise certain personal data you provide — for example, to match your interests to suitable apprenticeship opportunities, improve recommendations, or understand user trends.
+
+              All AI processing is conducted under our control, using GDPR-compliant systems.
+              AI tools do not make fully automated decisions that have a legal or significant effect on you.
+              You can request human review of any automated processing by contacting the Data Controller (see Section 9).
             </p>
           </section>
 
@@ -198,14 +210,29 @@ export default function Terms() {
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               You may unsubscribe from our mailing list at any time by clicking the &ldquo;Unsubscribe&rdquo; link in any of 
-              our emails or by contacting us directly. Once unsubscribed, your data will be deleted within 30 days. You can request for removal of any of your data from the data controller.
+              our emails or by contacting us directly. Once unsubscribed, your data will be deleted within 30 days. You can request the removal of any of your data from the data controller.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
+              11. Liability and User Conduct
+            </h2>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
+              By joining or interacting with the Apprentadream Community, you agree to use the platform respectfully and lawfully. You must not submit false, misleading, or inappropriate information, or attempt to misuse our referral system or communications.
+            </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              Apprentadream is not responsible for the accuracy or content of third-party resources, apprenticeship listings, or external links shared through our community.
+            </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
+              While we take reasonable steps to maintain secure systems and accurate information, Apprentadream shall not be held liable for any indirect, incidental, or consequential loss arising from the use of our website, mailing list, or materials.
             </p>
           </section>
 
           {/* Section 11 */}
           <section>
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
-              11. Changes to This Notice
+              12. Changes to This Notice
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               We may update these Terms & Conditions from time to time. Any significant changes will be communicated 
