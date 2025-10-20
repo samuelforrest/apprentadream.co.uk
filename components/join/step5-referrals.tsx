@@ -14,7 +14,7 @@ export function Step5Referrals({ referralLink, copied, onCopy }: Step5ReferralsP
     <div className="space-y-6">
 
         <div className="text-start text-sm">
-            <p>We will soon be launching an online platform. Those who refer 3+ people using their unique link will get <span className="inline-flex items-center gap-1"><Gift className="h-4 w-4 text-blue-600"/></span> feebies when we launch!</p>
+            <p>We will soon be releasing something exciting. Those who refer 3+ people using their unique link will get <span className="inline-flex items-center gap-1"><Gift className="h-4 w-4 text-blue-600"/></span> feebies when we launch!</p>
         </div>
 
       <Label className="text-black font-semibold text-md"><Link className="h-5 w-5 text-blue-600" /> Your Unique Referral Link</Label>

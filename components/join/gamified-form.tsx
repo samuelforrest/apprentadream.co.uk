@@ -245,7 +245,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       case 4:
         return "Additional Questions";
       case 5:
-        return "Refer Friends for points";
+        return "Refer Friends for freebies";
       case 6:
         return "What you're about to unlock...";
       default:
