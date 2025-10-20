@@ -1,12 +1,13 @@
 "use client";
 
 import { Suspense, useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ProgressBar } from "./progress-bar";
 import { SplashScreen } from "./splash-screen";
+import { SuccessScreen } from "./success-screen";
 import { Step1BasicInfo } from "./step1-basic-info";
 import { Step2Interests } from "./step2-interests";
 import { Step3SocialAccounts } from "./step3-social-accounts";
@@ -46,11 +47,11 @@ export function ConfettiFireworks() {
 // Component that handles search params
 function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">) {
   const handleClick = ConfettiFireworks();
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [showSplash, setShowSplash] = useState(true);
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [copied, setCopied] = useState(false);
   const [referralCode, setReferralCode] = useState("");
   const [referralLinkCopied, setReferralLinkCopied] = useState(false);
@@ -375,9 +376,11 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       // With no-cors mode, we can't read the response, so we assume success if no error is thrown
       if (response.type === "opaque" || response.ok) {
         console.log("Form submitted successfully!");
-        // Pass the referral code to the success page so user can copy their link
-        const successUrl = referralCode ? `/success?ref=${referralCode}` : "/success";
-        router.push(successUrl);
+        // Trigger confetti celebration
+        handleClick();
+        // Show success state instead of redirecting
+        setShowSuccess(true);
+        setIsSubmitting(false);
       } else {
         console.error("Submission failed with status:", response.status);
         alert(`Submission failed with status: ${response.status}. Please try again.`);
@@ -409,6 +412,9 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       {/* Splash Screen */}
       {showSplash ? (
         <SplashScreen onStart={() => setShowSplash(false)} />
+      ) : showSuccess ? (
+        /* Success Screen */
+        <SuccessScreen referralCode={referralCode} />
       ) : (
         /* Main Form */
         <>
