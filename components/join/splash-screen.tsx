@@ -49,7 +49,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
         <div className="text-center space-y-4 px-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white space-y-2">
             {sloganWords.map((line, lineIndex) => {
-              const lineStartIndex = lineIndex * 3; // Each line has 3 words
+              const lineStartIndex = lineIndex * 3; // 2 lines, of 3 words each
               return (
                 <div key={lineIndex} className="block">
                   {line.map((word, wordIndex) => {
@@ -136,7 +136,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
               <ChartNoAxesCombined />
             </span>
             <span>
-              <span className="font-bold text-white">4</span> offers per person 2024
+              <span className="font-bold text-white">4</span> offers per member
             </span>
           </div>
         </div>
