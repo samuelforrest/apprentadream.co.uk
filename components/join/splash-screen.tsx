@@ -96,7 +96,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
             Join Apprentadream
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-            Your best chance of getting a DA offer
+            Skip the maybe, get the yes
           </p>
         </div>
         
