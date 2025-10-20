@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ArrowRight, ChartNoAxesCombined, Users } from "lucide-react";
+import { ArrowRight, ChartNoAxesCombined, Linkedin, Users } from "lucide-react";
 import { ShimmerButton } from "../ui/shimmer-button";
+import { FaInstagram, FaLink, FaLinkedin, FaTiktok } from "react-icons/fa";
 
 interface SplashScreenProps {
   onStart: () => void;
@@ -81,7 +82,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
     <div className="flex flex-col items-center justify-center animate-in fade-in duration-700">
       <div className="text-center px-4">
         {/* Logo */}
-        <div className="mb-4">
+        <div>
           <Image
             src="/ad.png"
             alt="logo"
@@ -108,11 +109,11 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
           <ShimmerButton
             onClick={onStart}
             shimmerColor="#3b82f6"
-            shimmerSize="0.5em"
-            shimmerDuration="2s"
+            shimmerSize="0.7em"
+            shimmerDuration="1.3s"
             borderRadius="9999px"
             background="rgb(37 99 235)"
-            className="text-white font-semibold text-base px-6 py-3 shadow-lg hover:scale-105"
+            className="text-white font-semibold text-base px-6 py-3 shadow-lg hover:scale-110"
           >
             <div className="flex items-center gap-2">
               Join the WhatsApp Community
@@ -139,6 +140,37 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
               <span className="font-bold text-white">4</span> offers per member
             </span>
           </div>
+        </div>
+        <div className="flex justify-center gap-6 mt-12">
+          <a
+            href="https://www.linkedin.com/company/https-www-apprentadream-cenk-mustafa/about/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-[#0A66C2] hover:scale-110 transition-colors duration-200"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin className="text-xl" />
+          </a>
+
+          <a
+            href="https://www.instagram.com/apprentadream/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-pink-500 hover:scale-110 transition-colors duration-200"
+            aria-label="Instagram"
+          >
+            <FaInstagram className="text-xl" />
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@apprentadream"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-green-500 hover:scale-110 transition-transform duration-200"
+            aria-label="TikTok"
+          >
+            <FaTiktok className="text-lg" />
+          </a>
         </div>
       </div>
     </div>
