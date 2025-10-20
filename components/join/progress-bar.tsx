@@ -17,9 +17,9 @@ export function ProgressBar({ currentStep, totalSteps, sectionName }: ProgressBa
           {Math.round(progress)}% Complete
         </span>
       </div>
-      <div className="w-full bg-white/20 rounded-full h-5 overflow-hidden border-2 border-blue-600">
+      <div className="w-full bg-white/20 rounded-full h-5 overflow-hidden border-2 border-blue-700">
         <div
-          className="h-full bg-blue-600 transition-all duration-500 ease-out"
+          className="h-full bg-blue-700 transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
         />
       </div>
