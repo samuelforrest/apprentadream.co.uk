@@ -25,9 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-black">
       <body
-        className={`${manrope.variable} antialiased font-sans`}
+        className={`${manrope.variable} antialiased font-sans bg-black`}
       >
         {children}
       </body>
