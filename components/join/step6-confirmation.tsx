@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
-import { AlertTriangleIcon, Handshake, Megaphone } from "lucide-react";
+import { Handshake, Megaphone } from "lucide-react";
 
 export function Step6Confirmation() {
   return (
