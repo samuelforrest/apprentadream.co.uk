@@ -126,7 +126,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-2xl text-white"><ChartNoAxesCombined/></span>
-            <span><span className="font-bold text-white">Top</span> offer rates</span>
+            <span><span className="font-bold text-white">4</span> offers per person</span>
           </div>
         </div>
       </div>
