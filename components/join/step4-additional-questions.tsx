@@ -22,14 +22,15 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
             <SelectValue placeholder="Select type of student" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="gap-year">Gap Year</SelectItem>
-            <SelectItem value="year-10-S3-student">Year 10 (S3) Student</SelectItem>
-            <SelectItem value="year-11-S4-student">Year 11 (S4) Student</SelectItem>
-            <SelectItem value="year-12-S5-student">Year 12 (S5) Student</SelectItem>
-            <SelectItem value="year-13-S6-student">Year 13 (S6) Student</SelectItem>
-            <SelectItem value="international-student">International Student</SelectItem>
-            <SelectItem value="career-change">Career Changer</SelectItem>
-            <SelectItem value="other">Other / not listed</SelectItem>
+            <SelectItem value="Already an apprentice">Already an apprentice</SelectItem>
+            <SelectItem value="On a gap year">Gap Year</SelectItem>
+            <SelectItem value="Year 10/S3 student">Year 10 (S3) Student</SelectItem>
+            <SelectItem value="Year 11/S4 student">Year 11 (S4) Student</SelectItem>
+            <SelectItem value="Year 12/S5 student">Year 12 (S5) Student</SelectItem>
+            <SelectItem value="Year 13/S6 student">Year 13 (S6) Student</SelectItem>
+            <SelectItem value="International student">International Student</SelectItem>
+            <SelectItem value="Career Change">Career Changer</SelectItem>
+            <SelectItem value="Other / not listed">Other / not listed</SelectItem>
           </SelectContent>
         </Select>
         {errors.studentType && (
@@ -47,14 +48,15 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
             <SelectValue placeholder="Select course" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="a-levels">A Levels</SelectItem>
-            <SelectItem value="t-levels">T Levels</SelectItem>
-            <SelectItem value="btec">BTEC</SelectItem>
-            <SelectItem value="ib">IB</SelectItem>
-            <SelectItem value="scottish-highers">Scottish Highers</SelectItem>
-            <SelectItem value="gcse-igcse">GCSEs / IGCSEs</SelectItem>
-            <SelectItem value="national-4">National 4</SelectItem>
-            <SelectItem value="other">Other / not listed</SelectItem>
+            <SelectItem value="A Levels">A Levels</SelectItem>
+            <SelectItem value="T Levels">T Levels</SelectItem>
+            <SelectItem value="BTEC">BTEC</SelectItem>
+            <SelectItem value="IB">IB</SelectItem>
+            <SelectItem value="Scottish Highers">Scottish Highers</SelectItem>
+            <SelectItem value="GCSEs / IGCSEs">GCSEs / IGCSEs</SelectItem>
+            <SelectItem value="National 4">National 4</SelectItem>
+            <SelectItem value="Apprenticeship">Apprenticeship</SelectItem>
+            <SelectItem value="Other / not listed">Other / not listed</SelectItem>
           </SelectContent>
         </Select>
         {errors.educationalCourse && (
@@ -72,13 +74,13 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="salary">Build wealth early</SelectItem>
-            <SelectItem value="work-experience">Gain experience</SelectItem>
-            <SelectItem value="avoid-debt">Avoid university debt</SelectItem>
-            <SelectItem value="start-early">Start my career early</SelectItem>
-            <SelectItem value="practical-hands-on">Prefer practical / hands on</SelectItem>
-            <SelectItem value="prestige-networking">Prestige and networking</SelectItem>
-            <SelectItem value="unsure-other">Other / unsure</SelectItem>
+            <SelectItem value="Build wealth early">Build wealth early</SelectItem>
+            <SelectItem value="Gain experience">Gain experience</SelectItem>
+            <SelectItem value="Avoid university debt">Avoid university debt</SelectItem>
+            <SelectItem value="Start my career early">Start my career early</SelectItem>
+            <SelectItem value="Prefer practical / hands on learning">Prefer practical / hands on</SelectItem>
+            <SelectItem value="Prestige and networking">Prestige and networking</SelectItem>
+            <SelectItem value="Other / unsure">Other / unsure</SelectItem>
           </SelectContent>
         </Select>
         {errors.mainMotivation && (
@@ -93,7 +95,7 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
 </div>
 
       <div className="space-y-2 pt-5">
-        <Label htmlFor="applyingUniversity">Are you applying / already at university?</Label>
+        <Label htmlFor="applyingUniversity">Are you applying / at university?</Label>
         <Select
           value={formData.applyingUniversity}
           onValueChange={(value) => onUpdate({ applyingUniversity: value })}
@@ -102,14 +104,36 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="yes">Yes</SelectItem>
-            <SelectItem value="no">No</SelectItem>
-            <SelectItem value="not-decided">Have not yet decided</SelectItem>
-            <SelectItem value="already-at-university">I&apos;m already at university</SelectItem>
+            <SelectItem value="Yes, applying to uni">Yes</SelectItem>
+            <SelectItem value="No, not applying to uni">No</SelectItem>
+            <SelectItem value="Have not decided">Have not yet decided</SelectItem>
+            <SelectItem value="I'm already at university">I&apos;m already at university</SelectItem>
           </SelectContent>
         </Select>
         {errors.applyingUniversity && (
           <p className="text-sm text-red-500">{errors.applyingUniversity}</p>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="appliedBefore">Did you apply last season?</Label>
+        <Select
+          value={formData.appliedBefore}
+          onValueChange={(value) => onUpdate({ appliedBefore: value })}
+        >
+          <SelectTrigger className={errors.appliedBefore ? "border-red-500" : ""}>
+            <SelectValue placeholder="Select..." />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="No">No</SelectItem>
+            <SelectItem value="Yes, did not reach further rounds">Yes, did not reach further rounds</SelectItem>
+            <SelectItem value="Yes, I reached assesment center stage">Yes, reached assesment center</SelectItem>
+            <SelectItem value="Yes, I declined an offer">Yes, declined an offer</SelectItem>
+            <SelectItem value="Yes, I'm a current apprentice">Yes, I&apos;m a current apprentice</SelectItem>
+          </SelectContent>
+        </Select>
+        {errors.appliedBefore && (
+          <p className="text-sm text-red-500">{errors.appliedBefore}</p>
         )}
       </div>
 
@@ -124,13 +148,13 @@ export function Step4AdditionalQuestions({ formData, errors, onUpdate }: Step4Ad
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="friend-family">Friend / Family</SelectItem>
-            <SelectItem value="linkedin">LinkedIn</SelectItem>
-            <SelectItem value="tiktok">TikTok</SelectItem>
-            <SelectItem value="instagram">Instagram</SelectItem>
-            <SelectItem value="news">News Source</SelectItem>
-            <SelectItem value="networking">Networking Event</SelectItem>
-            <SelectItem value="other-source">Other</SelectItem>
+            <SelectItem value="Friend / Family">Friend / Family</SelectItem>
+            <SelectItem value="LinkedIn">LinkedIn</SelectItem>
+            <SelectItem value="TikTok">TikTok</SelectItem>
+            <SelectItem value="Instagram">Instagram</SelectItem>
+            <SelectItem value="News Source">News Source</SelectItem>
+            <SelectItem value="Networking Event">Networking Event</SelectItem>
+            <SelectItem value="Other">Other</SelectItem>
           </SelectContent>
         </Select>
         {errors.referral && (
