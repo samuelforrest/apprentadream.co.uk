@@ -229,10 +229,19 @@ export default function Terms() {
             </p>
           </section>
 
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
+              12. Data Protection Statement
+            </h2>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
+              Apprentadream complies with the UK GDPR and the Data Protection Act 2018.
+            </p>
+          </section>
+
           {/* Section 11 */}
           <section>
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
-              12. Changes to This Notice
+              13. Changes to This Notice
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               We may update these Terms & Conditions from time to time. Any significant changes will be communicated 
