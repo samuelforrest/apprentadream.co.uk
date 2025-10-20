@@ -197,9 +197,6 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
             </span>
           </div>
         </div>
-        <div className="flex justify-center gap-6 mt-12">
-          <p className="text-white text-sm">This form takes 2 minutes. Do not refresh tab.</p>
-        </div>
       </div>
     </div>
   );
