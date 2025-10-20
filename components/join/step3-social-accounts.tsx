@@ -48,7 +48,7 @@ export function Step3SocialAccounts({ formData, errors, onUpdate, onErrorClear }
         <Input
           id="tiktok"
           type="text"
-          placeholder="@yourusername"
+          placeholder="@tiktokusername"
           value={formData.tiktokUsername}
           onChange={(e) => onUpdate({ tiktokUsername: e.target.value })}
         />
@@ -59,7 +59,7 @@ export function Step3SocialAccounts({ formData, errors, onUpdate, onErrorClear }
         <Input
           id="instagram"
           type="text"
-          placeholder="@yourusername"
+          placeholder="@instagramusername"
           value={formData.instagramUsername}
           onChange={(e) => onUpdate({ instagramUsername: e.target.value })}
         />
@@ -70,7 +70,7 @@ export function Step3SocialAccounts({ formData, errors, onUpdate, onErrorClear }
         <Input
           id="twitter"
           type="text"
-          placeholder="@yourusername"
+          placeholder="@twitterusername"
           value={formData.twitterUsername}
           onChange={(e) => onUpdate({ twitterUsername: e.target.value })}
         />
