@@ -10,7 +10,7 @@ export function SuccessScreen({ referralCode }: SuccessScreenProps) {
 
   const getReferralLink = () => {
     if (typeof window !== "undefined" && referralCode) {
-      return `${window.location.origin}/join?ref=${referralCode}`;
+      return `${window.location.origin}/?ref=${referralCode}`;
     }
     return "";
   };
