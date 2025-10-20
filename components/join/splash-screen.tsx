@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ArrowRight, ChartNoAxesCombined, Linkedin, Users } from "lucide-react";
+import { ArrowRight, ChartNoAxesCombined, Users } from "lucide-react";
 import { ShimmerButton } from "../ui/shimmer-button";
-import { FaInstagram, FaLink, FaLinkedin, FaTiktok } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa";
 
 interface SplashScreenProps {
   onStart: () => void;
