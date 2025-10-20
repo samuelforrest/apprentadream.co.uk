@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight, ChartNoAxesCombined, Users } from "lucide-react";
 import { ShimmerButton } from "../ui/shimmer-button";
-import { FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa";
 
 interface SplashScreenProps {
   onStart: () => void;
@@ -123,7 +122,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
         </div>
 
         {/* Stats tagline */}
-        <div className="flex flex-wrap items-center justify-center gap-12 text-sm text-gray-400 pt-2">
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm text-gray-400 pt-2">
           <div className="flex items-center gap-2">
             <span className="text-2xl text-white">
               <Users />
@@ -137,40 +136,12 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
               <ChartNoAxesCombined />
             </span>
             <span>
-              <span className="font-bold text-white">4</span> offers per member
+              <span className="font-bold text-white">4</span> offers/member
             </span>
           </div>
         </div>
         <div className="flex justify-center gap-6 mt-12">
-          <a
-            href="https://www.linkedin.com/company/https-www-apprentadream-cenk-mustafa/about/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/80 hover:text-[#0A66C2] hover:scale-110 transition-colors duration-200"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin className="text-xl" />
-          </a>
-
-          <a
-            href="https://www.instagram.com/apprentadream/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/80 hover:text-pink-500 hover:scale-110 transition-colors duration-200"
-            aria-label="Instagram"
-          >
-            <FaInstagram className="text-xl" />
-          </a>
-
-          <a
-            href="https://www.tiktok.com/@apprentadream"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/80 hover:text-green-500 hover:scale-110 transition-transform duration-200"
-            aria-label="TikTok"
-          >
-            <FaTiktok className="text-lg" />
-          </a>
+          <p className="text-white text-sm">This form takes 2 minutes. Do not refresh tab.</p>
         </div>
       </div>
     </div>
