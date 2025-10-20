@@ -180,13 +180,13 @@ export default function Terms() {
               Our website uses privacy-friendly analytics provided by Vercel to understand general usage trends such as page views and traffic sources. <br></br>
             </p>
              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                These analytics do not use cookies, collect personal identifiers, or track individual visitors. <br></br>
+                These analytics do not use cookies, collect personal identifiers, or track individual visitors. They collect anonymized data.<br></br>
              </p>
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
                 This helps us improve site performance and user experience while remaining fully compliant with the UK GDPR and the Privacy and Electronic Communications Regulations (PECR).<br></br>
               </p>
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
-                You can change your browser cookie settings as you wish.
+                Remeber that you can change your browser cookie settings as you wish for any site.
               </p>
           </section>
 
