@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
-import { Handshake, Megaphone } from "lucide-react";
+import { AlertTriangleIcon, Handshake, Megaphone } from "lucide-react";
 
 export function Step6Confirmation() {
   return (
@@ -41,7 +41,7 @@ export function Step6Confirmation() {
       >
         Terms &amp; Conditions
       </Link>{" "}
-      and consent to Apprentadream.
+      (Link to terms will reset form progress)
     </span>
   </label>
 </div>
