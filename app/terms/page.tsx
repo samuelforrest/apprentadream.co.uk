@@ -55,12 +55,24 @@ export default function Terms() {
               When you complete the &ldquo;Join Apprentadream&rdquo; form, we collect the following information:
             </p>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
-              <li>Full Name</li>
+              <li>First Name</li>
+              <li>Last Name</li>
+              <li>Phone Number and Country Code</li>
               <li>Email Address</li>
-              <li>Phone Number</li>
-              <li>Type of Student (status)</li>
+              <li>Industry of interest</li>
+              <li>Degree Apprenticeship level of interest</li>
+              <li>Linkedin/Tiktok/Instagram/Twitter/Website/Other URL declared</li>
+              <li>Type of student / year</li>
+              <li>Educational course</li>
+              <li>Your motivation to do an apprenticeship</li>
+              <li>Whether you are applying to unversity</li>
+              <li>Whether you have applied to apprenticeships before</li>
+              <li>Your confidence level for apprenticeships</li>
               <li>Referral Source</li>
-              <li>LinkedIn Username or Profile Link</li>
+              <li>Referral Source Identifiable Code</li>
+              <li>Your own referral code & link </li>
+              <li>Who you referred & if you copied your referral link</li>
+              <li>The exact date and time you pressed submit</li>
             </ul>
           </section>
 
