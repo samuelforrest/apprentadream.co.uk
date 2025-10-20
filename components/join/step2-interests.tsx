@@ -113,7 +113,7 @@ export function Step2Interests({ formData, errors, onUpdate, onIndustryToggle }:
             <Input
               id="customIndustry"
               type="text"
-              placeholder="e.g., Biotechnology, Renewable Energy..."
+              placeholder="e.g. Sustainability, Transport, Government..."
               value={customIndustry}
               onChange={(e) => handleCustomIndustryChange(e.target.value)}
               className="w-full"
