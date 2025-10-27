@@ -50,11 +50,9 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   const handleClick = ConfettiFireworks();
   const searchParams = useSearchParams();
   const [showSplash, setShowSplash] = useState(true);
-  const [currentStep, setCurrentStep, clearStep] = usePersistentState<number>(
-    "join-form.step",
-    1,
-    { version: "v1" }
-  );
+  const [currentStep, setCurrentStep, clearStep] = usePersistentState<number>("join-form.step", 1, {
+    version: "v1",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -66,25 +64,25 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   const [formData, setFormData, clearFormData] = usePersistentState<FormData>(
     "join-form.data",
     {
-    firstName: "",
-    lastName: "",
-    countryCode: "+44",
-    mobile: "",
-    email: "",
-    industries: [],
-    apprenticeshipLevel: "",
-    linkedinUrl: "",
-    tiktokUsername: "",
-    instagramUsername: "",
-    twitterUsername: "",
-    website: "",
-    studentType: "",
-    educationalCourse: "",
-    mainMotivation: "",
-    applyingUniversity: "",
-    appliedBefore: "",
-    referral: "",
-    confidenceLevel: "50",
+      firstName: "",
+      lastName: "",
+      countryCode: "+44",
+      mobile: "",
+      email: "",
+      industries: [],
+      apprenticeshipLevel: "",
+      linkedinUrl: "",
+      tiktokUsername: "",
+      instagramUsername: "",
+      twitterUsername: "",
+      website: "",
+      studentType: "",
+      educationalCourse: "",
+      mainMotivation: "",
+      applyingUniversity: "",
+      appliedBefore: "",
+      referral: "",
+      confidenceLevel: "50",
     },
     { version: "v1" }
   );
@@ -96,7 +94,6 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       setReferrerCode(refCode);
     }
   }, [searchParams]);
-
 
   // Generate unique referral code: 4 random digits + last 4 digits of phone number
   const generateReferralCode = (mobile: string) => {
@@ -240,8 +237,8 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   };
 
   const getReferralLink = () => {
-    if (!referralCode) return "https://joinapprentadream.vercel.app";
-    return `https://joinapprentadream.vercel.app?ref=${referralCode}`;
+    if (!referralCode) return "https://apprentadream.co.uk";
+    return `https://apprentadream.co.uk?ref=${referralCode}`;
   };
 
   const totalSteps = 6;
