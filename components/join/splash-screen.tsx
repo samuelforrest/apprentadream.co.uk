@@ -186,7 +186,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
               <Users />
             </span>
             <span>
-              <span className="font-bold text-white">2,200+</span> members
+              <span className="font-bold text-white">2,300+</span> members
             </span>
           </div>
           <div className="flex items-center gap-2">

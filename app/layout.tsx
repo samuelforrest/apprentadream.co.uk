@@ -12,11 +12,11 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Apprentadream - Join the Community",
   description:
-    "Join the Apprentadream WhatsApp community today to network with current and future apprentices.",
+    "Join the Apprentadream WhatsApp community today to network with current and future apprentices. 2,300+ members, 4 offers/member.",
   keywords: ["Apprentadream", "Dreamspire", "Join Apprentadream"],
   authors: [
-    { name: "Apprentadream" },
-    { name: "Cenk Mustafa" },
+    { name: "Apprentadream", url: "https://apprentadream.co.uk" },
+    { name: "Cenk Mustafa", url: "https://www.linkedin.com/in/cenk-mustafa-41934b251/" },
     { name: "Samuel Forrest", url: "https://samuelforrest.me" },
   ],
   alternates: {
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Apprentadream - Join the Community",
     description:
-      "Join the Apprentadream WhatsApp community today to network with current and future apprentices.",
-    creator: "@Apprentadream", // replace with your real handle if you have one
+      "Join the Apprentadream WhatsApp community today to network with current and future apprentices. 2,300+ members, 4 offers/member.",
+    creator: "@apprentadream",
     images: ["/og_image.jpg"],
   },
 
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     locale: "en_GB",
     title: "Apprentadream - Join the Community",
     description:
-      "Join the Apprentadream WhatsApp community today to network with current and future apprentices.",
+      "Join the Apprentadream WhatsApp community today to network with current and future apprentices. 2,300+ members, 4 offers/member.",
     url: "https://apprentadream.co.uk",
     siteName: "Apprentadream",
     images: [
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
         "https://www.instagram.com/apprentadream/",
       ],
       description:
-        "Join the Apprentadream WhatsApp community today to network with current and future apprentices.",
+        "Join the Apprentadream WhatsApp community today to network with current and future apprentices. 2,300+ members, 4 offers/member.",
     }),
   },
 };
