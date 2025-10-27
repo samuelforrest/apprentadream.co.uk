@@ -1,0 +1,21 @@
+# *
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Host
+Host: https://apprentadream.co.uk
+
+# Sitemaps
+Sitemap: https://apprentadream.co.uk/sitemap.xml
