@@ -122,7 +122,8 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
             Join Apprentadream
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-            Skip the maybe, get the yes
+            Join the Apprentadream WhatsApp community today to network with current and future
+            apprentices.
           </p>
         </div>
 
