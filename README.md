@@ -5,9 +5,9 @@
 ## Features
 
 - **Modern Design:** UI from Shadcn-UI and MagicUI
-- ** Form Data verification management:** Comprehensive error management and form data validation
-- ** Accessible:** Downgraded to the more compatable TailwindCSS v3.4 for bettter device / browser compatability
-- ** Quick Backend:** Data straight to Google Docs, if passes verification. Encrypted by Google to protect user's data and match our privacy policy terms.
+- **Form Data verification management:** Comprehensive error management and form data validation
+- **Accessible:** Downgraded to the more compatable TailwindCSS v3.4 for bettter device / browser compatability
+- **Quick Backend:** Data straight to Google Docs, if passes verification. Encrypted by Google to protect user's data and match our privacy policy terms.
 
 
 ## Tech Stack
