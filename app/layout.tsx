@@ -10,7 +10,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Apprentadream - Join the Community",
+  title: "Apprentadream - Join the UK's fastest-growing Apprenticeship community",
   description:
     "Join the Apprentadream WhatsApp community today to network with current and future apprentices. 2,300+ members, 4 offers/member.",
   keywords: ["Apprentadream", "Dreamspire", "Join Apprentadream"],
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Apprentadream - Join the Community",
+    title: "Apprentadream - Join the UK's fastest-growing Apprenticeship community",
     description:
       "Join the Apprentadream WhatsApp community today to network with current and future apprentices. 2,300+ members, 4 offers/member.",
     creator: "@apprentadream",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    title: "Apprentadream - Join the Community",
+    title: "Apprentadream - Join the UK's fastest-growing Apprenticeship community",
     description:
       "Join the Apprentadream WhatsApp community today to network with current and future apprentices. 2,300+ members, 4 offers/member.",
     url: "https://apprentadream.co.uk",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
         url: "/og_image",
         width: 1200,
         height: 630,
-        alt: "Apprentadream - Join the Community",
+        alt: "Apprentadream - Join the UK's fastest-growing Apprenticeship community",
         type: "image/png",
       },
     ],
