@@ -85,6 +85,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-black">
+      <head>
+        <link rel="preload" href="/ad.png" as="image" type="image/png" />
+      </head>
       <body className={`${manrope.variable} antialiased font-sans bg-black`}>
         {children}
         <Analytics />
