@@ -8,15 +8,6 @@ import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
 import { LinkIcon } from "lucide-react";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Success | Apprentadream",
-  robots: {
-    index: false, // dont index
-    follow: false, // dont follow any links
-  },
-};
 
 function SuccessContent() {
   const searchParams = useSearchParams();
