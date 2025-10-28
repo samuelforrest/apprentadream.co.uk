@@ -27,7 +27,6 @@ export default function Terms() {
           <p className="text-lg sm:text-xl text-gray-400">Last updated: 20th October 2025</p>
         </div>
 
-        {/* Content */}
         <div className="space-y-8 sm:space-y-12 text-white">
           {/* Section 1 */}
           <section>
@@ -290,7 +289,7 @@ export default function Terms() {
           </section>
         </div>
 
-        {/* Back to Home Link */}
+        {/* Link back to homepage */}
         <div className="mt-12 sm:mt-16 text-center">
           <Link
             href="/"

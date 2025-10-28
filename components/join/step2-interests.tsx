@@ -23,7 +23,6 @@ export function Step2Interests({
   onUpdate,
   onIndustryToggle,
 }: Step2InterestsProps) {
-  // Get custom industry from formData (any industry not in the predefined list)
   const customIndustry = formData.industries.find((ind) => !industries.includes(ind)) || "";
   const hasCustomIndustry = customIndustry !== "";
   const showCustomInput = formData.industries.includes("Other") || hasCustomIndustry;
@@ -38,7 +37,6 @@ export function Step2Interests({
       const filtered = values.filter((ind) => ind !== customIndustry);
       onIndustryToggle(filtered);
     } else if (!otherWasSelected && otherIsNowSelected) {
-      // "Other" was just selected, preserve custom industry if it exists
       const updated =
         customIndustry && !values.includes(customIndustry) ? [...values, customIndustry] : values;
       onIndustryToggle(updated);
@@ -52,12 +50,10 @@ export function Step2Interests({
 
   const handleCustomIndustryChange = (value: string) => {
     if (value) {
-      // Keep "Other" and add/update the custom industry
       const withoutCustom = formData.industries.filter(
         (ind) => industries.includes(ind) || ind === "Other"
       );
 
-      // Ensure "Other" is in the array and add the custom value
       const withOther = withoutCustom.includes("Other")
         ? withoutCustom
         : [...withoutCustom, "Other"];
@@ -66,7 +62,6 @@ export function Step2Interests({
 
       onIndustryToggle(updated);
     } else {
-      // Clear custom value, keep "Other" selected if it was selected
       const withoutCustom = formData.industries.filter(
         (ind) => industries.includes(ind) || ind === "Other"
       );

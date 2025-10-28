@@ -95,7 +95,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     }
   }, [searchParams]);
 
-  // Generate unique referral code: 4 random digits + last 4 digits of phone number
+  // Generate referral code that SHOULD be user-unique: 4 random digits + last 4 digits of phone number
   const generateReferralCode = (mobile: string) => {
     if (!mobile) return "";
 
@@ -108,16 +108,15 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     // Generate 4 random digits
     const randomFourDigits = Math.floor(1000 + Math.random() * 9000).toString();
 
-    // Combine: 4 random + 4 phone digits = 8 total
+    // Combine to get 8 digits
     return `${randomFourDigits}${lastFourDigits}`;
   };
 
-  // Update referral code when mobile changes
+  // update referral code if they then change their mobile number
   const updateFormData = (updates: Partial<FormData>) => {
     const newData = { ...formData, ...updates };
     setFormData(newData);
 
-    // Clear errors for updated fields
     const newErrors = { ...errors };
     Object.keys(updates).forEach((key) => {
       delete newErrors[key];
@@ -131,13 +130,13 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     }
   };
 
-  // Email validation
+  // classic Email validation
   const isValidEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  // Check if current step is valid (for visual state)
+  //Validation per stage of form
   const isStepValid = (): boolean => {
     switch (currentStep) {
       case 1:
@@ -151,7 +150,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       case 2:
         return formData.industries.length > 0 && formData.apprenticeshipLevel !== "";
       case 3:
-        return true; // All fields optional
+        return true; // All social account fields are optional
       case 4:
         return (
           formData.studentType !== "" &&
@@ -161,13 +160,13 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       case 5:
         return true; // No validation needed
       case 6:
-        return true; // Handled by submit button
+        return true; //Handled by submit button
       default:
         return false;
     }
   };
 
-  // Validate current step (shows errors)
+  // Show errors for validation failures
   const validateStep = (): boolean => {
     const newErrors: { [key: string]: string } = {};
 
@@ -202,7 +201,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
           newErrors.apprenticeshipLevel = "Please select an apprenticeship level";
         }
         break;
-      // Step 3 - LinkedIn validation if provided
+      // Step 3 - LinkedIn validation if provided, all others can be @
       case 3:
         if (formData.linkedinUrl && formData.linkedinUrl.trim()) {
           if (!formData.linkedinUrl.includes("linkedin.com/in")) {
@@ -296,7 +295,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
         setReferralLinkCopied(true);
         setTimeout(() => setCopied(false), 3000);
       } else {
-        // Fallback for older browsers or insecure contexts
+        //Older browser fallback
         const textArea = document.createElement("textarea");
         textArea.value = textToCopy;
         textArea.style.position = "fixed";
@@ -319,7 +318,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       }
     } catch (err) {
       console.error("Failed to copy: ", err);
-      // Still mark as copied so user doesn't get stuck
+      //Still mark as copied to prevent not moving forward
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     }
@@ -329,8 +328,9 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     e.preventDefault();
     setIsSubmitting(true);
 
+    //Append all data
     const data = new FormData();
-    // Basic Information
+    //Basic Information
     data.append("First Name", formData.firstName);
     data.append("Last Name", formData.lastName);
     data.append("Country Code", formData.countryCode);
@@ -341,14 +341,14 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     data.append("Industries", formData.industries.join(", "));
     data.append("Apprenticeship Level", formData.apprenticeshipLevel);
 
-    // Social Accounts
+    //Social Accounts
     data.append("LinkedIn URL", formData.linkedinUrl);
     data.append("TikTok", formData.tiktokUsername);
     data.append("Instagram", formData.instagramUsername);
     data.append("Twitter", formData.twitterUsername);
     data.append("Website", formData.website);
 
-    // Additional Questions
+    //Additional Questions
     data.append("Student Type", formData.studentType);
     data.append("Educational Course", formData.educationalCourse);
     data.append("Main Motivation", formData.mainMotivation);
@@ -357,42 +357,35 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     data.append("Confidence Level", formData.confidenceLevel);
     data.append("Referral Source", formData.referral);
 
-    // Referral Tracking
+    //Referral Tracking
     data.append("Referred By Code", referrerCode); // Who referred this user
     data.append("User Referral Code", referralCode); // This user's own code
-    data.append("User Referral Link", getReferralLink()); // This user's own link
-    data.append("Referral Link Copied", referralLinkCopied ? "Yes" : "No");
+    data.append("User Referral Link", getReferralLink()); // This user's own referral link
+    data.append("Referral Link Copied", referralLinkCopied ? "Yes" : "No"); //Bool
 
-    // Add client-side timestamp for backup
+    //Add client-side timestamp for backup
     data.append("Client Timestamp", new Date().toISOString());
 
     try {
-      console.log("Submitting to Google Sheets...");
-
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbw6QdhnfAMhoXWLpSrp0Pr0-bSNvLrag-roT3BcxKtEUhqT1W2N2V_dw929a1QAU9FgcQ/exec",
         {
           method: "POST",
           body: data,
-          mode: "no-cors", // This helps with CORS issues
+          mode: "no-cors",
         }
       );
 
-      console.log("Response received:", response);
-
-      // With no-cors mode, we can't read the response, so we assume success if no error is thrown
       if (response.type === "opaque" || response.ok) {
         console.log("Form submitted successfully!");
-        // Trigger confetti celebration
+        // Trigger confetti from magicui
         handleClick();
-        // Show success state instead of redirecting
         setShowSuccess(true);
         setIsSubmitting(false);
         // Clear persisted progress and data after success
         try {
           clearFormData();
           clearStep();
-          // Also clear any other related keys
           if (typeof window !== "undefined") {
             Object.keys(localStorage)
               .filter((k) => k.startsWith("join-form."))
@@ -407,13 +400,13 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     } catch (error) {
       console.error("Fetch error:", error);
 
-      // Provide more detailed error information
+      // Detailed error
       if (error instanceof TypeError && error.message.includes("fetch")) {
         alert("Network error: Please check your internet connection and try again.");
       } else if (error instanceof Error) {
         alert(`Error: ${error.message}. Please try again.`);
       } else {
-        alert("Something went wrong. Please try again.");
+        alert("Something else went wrong. Please try again.");
       }
       setIsSubmitting(false);
     }
@@ -434,7 +427,6 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
         /* Success Screen */
         <SuccessScreen referralCode={referralCode} />
       ) : (
-        /* Main Form */
         <>
           <Card className="border-purple-500/20">
             <CardContent>
@@ -534,7 +526,6 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   );
 }
 
-// Main export component with Suspense wrapper
 export function GamifiedForm({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <Suspense

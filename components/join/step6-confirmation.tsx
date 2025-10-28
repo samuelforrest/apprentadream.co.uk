@@ -12,7 +12,7 @@ export function Step6Confirmation() {
               <FaWhatsapp className="h-10 w-10 text-green-500" />
             </span>
             <p className="font-semibold text-black">Instant WhatsApp Access</p>
-            <p className="text-sm text-gray-600">Join 2,200+ members</p>
+            <p className="text-sm text-gray-600">Join 2,300+ members</p>
           </div>
           <div className="flex flex-col items-center text-center space-y-2">
             <span className="text-4xl">

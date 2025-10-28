@@ -22,7 +22,6 @@ export function SuccessScreen({ referralCode }: SuccessScreenProps) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(textToCopy);
       } else {
-        // Fallback for older browsers
         const textarea = document.createElement("textarea");
         textarea.value = textToCopy;
         document.body.appendChild(textarea);

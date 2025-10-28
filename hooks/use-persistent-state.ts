@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 type Options = {
-  version?: string; // bump to invalidate old saved data
-  ttlMs?: number; // optional time-to-live in ms
+  version?: string;
+  ttlMs?: number;
 };
 
 type Box<T> = {
@@ -20,7 +20,6 @@ export function usePersistentState<T>(
 ): [T, React.Dispatch<React.SetStateAction<T>>, () => void] {
   const [value, setValue] = useState<T>(initialValue);
 
-  // Read on mount (client only)
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -30,7 +29,6 @@ export function usePersistentState<T>(
 
       const box: Box<T> = JSON.parse(raw);
 
-      // Version or TTL invalidation
       const expired = box.exp != null && Date.now() > box.exp;
       const versionChanged = version && box.v !== version;
 
@@ -40,12 +38,9 @@ export function usePersistentState<T>(
       }
 
       setValue(box.value);
-    } catch {
-      // Corrupted data; ignore
-    }
+    } catch {}
   }, [key, version]);
 
-  // Write whenever it changes
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -57,9 +52,7 @@ export function usePersistentState<T>(
 
     try {
       window.localStorage.setItem(key, JSON.stringify(box));
-    } catch {
-      // quota or private mode; ignore
-    }
+    } catch {}
   }, [key, value, version, ttlMs]);
 
   const clear = () => {
@@ -67,7 +60,7 @@ export function usePersistentState<T>(
     try {
       window.localStorage.removeItem(key);
     } catch {
-      // ignore
+      // do nothing
     }
     setValue(initialValue);
   };

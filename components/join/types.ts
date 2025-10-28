@@ -28,7 +28,7 @@ export interface FormData {
   confidenceLevel: string;
 }
 
-// Country codes for phone numbers organized by region
+// All Country Codes, by region
 export const countryCodeGroups = [
   {
     region: "UK & Ireland",
@@ -82,10 +82,8 @@ export const countryCodeGroups = [
   },
 ];
 
-// Flat list for backward compatibility
 export const countryCodes = countryCodeGroups.flatMap((group) => group.codes);
 
-// Industries data
 export const industries = [
   "Technology",
   "Finance",
@@ -100,7 +98,6 @@ export const industries = [
   "Other",
 ];
 
-// Apprenticeship levels
 export const apprenticeshipLevels = [
   { value: "intermediate", label: "Intermediate (Level 2)" },
   { value: "advanced", label: "Advanced (Level 3)" },
