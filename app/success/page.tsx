@@ -16,7 +16,7 @@ function SuccessContent() {
   // Get the referral code from URL params (passed from form submission)
   const referralCode = searchParams.get("ref") || "";
 
-  // Generate referral link
+  // Generate the referral link
   const getReferralLink = () => {
     if (typeof window !== "undefined" && referralCode) {
       return `${window.location.origin}/?ref=${referralCode}`;
@@ -31,7 +31,7 @@ function SuccessContent() {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(textToCopy);
       } else {
-        // Fallback for older browsers or HTTP contexts
+        // older browser fallback
         const textarea = document.createElement("textarea");
         textarea.value = textToCopy;
         document.body.appendChild(textarea);
@@ -42,8 +42,7 @@ function SuccessContent() {
 
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
-    } catch (err) {
-      console.error("Failed to copy: ", err);
+    } catch {
       // Still mark as copied so user doesn't get stuck
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
@@ -53,7 +52,6 @@ function SuccessContent() {
     <div className="min-h-screen bg-black w-full relative overflow-auto">
       <div className="flex min-h-screen w-full items-center justify-center flex-col p-6 md:p-10">
         <div className="max-w-2xl w-full space-y-4">
-          {/* Logo */}
           <div className="">
             <Image
               src="/ad.png"
@@ -66,7 +64,6 @@ function SuccessContent() {
             />
           </div>
 
-          {/* Welcome Message */}
           <div className="text-center space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold text-white">Welcome to Apprentadream!</h1>
             <p className="text-lg md:text-xl text-gray-300 pb-10">
@@ -74,7 +71,6 @@ function SuccessContent() {
             </p>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex flex-col items-center gap-8">
             <Link
               href="https://chat.whatsapp.com/Kek6I8hE2wQBj8Znp97Q2f"
