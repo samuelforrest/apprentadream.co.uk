@@ -30,7 +30,11 @@ export const metadata: Metadata = {
     creator: "@apprentadream",
     images: ["/og_image.jpg"],
   },
-
+  robots: {
+    index: true, // allow index
+    follow: true, // allow follow links
+    noimageindex: true, // block transparent
+  },
   creator: "Apprentadream",
   publisher: "Apprentadream",
   icons: {
