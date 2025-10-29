@@ -1,4 +1,85 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Apprentadream - Terms & Conditions",
+  description:
+    "Terms & Conditions for Apprentadream - the fastest growing UK Apprenticeship community.",
+  keywords: [
+    "Apprentadream",
+    "Dreamspire",
+    "Join Apprentadream",
+    "Apprentadream Terms",
+    "Apprentadream Terms and Conditions",
+  ],
+  authors: [
+    { name: "Apprentadream", url: "https://apprentadream.co.uk" },
+    { name: "Cenk Mustafa", url: "https://www.linkedin.com/in/cenk-mustafa-41934b251/" },
+    { name: "Samuel Forrest", url: "https://samuelforrest.me" },
+  ],
+  alternates: {
+    canonical: "https://apprentadream.co.uk/terms",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Apprentadream - Terms & Conditions",
+    description:
+      "Terms & Conditions for Apprentadream - the fastest growing UK Apprenticeship community.",
+    creator: "@apprentadream",
+    images: ["/og_image.jpg"],
+  },
+  robots: {
+    // Custom for Terms Page
+    index: true,
+    follow: true,
+    noimageindex: true,
+    noarchive: true,
+    "max-snippet": -1,
+  },
+
+  creator: "Apprentadream",
+  publisher: "Apprentadream",
+  icons: {
+    icon: "/og.jpg",
+    shortcut: "/og.jpg",
+    apple: "/og.jpg",
+  },
+  metadataBase: new URL("https://apprentadream.co.uk"), //Root URL of Site
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    title: "Apprentadream - Terms & Conditions",
+    description:
+      "Terms & Conditions for Apprentadream - the fastest growing UK Apprenticeship community.",
+    url: "https://apprentadream.co.uk/terms",
+    siteName: "Apprentadream",
+    images: [
+      {
+        url: "/og_image",
+        width: 1200,
+        height: 630,
+        alt: "Apprentadream - Join the UK's fastest-growing Apprenticeship community",
+        type: "image/png",
+      },
+    ],
+  },
+  other: {
+    "application/ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Apprentadream - Terms & Conditions",
+      url: "https://apprentadream.co.uk/terms",
+      description:
+        "Terms & Conditions for Apprentadream - the fastest growing UK Apprenticeship community.",
+      publisher: {
+        "@type": "Organization",
+        name: "Apprentadream",
+        url: "https://apprentadream.co.uk",
+        logo: "https://apprentadream.co.uk/og.jpg",
+      },
+    }),
+  },
+};
 
 export default function Terms() {
   return (
