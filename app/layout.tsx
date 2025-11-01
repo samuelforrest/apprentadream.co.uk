@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -90,6 +91,18 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Apprentadream" />
       </head>
       <body className={`${manrope.variable} antialiased font-sans bg-black`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TBLC7B9NCC"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-TBLC7B9NCC');
+          `}
+        </Script>
         {children}
         <Analytics />
       </body>
