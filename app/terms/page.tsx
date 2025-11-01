@@ -264,20 +264,39 @@ export default function Terms() {
               8. Cookies and Tracking
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-              Our website uses privacy-friendly analytics provided by Vercel to understand general
-              usage trends such as page views and traffic sources. <br></br>
+              Our website uses a combination of privacy-friendly analytics provided by Vercel and
+              Google Analytics 4 (GA4) to understand general usage trends, improve user experience,
+              and monitor web performance.
+            </p>
+
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-white">
+              8A. Vercel Analytics
+            </h3>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              Vercel&rsquo;s built-in analytics are privacy-focused and do not use cookies. They do
+              not collect personal identifiers or track individual visitors, but gather anonymised
+              data such as page views and performance insights.
+            </p>
+
+            <h3 className="text-xl sm:text-2xl font-semibold mt-6 mb-2 text-white">
+              8B. Google Analytics 4 (GA4)
+            </h3>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
+              We use Google Analytics 4 (GA4) to collect and analyse anonymised audience data,
+              including page views, navigation paths, device/browser types, session duration, and
+              user interactions. GA4 uses cookies and similar technologies to store a unique
+              identifier in your browser.
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              These analytics do not use cookies, collect personal identifiers, or track individual
-              visitors. They collect anonymized data.<br></br>
+              Google may process this data on servers outside the United Kingdom or European
+              Economic Area (e.g. United States). Appropriate safeguards, such as Standard
+              Contractual Clauses (SCCs), are in place to protect your data in compliance with the
+              UK GDPR and the Data Protection Act 2018.
             </p>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
-              This helps us improve site performance and user experience while remaining fully
-              compliant with the UK GDPR and the Privacy and Electronic Communications Regulations
-              (PECR).<br></br>
-            </p>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">
-              Remeber that you can change your browser cookie settings as you wish for any site.
+
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mt-6">
+              You can manage your cookie preferences, including opting out of GA4 tracking, by
+              adjusting your own browser settings at any time.
             </p>
           </section>
 
