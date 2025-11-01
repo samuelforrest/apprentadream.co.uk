@@ -87,6 +87,7 @@ export default function RootLayout({
     <html lang="en" className="bg-black">
       <head>
         <link rel="preload" href="/ad.png" as="image" type="image/png" />
+        <meta name="apple-mobile-web-app-title" content="Apprentadream" />
       </head>
       <body className={`${manrope.variable} antialiased font-sans bg-black`}>
         {children}
