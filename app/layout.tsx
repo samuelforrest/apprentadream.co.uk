@@ -92,7 +92,7 @@ export default function RootLayout({
       </head>
       <body className={`${manrope.variable} antialiased font-sans bg-black`}>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-TBLC7B9NCC"
+          src="https://www.googletagmanager.com/gtag/js?id=G-SHPMM18JFR"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -100,7 +100,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-TBLC7B9NCC');
+            gtag('config', 'G-SHPMM18JFR');
           `}
         </Script>
         {children}
