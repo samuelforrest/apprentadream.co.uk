@@ -42,8 +42,7 @@ export function Step6Confirmation() {
             I agree to the{" "}
             <Link href="/terms" className="font-semibold hover:opacity-80" target="_blank">
               Terms &amp; Conditions
-            </Link>{" "}
-            (Link to terms will reset form progress)
+            </Link>
           </span>
         </label>
       </div>
