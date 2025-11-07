@@ -6,8 +6,7 @@ import { AvatarCircles } from "../ui/avatar-circles";
 import { Highlighter } from "../ui/highlighter";
 
 interface SplashScreenProps {
-  onStartApprentadream: () => void;
-  onStartUnidream: () => void;
+  onStart: () => void;
 }
 
 const sloganWords = [
@@ -15,7 +14,7 @@ const sloganWords = [
   ["get", "the", "yes"],
 ];
 
-export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashScreenProps) {
+export function SplashScreen({ onStart }: SplashScreenProps) {
   const [showIntro, setShowIntro] = useState(true);
   const [visibleWords, setVisibleWords] = useState<number>(0);
 
@@ -165,7 +164,7 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
         <div className="flex flex-col md:flex-row items-stretch justify-center gap-4 mb-10 max-w-2xl mx-auto">
           <Card
             className="bg-white/5 backdrop-blur border-white/30 hover:bg-blue-500/10 w-full md:w-1/2 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
-            onClick={onStartApprentadream}
+            onClick={onStart}
           >
             <CardContent className="flex flex-col items-center justify-center h-full">
               <div className="flex items-center gap-3 mb-2">
@@ -196,7 +195,7 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
 
           <Card
             className="bg-white/5 backdrop-blur border-white/30 hover:bg-purple-700/10 w-full md:w-1/2 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
-            onClick={onStartUnidream}
+            onClick={onStart}
           >
             <CardContent className="flex flex-col items-center justify-center h-full">
               <div className="flex items-center gap-3 mb-2">
@@ -233,6 +232,8 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
             beta phase.
           </p>
         </div>
+
+        {/* Start / Resume Buttons */}
       </div>
     </div>
   );
