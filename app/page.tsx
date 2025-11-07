@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { SplashScreen } from "@/components/join/splash-screen";
+import { SplashScreen } from "@/components/common/splash-screen";
 import { ApprentaDreamForm } from "@/components/join-apprentadream/gamified-form";
 import { UniDreamForm } from "@/components/join-unidream/gamified-form";
 
