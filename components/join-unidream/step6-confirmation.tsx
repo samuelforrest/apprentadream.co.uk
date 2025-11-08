@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
-import { Handshake, Megaphone } from "lucide-react";
+import { Handshake, Pen } from "lucide-react";
 
 export function Step6Confirmation() {
   return (
@@ -12,21 +12,21 @@ export function Step6Confirmation() {
               <FaWhatsapp className="h-10 w-10 text-green-500" />
             </span>
             <p className="font-semibold text-black">Instant WhatsApp Access</p>
-            <p className="text-sm text-gray-600">Join 2,300+ members</p>
+            <p className="text-sm text-gray-600">Join 100+ members</p>
           </div>
           <div className="flex flex-col items-center text-center space-y-2">
             <span className="text-4xl">
-              <Megaphone className="h-10 w-10 text-red-500" />
+              <Pen className="h-10 w-10 text-red-500" />
             </span>
-            <p className="font-semibold text-black">Daily Opportunities</p>
-            <p className="text-sm text-gray-600">New apprenticeships posted daily</p>
+            <p className="font-semibold text-black">Personal Statement Help</p>
+            <p className="text-sm text-gray-600">Everyone is willing to help you out</p>
           </div>
           <div className="flex flex-col items-center text-center space-y-2 col-span-2 md:col-span-1 justify-self-center">
             <span className="text-4xl">
               <Handshake className="h-10 w-10 text-blue-600" />
             </span>
             <p className="font-semibold text-black">Grow your network</p>
-            <p className="text-sm text-gray-600">Connect with current & aspiring apprentices</p>
+            <p className="text-sm text-gray-600">Connect with current & aspiring uni students</p>
           </div>
         </div>
       </div>

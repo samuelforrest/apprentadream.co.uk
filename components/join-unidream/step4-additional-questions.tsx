@@ -139,17 +139,10 @@ export function Step4AdditionalQuestions({
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="No">No</SelectItem>
-            <SelectItem value="Yes, did not reach further rounds">
-              Yes, did not reach further rounds
-            </SelectItem>
-            <SelectItem value="Yes, I reached assesment center stage">
-              Yes, reached assesment center
-            </SelectItem>
-            <SelectItem value="Yes, I declined an offer">Yes, declined an offer</SelectItem>
-            <SelectItem value="Yes, I'm a current apprentice">
-              Yes, I&apos;m a current apprentice
-            </SelectItem>
+            <SelectItem value="Oxbridge">Oxbridge</SelectItem>
+            <SelectItem value="Russel Group">Russel Group</SelectItem>
+            <SelectItem value="Reputable University">A reputable university</SelectItem>
+            <SelectItem value="Any university">Any university with my course</SelectItem>
           </SelectContent>
         </Select>
         {errors.universityRank && <p className="text-sm text-red-500">{errors.universityRank}</p>}
@@ -175,7 +168,9 @@ export function Step4AdditionalQuestions({
       </div>
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="confidenceLevel">How confident are you about getting one?</Label>
+          <Label htmlFor="confidenceLevel">
+            How confident are you about getting into your dream university?
+          </Label>
 
           <div className="pt-2">
             <Slider
