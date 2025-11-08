@@ -4,6 +4,7 @@ import { ArrowRight, Briefcase, GraduationCap } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 import { AvatarCircles } from "../ui/avatar-circles";
 import { Highlighter } from "../ui/highlighter";
+import Link from "next/link";
 
 interface SplashScreenProps {
   onStartApprentadream: () => void;
@@ -228,9 +229,18 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
 
         <div className="text-white mt-20">
           <p>
-            Terms apply. Both communities are WhatsApp Communities. You must be at least 13 years of
-            age to use WhatsApp. Apprentadream is managed by Cenk Mustafa & his team. Unidream is in
-            beta phase.
+            <Link href="/terms" className="underline underline-offset-4">
+              Terms apply.
+            </Link>{" "}
+            Both Apprentadream and Unidream are{" "}
+            <Link
+              href="https://faq.whatsapp.com/495856382464992"
+              className="underline underline-offset-4"
+            >
+              {" "}
+              Whatsapp Communities
+            </Link>
+            . Unidream is in Beta.
           </p>
         </div>
       </div>

@@ -119,6 +119,10 @@ export default function Terms() {
               with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act
               2018.
             </p>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              Apprentadream is the name of our website & brand, where we collect form sign-ups for
+              Unidream & Apprentadream WhatsApp communities.
+            </p>
           </section>
 
           {/* Section 2 */}
@@ -133,15 +137,24 @@ export default function Terms() {
               <li>Last Name</li>
               <li>Phone Number and Country Code</li>
               <li>Email Address</li>
-              <li>Industry of interest</li>
-              <li>Degree Apprenticeship level of interest</li>
-              <li>Linkedin/Tiktok/Instagram/Twitter/Website/Other URL declared</li>
+              <li>Industry of interest [OR] course subjects of interest</li>
+              <li>Degree Apprenticeship level of interest [OR] degree level of interest</li>
+              <li>Linkedin / Tiktok / Instagram / Twitter(X) / Website / Another URL given</li>
               <li>Type of student / year</li>
-              <li>Educational course</li>
-              <li>Your motivation to do an apprenticeship</li>
-              <li>Whether you are applying to university</li>
-              <li>Whether you have applied to apprenticeships before</li>
-              <li>Your confidence level for apprenticeships</li>
+              <li>Educational course currently studying</li>
+              <li>Your motivation to do an apprenticeship [OR] your motivation to go to uni</li>
+              <li>
+                Whether you are applying to university [OR] whether you are applying to an
+                apprenticeship
+              </li>
+              <li>
+                Whether you have applied to apprenticeships before [OR] what rank of university you
+                would like to go to
+              </li>
+              <li>
+                Your confidence level for apprenticeships [OR] your confidence level for
+                universities
+              </li>
               <li>Referral Source</li>
               <li>Referral Source Identifiable Code</li>
               <li>Your own referral code & link </li>
@@ -160,10 +173,12 @@ export default function Terms() {
               We use this information for the following purposes:
             </p>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
-              <li>To add you to our Apprentadream member mailing list.</li>
               <li>
-                To contact you with updates, events, and relevant apprenticeship or career
-                information.
+                To add you to our Apprentadream / Unidream member mailing list, where appropriate.
+              </li>
+              <li>
+                To contact you with updates, events, and relevant apprenticeship, universtiy or
+                career information.
               </li>
               <li>To understand user demographics and improve our services.</li>
             </ul>
@@ -342,8 +357,8 @@ export default function Terms() {
               11. Liability and User Conduct
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-              By joining or interacting with the Apprentadream Community, you agree to use the
-              platform respectfully and lawfully. You must not submit false, misleading, or
+              By joining or interacting with the Apprentadream / Unidream Communities, you agree to
+              use the platform respectfully and lawfully. You must not submit false, misleading, or
               inappropriate information, or attempt to misuse our referral system or communications.
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
@@ -359,7 +374,18 @@ export default function Terms() {
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
-              12. Data Protection Statement
+              12. Platform Usage Requirements
+            </h2>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
+              By accessing or engaging with Apprentadream’s communication platforms, including
+              WhatsApp groups, you confirm that you are aged 13 or over. WhatsApp terms of service
+              require all users to be at least 13 years old.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
+              13. Data Protection Statement
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
               Apprentadream complies with the UK GDPR and the Data Protection Act 2018.
@@ -369,7 +395,7 @@ export default function Terms() {
           {/* Section 11 */}
           <section>
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
-              13. Changes to This Notice
+              14. Changes to This Notice
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               We may update these Terms & Conditions from time to time. Any significant changes will
