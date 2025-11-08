@@ -62,8 +62,8 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     countryCode: "+44",
     mobile: "",
     email: "",
-    industries: [],
-    apprenticeshipLevel: "",
+    courses: [],
+    degreeLevel: "",
     linkedinUrl: "",
     tiktokUsername: "",
     instagramUsername: "",
@@ -139,7 +139,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
           isValidEmail(formData.email)
         );
       case 2:
-        return formData.industries.length > 0 && formData.apprenticeshipLevel !== "";
+        return formData.courses.length > 0 && formData.degreeLevel !== "";
       case 3:
         return true; // All social account fields are optional
       case 4:
@@ -185,11 +185,11 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
         }
         break;
       case 2:
-        if (formData.industries.length === 0) {
-          newErrors.industries = "Please select at least one industry";
+        if (formData.courses.length === 0) {
+          newErrors.courses = "Please select at least one course";
         }
-        if (!formData.apprenticeshipLevel) {
-          newErrors.apprenticeshipLevel = "Please select an apprenticeship level";
+        if (!formData.degreeLevel) {
+          newErrors.degreeLevel = "Please select a degree level";
         }
         break;
       // Step 3 - LinkedIn validation if provided, all others can be @
@@ -238,7 +238,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       case 1:
         return "Basic information";
       case 2:
-        return "Which Industries interest you?";
+        return "Which Courses interest you?";
       case 3:
         return "Connect your social accounts";
       case 4:
@@ -271,8 +271,8 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     }
   };
 
-  const handleIndustryToggle = (value: string[]) => {
-    setFormData({ ...formData, industries: value });
+  const handleCoursesToggle = (value: string[]) => {
+    setFormData({ ...formData, courses: value });
   };
 
   const handleCopy = async () => {
@@ -329,8 +329,8 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     data.append("Email", formData.email);
 
     // Interests
-    data.append("Industries", formData.industries.join(", "));
-    data.append("Apprenticeship Level", formData.apprenticeshipLevel);
+    data.append("Courses", formData.courses.join(", "));
+    data.append("Degree Level", formData.degreeLevel);
 
     //Social Accounts
     data.append("LinkedIn URL", formData.linkedinUrl);
@@ -343,8 +343,8 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     data.append("Student Type", formData.studentType);
     data.append("Educational Course", formData.educationalCourse);
     data.append("Main Motivation", formData.mainMotivation);
-    data.append("Applying University", formData.applyingUniversity);
-    data.append("Applied before", formData.appliedBefore);
+    data.append("Applying Apprenticeship", formData.applyingApprenticeship);
+    data.append("University Rank", formData.universityRank);
     data.append("Confidence Level", formData.confidenceLevel);
     data.append("Referral Source", formData.referral);
 
@@ -426,7 +426,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
                     formData={formData}
                     errors={errors}
                     onUpdate={updateFormData}
-                    onIndustryToggle={handleIndustryToggle}
+                    onCoursesToggle={handleCoursesToggle}
                   />
                 )}
 

@@ -8,126 +8,120 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { FormData, industries, apprenticeshipLevels } from "./types";
+import { FormData, courses, degreeLevels } from "./types";
 
 interface Step2InterestsProps {
   formData: FormData;
   errors: { [key: string]: string };
   onUpdate: (updates: Partial<FormData>) => void;
-  onIndustryToggle: (value: string[]) => void;
+  onCoursesToggle: (value: string[]) => void;
 }
 
 export function Step2Interests({
   formData,
   errors,
   onUpdate,
-  onIndustryToggle,
+  onCoursesToggle,
 }: Step2InterestsProps) {
-  const customIndustry = formData.industries.find((ind) => !industries.includes(ind)) || "";
-  const hasCustomIndustry = customIndustry !== "";
-  const showCustomInput = formData.industries.includes("Other") || hasCustomIndustry;
+  // Safety check: ensure courses array exists
+  const userCourses = formData.courses || [];
 
-  const handleIndustryToggle = (values: string[]) => {
-    // If "Other" is deselected, remove the custom industry too
-    const otherWasSelected = formData.industries.includes("Other");
+  const customCourse = userCourses.find((course) => !courses.includes(course)) || "";
+  const hasCustomCourse = customCourse !== "";
+  const showCustomInput = userCourses.includes("Other") || hasCustomCourse;
+
+  const handleCoursesToggle = (values: string[]) => {
+    // If "Other" is deselected, remove the custom course too
+    const otherWasSelected = userCourses.includes("Other");
     const otherIsNowSelected = values.includes("Other");
 
     if (otherWasSelected && !otherIsNowSelected) {
-      // "Other" was deselected, so remove custom industry as well
-      const filtered = values.filter((ind) => ind !== customIndustry);
-      onIndustryToggle(filtered);
+      // "Other" was deselected, so remove custom course as well
+      const filtered = values.filter((course) => course !== customCourse);
+      onCoursesToggle(filtered);
     } else if (!otherWasSelected && otherIsNowSelected) {
       const updated =
-        customIndustry && !values.includes(customIndustry) ? [...values, customIndustry] : values;
-      onIndustryToggle(updated);
+        customCourse && !values.includes(customCourse) ? [...values, customCourse] : values;
+      onCoursesToggle(updated);
     } else {
-      // Keep custom industry if it exists (other industries are being toggled)
-      const preservedIndustries =
-        customIndustry && !values.includes(customIndustry) ? [...values, customIndustry] : values;
-      onIndustryToggle(preservedIndustries);
+      // Keep custom course if it exists (other courses are being toggled)
+      const preservedCourses =
+        customCourse && !values.includes(customCourse) ? [...values, customCourse] : values;
+      onCoursesToggle(preservedCourses);
     }
   };
 
-  const handleCustomIndustryChange = (value: string) => {
-    if (value) {
-      const withoutCustom = formData.industries.filter(
-        (ind) => industries.includes(ind) || ind === "Other"
-      );
-
-      const withOther = withoutCustom.includes("Other")
-        ? withoutCustom
-        : [...withoutCustom, "Other"];
-
-      const updated = withOther.includes(value) ? withOther : [...withOther, value];
-
-      onIndustryToggle(updated);
+  const handleCustomCourseChange = (value: string) => {
+    // Update the custom course in the courses array
+    if (value.trim()) {
+      // Remove any existing custom course and add the new one
+      const standardCourses = userCourses.filter((course) => courses.includes(course));
+      const newCourses = [...standardCourses, value];
+      onCoursesToggle(newCourses);
     } else {
-      const withoutCustom = formData.industries.filter(
-        (ind) => industries.includes(ind) || ind === "Other"
-      );
-      onIndustryToggle(withoutCustom);
+      // Remove custom course if value is empty
+      const standardCourses = userCourses.filter((course) => courses.includes(course));
+      onCoursesToggle(standardCourses);
     }
   };
 
   return (
     <div className="space-y-6">
       <div className="space-y-4">
-        <Label>Ideal Apprenticeship Level *</Label>
+        <Label>Ideal Degree Level *</Label>
         <Select
-          value={formData.apprenticeshipLevel}
-          onValueChange={(value) => onUpdate({ apprenticeshipLevel: value })}
+          value={formData.degreeLevel}
+          onValueChange={(value) => onUpdate({ degreeLevel: value })}
         >
-          <SelectTrigger className={errors.apprenticeshipLevel ? "border-red-500" : ""}>
-            <SelectValue placeholder="Select level" />
+          <SelectTrigger className={errors.degreeLevel ? "border-red-500" : ""}>
+            <SelectValue placeholder="Select degree level" />
           </SelectTrigger>
           <SelectContent>
-            {apprenticeshipLevels.map((level) => (
+            {degreeLevels.map((level) => (
               <SelectItem key={level.value} value={level.value}>
                 {level.label}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
-        {errors.apprenticeshipLevel && (
-          <p className="text-sm text-red-500">{errors.apprenticeshipLevel}</p>
-        )}
+        {errors.degreeLevel && <p className="text-sm text-red-500">{errors.degreeLevel}</p>}
       </div>
 
       <div className="space-y-5">
-        <Label>Industries of Interest *</Label>
+        <Label>Course subjects of Interest *</Label>
         <ToggleGroup
           type="multiple"
-          value={formData.industries.filter((ind) => industries.includes(ind) || ind === "Other")}
-          onValueChange={handleIndustryToggle}
+          value={userCourses.filter((course) => courses.includes(course) || course === "Other")}
+          onValueChange={handleCoursesToggle}
           className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 rounded-xl"
         >
-          {industries.map((industry) => (
+          {courses.map((course) => (
             <ToggleGroupItem
-              key={industry}
-              value={industry}
-              aria-label={industry}
+              key={course}
+              value={course}
+              aria-label={course}
               className="data-[state=on]:bg-black data-[state=on]:text-white rounded-lg border-2"
             >
-              {industry}
+              {course}
             </ToggleGroupItem>
           ))}
         </ToggleGroup>
 
         {showCustomInput && (
           <div className="space-y-2 mt-4">
-            <Label htmlFor="customIndustry">Specify your other industry</Label>
+            <Label htmlFor="customCourse">Specify your other course</Label>
             <Input
-              id="customIndustry"
+              id="customCourse"
               type="text"
-              placeholder="e.g. Sustainability, Transport, Government..."
-              value={customIndustry}
-              onChange={(e) => handleCustomIndustryChange(e.target.value)}
+              placeholder="e.g. Animal behaviour, transport, etc..."
+              value={customCourse}
+              onChange={(e) => handleCustomCourseChange(e.target.value)}
               className="w-full"
             />
           </div>
         )}
 
-        {errors.industries && <p className="text-sm text-red-500">{errors.industries}</p>}
+        {errors.courses && <p className="text-sm text-red-500">{errors.courses}</p>}
       </div>
     </div>
   );

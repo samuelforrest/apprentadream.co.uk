@@ -32,7 +32,7 @@ export function Step4AdditionalQuestions({
             <SelectValue placeholder="Select type of student" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Already an apprentice">Already an apprentice</SelectItem>
+            <SelectItem value="An apprentice">An apprentice</SelectItem>
             <SelectItem value="On a gap year">Gap Year</SelectItem>
             <SelectItem value="Year 10/S3 student">Year 10 (S3) Student</SelectItem>
             <SelectItem value="Year 11/S4 student">Year 11 (S4) Student</SelectItem>
@@ -73,7 +73,7 @@ export function Step4AdditionalQuestions({
       </div>
 
       <div className="space-y-2 pb-4">
-        <Label htmlFor="mainMotivation">What motivates you to do an apprenticeship? *</Label>
+        <Label htmlFor="mainMotivation">What motivates you to do a degree & go uni? *</Label>
         <Select
           value={formData.mainMotivation}
           onValueChange={(value) => onUpdate({ mainMotivation: value })}
@@ -82,15 +82,18 @@ export function Step4AdditionalQuestions({
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Build wealth early">Build wealth early</SelectItem>
-            <SelectItem value="Gain experience">Gain experience</SelectItem>
-            <SelectItem value="Avoid university debt">Avoid university debt</SelectItem>
-            <SelectItem value="Start my career early">Start my career early</SelectItem>
-            <SelectItem value="Prefer practical / hands on learning">
-              Prefer practical / hands on
+            <SelectItem value="A passion for my subject">A passion for my subject</SelectItem>
+            <SelectItem value="Career prospects">Career prospects</SelectItem>
+            <SelectItem value="High earning potential">High earning potential</SelectItem>
+            <SelectItem value="Interest in research">Interest in research</SelectItem>
+            <SelectItem value="Personal Growth & Independence">
+              Personal Growth & Independence
             </SelectItem>
-            <SelectItem value="Prestige and networking">Prestige and networking</SelectItem>
-            <SelectItem value="Other / unsure">Other / unsure</SelectItem>
+            <SelectItem value="Parental / Social Expectations">
+              Parental / Social Expectations
+            </SelectItem>
+            <SelectItem value="Social Life Mainly">Social Life Mainly</SelectItem>
+            <SelectItem value="Only route into desired job">Only route into desired job</SelectItem>
           </SelectContent>
         </Select>
         {errors.mainMotivation && <p className="text-sm text-red-500">{errors.mainMotivation}</p>}
@@ -104,35 +107,35 @@ export function Step4AdditionalQuestions({
       </div>
 
       <div className="space-y-2 pt-5">
-        <Label htmlFor="applyingUniversity">Are you applying / at university?</Label>
+        <Label htmlFor="applyingApprenticeship">Are you applying / in an apprenticeship?</Label>
         <Select
-          value={formData.applyingUniversity}
-          onValueChange={(value) => onUpdate({ applyingUniversity: value })}
+          value={formData.applyingApprenticeship}
+          onValueChange={(value) => onUpdate({ applyingApprenticeship: value })}
         >
-          <SelectTrigger className={errors.applyingUniversity ? "border-red-500" : ""}>
+          <SelectTrigger className={errors.applyingApprenticeship ? "border-red-500" : ""}>
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Yes, applying to uni">Yes</SelectItem>
-            <SelectItem value="No, not applying to uni">No</SelectItem>
+            <SelectItem value="Yes, applying to apprenticeships">Yes</SelectItem>
+            <SelectItem value="No, not applying to apprenticeships">No</SelectItem>
             <SelectItem value="Have not decided">Have not yet decided</SelectItem>
-            <SelectItem value="I'm already at university">
-              I&apos;m already at university
+            <SelectItem value="I'm already in an apprenticeship">
+              I&apos;m already in an apprenticeship
             </SelectItem>
           </SelectContent>
         </Select>
-        {errors.applyingUniversity && (
-          <p className="text-sm text-red-500">{errors.applyingUniversity}</p>
+        {errors.applyingApprenticeship && (
+          <p className="text-sm text-red-500">{errors.applyingApprenticeship}</p>
         )}
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="appliedBefore">Did you apply last season?</Label>
+        <Label htmlFor="universityRank">Ideal type / rank of university?</Label>
         <Select
-          value={formData.appliedBefore}
-          onValueChange={(value) => onUpdate({ appliedBefore: value })}
+          value={formData.universityRank}
+          onValueChange={(value) => onUpdate({ universityRank: value })}
         >
-          <SelectTrigger className={errors.appliedBefore ? "border-red-500" : ""}>
+          <SelectTrigger className={errors.universityRank ? "border-red-500" : ""}>
             <SelectValue placeholder="Select..." />
           </SelectTrigger>
           <SelectContent>
@@ -149,7 +152,7 @@ export function Step4AdditionalQuestions({
             </SelectItem>
           </SelectContent>
         </Select>
-        {errors.appliedBefore && <p className="text-sm text-red-500">{errors.appliedBefore}</p>}
+        {errors.universityRank && <p className="text-sm text-red-500">{errors.universityRank}</p>}
       </div>
 
       <div className="space-y-2">

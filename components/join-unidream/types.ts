@@ -8,8 +8,8 @@ export interface FormData {
   email: string;
 
   // Interests
-  industries: string[];
-  apprenticeshipLevel: string;
+  courses: string[];
+  degreeLevel: string;
 
   // Social Accounts
   linkedinUrl: string;
@@ -22,8 +22,8 @@ export interface FormData {
   studentType: string;
   educationalCourse: string;
   mainMotivation: string;
-  applyingUniversity: string;
-  appliedBefore: string;
+  applyingApprenticeship: string;
+  universityRank: string;
   referral: string;
   confidenceLevel: string;
 }
@@ -84,24 +84,32 @@ export const countryCodeGroups = [
 
 export const countryCodes = countryCodeGroups.flatMap((group) => group.codes);
 
-export const industries = [
-  "Technology",
-  "Finance",
-  "Healthcare",
+export const courses = [
+  "Medicine / Dentistry",
+  "Biological Sciences",
+  "Veterinary Sciences",
+  "Agriculture",
+  "Physical Sciences",
+  "Mathematics",
   "Engineering",
-  "Marketing & Media",
-  "Law",
-  "Consulting",
+  "Computing / Tech",
+  "Architecture",
   "Construction",
-  "Retail",
+  "Social Studies",
+  "Law",
+  "Communications",
+  "Languages",
+  "Historical",
+  "Philospohical",
   "Education",
+  "Business",
+  "Finance / Economics",
   "Other",
 ];
 
-export const apprenticeshipLevels = [
-  { value: "intermediate", label: "Intermediate (Level 2)" },
-  { value: "advanced", label: "Advanced (Level 3)" },
-  { value: "higher", label: "Higher (Level 4-5)" },
-  { value: "degree", label: "Degree (Level 6-7)" },
-  { value: "notsure", label: "Not Sure Yet" },
+export const degreeLevels = [
+  { value: "foundational", label: "Foundational" },
+  { value: "bachedlors", label: "Bachelor's" },
+  { value: "masters", label: "Master's degree" },
+  { value: "doctorate", label: "Doctorate / PhD" },
 ];
