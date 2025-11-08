@@ -186,7 +186,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
         break;
       case 2:
         if (formData.courses.length === 0) {
-          newErrors.courses = "Please select at least one course";
+          newErrors.courses = "Please select at least one industry";
         }
         if (!formData.degreeLevel) {
           newErrors.degreeLevel = "Please select a degree level";
@@ -238,7 +238,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
       case 1:
         return "Basic information";
       case 2:
-        return "Which Courses interest you?";
+        return "Which Industries interest you?";
       case 3:
         return "Connect your social accounts";
       case 4:
@@ -271,7 +271,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     }
   };
 
-  const handleCoursesToggle = (value: string[]) => {
+  const handleIndustryToggle = (value: string[]) => {
     setFormData({ ...formData, courses: value });
   };
 
@@ -343,7 +343,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     data.append("Student Type", formData.studentType);
     data.append("Educational Course", formData.educationalCourse);
     data.append("Main Motivation", formData.mainMotivation);
-    data.append("Applying Apprenticeship", formData.applyingApprenticeship);
+    data.append("Applying Apprenticeships", formData.applyingApprenticeship);
     data.append("University Rank", formData.universityRank);
     data.append("Confidence Level", formData.confidenceLevel);
     data.append("Referral Source", formData.referral);
@@ -359,7 +359,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbz44qVDBC70JzgM9jzF1vxd-_tyTf92wJtKHAbA4KcDlAJbPX-cEHIfOQTpUQEpCEE7/exec",
+        "https://script.google.com/macros/s/AKfycbzLlX6IbBD_nvnLl0e8e5BRxcAME6BW_rGEbrwCvfM_AteETEvVA6kUJy41e5wH657W/exec",
         {
           method: "POST",
           body: data,
@@ -426,7 +426,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
                     formData={formData}
                     errors={errors}
                     onUpdate={updateFormData}
-                    onCoursesToggle={handleCoursesToggle}
+                    onCoursesToggle={handleIndustryToggle}
                   />
                 )}
 
