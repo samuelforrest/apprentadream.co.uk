@@ -148,10 +148,10 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
             className="mx-auto"
             priority
             loading="eager"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,..."
           />
         </div>
-
-        {/* Title */}
 
         <div className="inline-block justify-center items-center mb-8 md:mb-16">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
@@ -162,7 +162,6 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
           </h1>
         </div>
 
-        {/* Path Selection Cards */}
         <div className="flex flex-col md:flex-row items-stretch justify-center gap-4 mb-10 max-w-2xl mx-auto">
           <Card
             className="bg-white/5 backdrop-blur border-white/30 hover:bg-blue-500/10 w-full md:w-1/2 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
