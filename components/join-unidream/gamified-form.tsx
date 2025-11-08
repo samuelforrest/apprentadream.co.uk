@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ProgressBar } from "./progress-bar";
-import { SplashScreen } from "./splash-screen";
 import { SuccessScreen } from "./success-screen";
 import { Step1BasicInfo } from "./step1-basic-info";
 import { Step2Interests } from "./step2-interests";
@@ -16,7 +15,6 @@ import { Step5Referrals } from "./step5-referrals";
 import { Step6Confirmation } from "./step6-confirmation";
 import type { FormData } from "./types";
 import confetti from "canvas-confetti";
-import { usePersistentState } from "@/hooks/use-persistent-state";
 
 export function ConfettiFireworks() {
   const handleClick = () => {
@@ -49,10 +47,7 @@ export function ConfettiFireworks() {
 function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">) {
   const handleClick = ConfettiFireworks();
   const searchParams = useSearchParams();
-  const [showSplash, setShowSplash] = useState(true);
-  const [currentStep, setCurrentStep, clearStep] = usePersistentState<number>("join-form.step", 1, {
-    version: "v1",
-  });
+  const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -61,31 +56,27 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [referrerCode, setReferrerCode] = useState<string>("");
 
-  const [formData, setFormData, clearFormData] = usePersistentState<FormData>(
-    "join-form.data",
-    {
-      firstName: "",
-      lastName: "",
-      countryCode: "+44",
-      mobile: "",
-      email: "",
-      industries: [],
-      apprenticeshipLevel: "",
-      linkedinUrl: "",
-      tiktokUsername: "",
-      instagramUsername: "",
-      twitterUsername: "",
-      website: "",
-      studentType: "",
-      educationalCourse: "",
-      mainMotivation: "",
-      applyingUniversity: "",
-      appliedBefore: "",
-      referral: "",
-      confidenceLevel: "50",
-    },
-    { version: "v1" }
-  );
+  const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    countryCode: "+44",
+    mobile: "",
+    email: "",
+    courses: [],
+    degreeLevel: "",
+    linkedinUrl: "",
+    tiktokUsername: "",
+    instagramUsername: "",
+    twitterUsername: "",
+    website: "",
+    studentType: "",
+    educationalCourse: "",
+    mainMotivation: "",
+    applyingApprenticeship: "",
+    universityRank: "",
+    referral: "",
+    confidenceLevel: "50",
+  });
 
   // Detect referral code from URL
   useEffect(() => {
@@ -148,7 +139,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
           isValidEmail(formData.email)
         );
       case 2:
-        return formData.industries.length > 0 && formData.apprenticeshipLevel !== "";
+        return formData.courses.length > 0 && formData.degreeLevel !== "";
       case 3:
         return true; // All social account fields are optional
       case 4:
@@ -194,11 +185,11 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
         }
         break;
       case 2:
-        if (formData.industries.length === 0) {
-          newErrors.industries = "Please select at least one industry";
+        if (formData.courses.length === 0) {
+          newErrors.courses = "Please select at least one industry";
         }
-        if (!formData.apprenticeshipLevel) {
-          newErrors.apprenticeshipLevel = "Please select an apprenticeship level";
+        if (!formData.degreeLevel) {
+          newErrors.degreeLevel = "Please select a degree level";
         }
         break;
       // Step 3 - LinkedIn validation if provided, all others can be @
@@ -281,7 +272,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   };
 
   const handleIndustryToggle = (value: string[]) => {
-    setFormData({ ...formData, industries: value });
+    setFormData({ ...formData, courses: value });
   };
 
   const handleCopy = async () => {
@@ -338,8 +329,8 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     data.append("Email", formData.email);
 
     // Interests
-    data.append("Industries", formData.industries.join(", "));
-    data.append("Apprenticeship Level", formData.apprenticeshipLevel);
+    data.append("Courses", formData.courses.join(", "));
+    data.append("Degree Level", formData.degreeLevel);
 
     //Social Accounts
     data.append("LinkedIn URL", formData.linkedinUrl);
@@ -352,8 +343,8 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     data.append("Student Type", formData.studentType);
     data.append("Educational Course", formData.educationalCourse);
     data.append("Main Motivation", formData.mainMotivation);
-    data.append("Applying University", formData.applyingUniversity);
-    data.append("Applied before", formData.appliedBefore);
+    data.append("Applying Apprenticeships", formData.applyingApprenticeship);
+    data.append("University Rank", formData.universityRank);
     data.append("Confidence Level", formData.confidenceLevel);
     data.append("Referral Source", formData.referral);
 
@@ -368,7 +359,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbw6QdhnfAMhoXWLpSrp0Pr0-bSNvLrag-roT3BcxKtEUhqT1W2N2V_dw929a1QAU9FgcQ/exec",
+        "https://script.google.com/macros/s/AKfycbyc-bAg4UrF377gCatdF6L0sB2T0RpPs2sHU2VFJkIZvpN3CmuMtatZNIbWFx6331fM/exec",
         {
           method: "POST",
           body: data,
@@ -382,16 +373,6 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
         handleClick();
         setShowSuccess(true);
         setIsSubmitting(false);
-        // Clear persisted progress and data after success
-        try {
-          clearFormData();
-          clearStep();
-          if (typeof window !== "undefined") {
-            Object.keys(localStorage)
-              .filter((k) => k.startsWith("join-form."))
-              .forEach((k) => localStorage.removeItem(k));
-          }
-        } catch {}
       } else {
         console.error("Submission failed with status:", response.status);
         alert(`Submission failed with status: ${response.status}. Please try again.`);
@@ -420,10 +401,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      {/* Splash Screen */}
-      {showSplash ? (
-        <SplashScreen onStart={() => setShowSplash(false)} />
-      ) : showSuccess ? (
+      {showSuccess ? (
         /* Success Screen */
         <SuccessScreen referralCode={referralCode} />
       ) : (
@@ -448,7 +426,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
                     formData={formData}
                     errors={errors}
                     onUpdate={updateFormData}
-                    onIndustryToggle={handleIndustryToggle}
+                    onCoursesToggle={handleIndustryToggle}
                   />
                 )}
 
@@ -526,7 +504,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   );
 }
 
-export function GamifiedForm({ className, ...props }: React.ComponentProps<"div">) {
+export function UniDreamForm({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <Suspense
       fallback={
