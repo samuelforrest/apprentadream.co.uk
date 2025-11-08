@@ -109,7 +109,7 @@ export const courses = [
 
 export const degreeLevels = [
   { value: "foundational", label: "Foundational" },
-  { value: "bachedlors", label: "Bachelor's" },
+  { value: "bachelors", label: "Bachelor's" },
   { value: "masters", label: "Master's degree" },
   { value: "doctorate", label: "Doctorate / PhD" },
 ];
