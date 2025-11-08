@@ -59,15 +59,15 @@ export function SuccessScreen({ referralCode }: SuccessScreenProps) {
             </svg>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to Apprentadream!</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to Unidream!</h1>
           <p className="text-xl text-gray-300 mb-14">
-            You&apos;re now part of a community of 2,300+ ambitious members
+            You&apos;re now part of a community of 100+ ambitious members
           </p>
         </div>
 
         <div className="space-y-6 mb-8">
           <a
-            href="https://chat.whatsapp.com/Kek6I8hE2wQBj8Znp97Q2f"
+            href="https://chat.whatsapp.com/JCxTXvbqgEUDTBmZh560La"
             target="_blank"
             rel="noopener noreferrer"
             className="block"
@@ -132,7 +132,7 @@ export function SuccessScreen({ referralCode }: SuccessScreenProps) {
           )}
         </div>
 
-        <p className="text-sm text-gray-400">2,235 members • Active now</p>
+        <p className="text-sm text-gray-400">104 members • Active now</p>
       </div>
     </div>
   );
