@@ -72,8 +72,8 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     studentType: "",
     educationalCourse: "",
     mainMotivation: "",
-    applyingUniversity: "",
-    appliedBefore: "",
+    applyingApprenticeship: "",
+    universityRank: "",
     referral: "",
     confidenceLevel: "50",
   });
@@ -359,7 +359,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbw6QdhnfAMhoXWLpSrp0Pr0-bSNvLrag-roT3BcxKtEUhqT1W2N2V_dw929a1QAU9FgcQ/exec",
+        "https://script.google.com/macros/s/AKfycbzXAIuLZGr_0Pl7Zcws1h1Jofv1HaU_z-VL1-r85Jq1FuigrPuJKob4tQ3qR6_5UbQ_/exec",
         {
           method: "POST",
           body: data,
