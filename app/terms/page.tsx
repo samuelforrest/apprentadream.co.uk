@@ -407,9 +407,9 @@ export default function Terms() {
           <section className="pt-8 border-t border-gray-800">
             <div className="border border-white/50 rounded-lg p-6">
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
-                By submitting this form to join the Apprentadream Community, you confirm that you
-                have read and understood these Terms & Conditions and consent to Apprentadream
-                processing your personal data as described above.
+                By submitting this form to join the Apprentadream / Unidream Communities, you
+                confirm that you have read and understood these Terms & Conditions and consent to
+                Apprentadream processing your personal data as described above.
               </p>
             </div>
           </section>
