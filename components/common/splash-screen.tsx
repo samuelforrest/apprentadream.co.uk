@@ -155,7 +155,7 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
 
         <div className="inline-block justify-center items-center mb-8 md:mb-16">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
-            Select{" "}
+            Build{" "}
             <Highlighter action="underline" color="#FF9800">
               your future
             </Highlighter>
@@ -219,7 +219,7 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
                       avatarUrls={avatars2}
                       className="z-10 flex -space-x-3 rtl:space-x-reverse [&>a>img]:h-8 [&>a>img]:w-8"
                     />
-                    <span className="text-sm text-gray-400 mt-1">+60 others</span>
+                    <span className="text-sm text-gray-400 mt-1">+104 others</span>
                   </span>
                 </div>
               </div>
@@ -238,7 +238,7 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
               className="underline underline-offset-4"
             >
               {" "}
-              Whatsapp Communities
+              WhatsApp Communities
             </Link>
             . Unidream is in Beta.
           </p>
