@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ArrowRight, Briefcase, GraduationCap } from "lucide-react";
+import { ArrowRight, Briefcase } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 import { AvatarCircles } from "../ui/avatar-circles";
 import { Highlighter } from "../ui/highlighter";
@@ -16,7 +16,7 @@ const sloganWords = [
   ["get", "the", "yes"],
 ];
 
-export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashScreenProps) {
+export function SplashScreen({ onStartApprentadream }: SplashScreenProps) {
   const [showIntro, setShowIntro] = useState(true);
   const [visibleWords, setVisibleWords] = useState<number>(0);
 
@@ -107,33 +107,6 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
     },
   ];
 
-  const avatars2 = [
-    {
-      imageUrl: "https://avatar.iran.liara.run/public/52",
-      profileUrl: "https://github.com/dillionverma",
-    },
-    {
-      imageUrl: "https://avatar.iran.liara.run/public/57",
-      profileUrl: "https://github.com/tomonarifeehan",
-    },
-    {
-      imageUrl: "https://avatar.iran.liara.run/public/19",
-      profileUrl: "https://github.com/BankkRoll",
-    },
-    {
-      imageUrl: "https://avatar.iran.liara.run/public/47",
-      profileUrl: "https://github.com/safethecode",
-    },
-    {
-      imageUrl: "https://avatar.iran.liara.run/public/42",
-      profileUrl: "https://github.com/sanjay-mali",
-    },
-    {
-      imageUrl: "https://avatar.iran.liara.run/public/26",
-      profileUrl: "https://github.com/itsarghyadas",
-    },
-  ];
-
   // Main splash screen
   return (
     <div className="flex flex-col items-center justify-center animate-in fade-in duration-700">
@@ -188,37 +161,6 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream }: SplashSc
                       className="z-10 flex -space-x-3 rtl:space-x-reverse [&>a>img]:h-8 [&>a>img]:w-8"
                     />
                     <span className="text-sm text-gray-400 mt-1">+2300 others</span>
-                  </span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card
-            className="bg-white/5 backdrop-blur border-white/30 hover:bg-purple-700/10 w-full md:w-1/2 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
-            onClick={onStartUnidream}
-          >
-            <CardContent className="flex flex-col items-center justify-center h-full">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="bg-purple-600 rounded-full p-2 flex-shrink-0">
-                  <GraduationCap className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white">Unidream</h3>
-                <div className="rounded-full flex-shrink-0">
-                  <ArrowRight className="w-5 h-5 text-white" />
-                </div>
-              </div>
-              <p className="text-sm text-gray-300 text-center pb-4">
-                For aspiring & current university students
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm text-gray-400 pt-2">
-                <div className="flex items-center gap-2">
-                  <span className="flex flex-col items-center">
-                    <AvatarCircles
-                      avatarUrls={avatars2}
-                      className="z-10 flex -space-x-3 rtl:space-x-reverse [&>a>img]:h-8 [&>a>img]:w-8"
-                    />
-                    <span className="text-sm text-gray-400 mt-1">+104 others</span>
                   </span>
                 </div>
               </div>
