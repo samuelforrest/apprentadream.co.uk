@@ -59,9 +59,10 @@ export function SuccessScreen({ referralCode }: SuccessScreenProps) {
             </svg>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to Apprentadream!</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome to Company Hub!</h1>
           <p className="text-xl text-gray-300 mb-14">
-            You&apos;re now part of a community of 2,300+ ambitious members
+            You&apos;re now part of a community of 300+ ambitious members, part of
+            Apprentadream&quot;s network of 3,000+
           </p>
         </div>
 

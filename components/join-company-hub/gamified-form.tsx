@@ -359,7 +359,7 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzQjbYDTFCSy7Z-Ag-pSjnAQ8C5myMvJqhSpIxAu8fDaKmp6eX-Q0fxe2lFfcTZ1RbS/exec",
+        "https://script.google.com/macros/s/AKfycbyb7B-3ke-Jtq4UgEkJVNj4Wub3l9IRVPByFc4ffYo_ZCo5hxDJpKPkMF9Kwtnn-7Cw/exec",
         {
           method: "POST",
           body: data,

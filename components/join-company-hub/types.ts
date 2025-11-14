@@ -99,9 +99,9 @@ export const industries = [
 ];
 
 export const apprenticeshipLevels = [
-  { value: "intermediate", label: "Intermediate (Level 2)" },
-  { value: "advanced", label: "Advanced (Level 3)" },
-  { value: "higher", label: "Higher (Level 4-5)" },
-  { value: "degree", label: "Degree (Level 6-7)" },
-  { value: "notsure", label: "Not Sure Yet" },
+  { value: "Intermediate", label: "Intermediate (Level 2)" },
+  { value: "Advanced", label: "Advanced (Level 3)" },
+  { value: "Higher", label: "Higher (Level 4-5)" },
+  { value: "Degree", label: "Degree (Level 6-7)" },
+  { value: "Notsure", label: "Not Sure Yet" },
 ];
