@@ -207,7 +207,7 @@ export function SplashScreen({ onStartApprentadream, onStartCompanyHub }: Splash
                       avatarUrls={avatars2}
                       className="z-10 flex -space-x-3 rtl:space-x-reverse [&>a>img]:h-8 [&>a>img]:w-8"
                     />
-                    <span className="text-sm text-gray-400 mt-1">+400 others</span>
+                    <span className="text-sm text-gray-400 mt-1">+300 others</span>
                   </span>
                 </div>
               </div>
