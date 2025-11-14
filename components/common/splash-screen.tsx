@@ -17,6 +17,17 @@ const sloganWords = [
   ["get", "the", "yes"],
 ];
 
+/**
+ * Renders the app's splash screen with an animated slogan intro followed by interactive entry cards.
+ *
+ * After mounting, shows the slogan word-by-word then transitions to the main splash UI that includes
+ * a logo, highlighted tagline, two feature cards (Apprentadream and Company Hub) with avatar clusters,
+ * and terms links. Clicking a card invokes its corresponding start callback.
+ *
+ * @param onStartApprentadream - Callback invoked when the "Apprentadream" card is clicked
+ * @param onStartCompanyHub - Callback invoked when the "Company Hub" card is clicked
+ * @returns The splash screen React element
+ */
 export function SplashScreen({ onStartApprentadream, onStartCompanyHub }: SplashScreenProps) {
   const [showIntro, setShowIntro] = useState(true);
   const [visibleWords, setVisibleWords] = useState<number>(0);

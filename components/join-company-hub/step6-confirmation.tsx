@@ -2,6 +2,11 @@ import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { Briefcase, Handshake } from "lucide-react";
 
+/**
+ * Displays a confirmation UI with three feature highlights and a required Terms & Conditions checkbox.
+ *
+ * @returns A JSX element containing a responsive three-item feature grid (WhatsApp access, companies, network growth) and a bordered container with a required checkbox linked to the Terms & Conditions page.
+ */
 export function Step6Confirmation() {
   return (
     <div className="space-y-6 pt-3">

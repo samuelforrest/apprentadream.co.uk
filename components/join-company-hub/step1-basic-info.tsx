@@ -20,6 +20,14 @@ interface Step1BasicInfoProps {
   onUpdate: (updates: Partial<FormData>) => void;
 }
 
+/**
+ * Renders the first step of the join-company-hub form collecting basic user information.
+ *
+ * @param formData - Current form values for first name, last name, email, countryCode, and mobile
+ * @param errors - Mapping of field names to validation error messages shown beneath inputs
+ * @param onUpdate - Callback invoked with partial updates to merge into the form data
+ * @returns A React element containing inputs for first name, last name, email, a country-code selector with flags, and a mobile number input
+ */
 export function Step1BasicInfo({ formData, errors, onUpdate }: Step1BasicInfoProps) {
   return (
     <div className="space-y-4">
