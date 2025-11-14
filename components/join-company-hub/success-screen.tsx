@@ -67,7 +67,7 @@ export function SuccessScreen({ referralCode }: SuccessScreenProps) {
 
         <div className="space-y-6 mb-8">
           <a
-            href="https://chat.whatsapp.com/Kek6I8hE2wQBj8Znp97Q2f"
+            href="https://chat.whatsapp.com/C1LvFK0U2IA840388qALav"
             target="_blank"
             rel="noopener noreferrer"
             className="block"
@@ -132,7 +132,7 @@ export function SuccessScreen({ referralCode }: SuccessScreenProps) {
           )}
         </div>
 
-        <p className="text-sm text-gray-400">2,235 members • Active now</p>
+        <p className="text-sm text-gray-400">322 members • Active now</p>
       </div>
     </div>
   );
