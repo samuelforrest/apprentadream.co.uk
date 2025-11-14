@@ -105,7 +105,9 @@ export default function Terms() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
             Terms & Conditions
           </h1>
-          <p className="text-lg sm:text-xl text-gray-400">Last updated: 20th October 2025</p>
+          <p className="text-lg sm:text-xl text-gray-400">
+            Last updated: 14th November 2025 at 23:58
+          </p>
         </div>
 
         <div className="space-y-8 sm:space-y-12 text-white">
