@@ -121,7 +121,7 @@ export default function Terms() {
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               Apprentadream is the name of our website & brand, where we collect form sign-ups for
-              Unidream & Apprentadream WhatsApp communities.
+              Unidream & Apprentadream & Company Hub WhatsApp communities.
             </p>
           </section>
 
@@ -129,8 +129,8 @@ export default function Terms() {
           <section>
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">2. Data We Collect</h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-              When you complete the &ldquo;Join Apprentadream&rdquo; form, we collect the following
-              information:
+              When you complete the &ldquo;Join Apprentadream&rdquo; or &ldquo;Join Company
+              Hub&rdquo; forms, we collect the following information:
             </p>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
               <li>First Name</li>
@@ -174,7 +174,8 @@ export default function Terms() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-base sm:text-lg text-gray-300 ml-4">
               <li>
-                To add you to our Apprentadream / Unidream member mailing list, where appropriate.
+                To add you to our Global / Apprentadream / Unidream / Company Hub member mailing
+                list, where appropriate.
               </li>
               <li>
                 To contact you with updates, events, and relevant apprenticeship, universtiy or
@@ -357,9 +358,10 @@ export default function Terms() {
               11. Liability and User Conduct
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">
-              By joining or interacting with the Apprentadream / Unidream Communities, you agree to
-              use the platform respectfully and lawfully. You must not submit false, misleading, or
-              inappropriate information, or attempt to misuse our referral system or communications.
+              By joining or interacting with the Apprentadream / Unidream / Company Hub Communities,
+              you agree to use the platform respectfully and lawfully. You must not submit false,
+              misleading, or inappropriate information, or attempt to misuse our referral system or
+              communications.
             </p>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               Apprentadream is not responsible for the accuracy or content of third-party resources,
@@ -407,9 +409,9 @@ export default function Terms() {
           <section className="pt-8 border-t border-gray-800">
             <div className="border border-white/50 rounded-lg p-6">
               <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
-                By submitting this form to join the Apprentadream / Unidream Communities, you
-                confirm that you have read and understood these Terms & Conditions and consent to
-                Apprentadream processing your personal data as described above.
+                By submitting this form to join the Apprentadream / Unidream / Company Hub
+                Communities, you confirm that you have read and understood these Terms & Conditions
+                and consent to Apprentadream processing your personal data as described above.
               </p>
             </div>
           </section>
