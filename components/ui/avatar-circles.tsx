@@ -5,7 +5,6 @@ import Image from "next/image";
 
 interface Avatar {
   imageUrl: string;
-  profileUrl: string;
 }
 interface AvatarCirclesProps {
   className?: string;
@@ -17,7 +16,7 @@ export const AvatarCircles = ({ numPeople, className, avatarUrls }: AvatarCircle
   return (
     <div className={cn("z-10 flex -space-x-4 rtl:space-x-reverse", className)}>
       {avatarUrls.map((url, index) => (
-        <a key={index} href={url.profileUrl} target="_blank" rel="noopener noreferrer">
+        <a key={index} target="_blank" rel="noopener noreferrer">
           <Image
             key={index}
             className="h-10 w-10 rounded-full border-2 border-white dark:border-gray-800"

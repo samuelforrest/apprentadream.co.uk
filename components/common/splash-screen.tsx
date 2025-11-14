@@ -84,54 +84,42 @@ export function SplashScreen({ onStartApprentadream, onStartCompanyHub }: Splash
   const avatars = [
     {
       imageUrl: "https://avatar.iran.liara.run/public/1",
-      profileUrl: "https://github.com/dillionverma",
     },
     {
       imageUrl: "https://avatar.iran.liara.run/public/10",
-      profileUrl: "https://github.com/tomonarifeehan",
     },
     {
       imageUrl: "https://avatar.iran.liara.run/public/59",
-      profileUrl: "https://github.com/BankkRoll",
     },
     {
       imageUrl: "https://avatar.iran.liara.run/public/30",
-      profileUrl: "https://github.com/safethecode",
     },
     {
       imageUrl: "https://avatar.iran.liara.run/public/96",
-      profileUrl: "https://github.com/sanjay-mali",
     },
     {
       imageUrl: "https://avatar.iran.liara.run/public/50",
-      profileUrl: "https://github.com/itsarghyadas",
     },
   ];
 
   const avatars2 = [
     {
       imageUrl: "https://avatar.iran.liara.run/public/2",
-      profileUrl: "https://github.com/dillionverma",
     },
     {
       imageUrl: "https://avatar.iran.liara.run/public/11",
-      profileUrl: "https://github.com/tomonarifeehan",
     },
     {
       imageUrl: "https://avatar.iran.liara.run/public/69",
-      profileUrl: "https://github.com/BankkRoll",
     },
     {
       imageUrl: "https://avatar.iran.liara.run/public/27",
-      profileUrl: "https://github.com/safethecode",
     },
     {
       imageUrl: "https://avatar.iran.liara.run/public/95",
-      profileUrl: "https://github.com/sanjay-mali",
     },
     {
       imageUrl: "https://avatar.iran.liara.run/public/93",
-      profileUrl: "https://github.com/itsarghyadas",
     },
   ];
 
@@ -196,12 +184,12 @@ export function SplashScreen({ onStartApprentadream, onStartCompanyHub }: Splash
           </Card>
 
           <Card
-            className="bg-white/5 backdrop-blur border-white/30 hover:bg-green-500/10 w-full lg:w-1/2 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
+            className="bg-white/5 backdrop-blur border-white/30 hover:bg-orange-500/10 w-full lg:w-1/2 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
             onClick={onStartCompanyHub}
           >
             <CardContent className="flex flex-col items-center justify-center h-full">
               <div className="flex items-center gap-3 mb-2">
-                <div className="bg-green-500 rounded-full p-2 flex-shrink-0">
+                <div className="bg-orange-500 rounded-full p-2 flex-shrink-0">
                   <Building2 className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white">Company Hub</h3>
