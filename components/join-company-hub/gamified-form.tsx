@@ -16,6 +16,13 @@ import { Step6Confirmation } from "./step6-confirmation";
 import type { FormData } from "./types";
 import confetti from "canvas-confetti";
 
+/**
+ * Produces a handler that triggers a short confetti celebration animation.
+ *
+ * The returned function runs a 5-second confetti animation that repeatedly emits particles from two horizontal origins (left-ish and right-ish).
+ *
+ * @returns A function that, when invoked, starts the 5-second confetti animation
+ */
 export function ConfettiFireworks() {
   const handleClick = () => {
     const duration = 5 * 1000;
@@ -43,7 +50,17 @@ export function ConfettiFireworks() {
   return handleClick;
 }
 
-// Component that handles search params
+/**
+ * Renders the multi-step gamified join form with progress, validation, referral tracking, and a success screen.
+ *
+ * This component manages step navigation, per-step validation, referral code generation (based on mobile),
+ * reading an optional referrer code from the URL query string, copying a shareable referral link, and
+ * submitting aggregated form data to the configured endpoint. On successful submission it shows a success
+ * screen and triggers a confetti celebration.
+ *
+ * @param props - Standard div props forwarded to the root container (e.g., `className`).
+ * @returns The form UI containing six steps, navigation controls, and a success view after submission.
+ */
 function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">) {
   const handleClick = ConfettiFireworks();
   const searchParams = useSearchParams();
@@ -504,6 +521,11 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
   );
 }
 
+/**
+ * Renders the Company Hub gamified multi-step form inside a Suspense boundary.
+ *
+ * @returns A React element containing `GamifiedFormInner` wrapped in a `Suspense` with a centered spinner fallback.
+ */
 export function CompanyHubForm({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <Suspense

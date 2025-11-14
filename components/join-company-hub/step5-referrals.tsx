@@ -9,6 +9,14 @@ interface Step5ReferralsProps {
   onCopy: () => void;
 }
 
+/**
+ * Render a referral UI section with a labeled referral link, a read-only input, and a copy button.
+ *
+ * @param referralLink - The referral URL displayed in the read-only input.
+ * @param copied - If `true`, displays the copied confirmation label on the button; otherwise shows "Copy".
+ * @param onCopy - Callback invoked when the copy button is clicked.
+ * @returns A JSX element containing the referral description, label with icon, read-only input, and copy button.
+ */
 export function Step5Referrals({ referralLink, copied, onCopy }: Step5ReferralsProps) {
   return (
     <div className="space-y-6">

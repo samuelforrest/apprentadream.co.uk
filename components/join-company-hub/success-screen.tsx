@@ -5,6 +5,15 @@ interface SuccessScreenProps {
   referralCode: string;
 }
 
+/**
+ * Render a success screen with actions to join the community and copy a referral link.
+ *
+ * Shows a welcome message, a button to join the WhatsApp community, and — when `referralCode` is provided —
+ * a button to copy a referral URL constructed from the current origin and the code.
+ *
+ * @param referralCode - The referral code used to build the referral link; when falsy, the copy-link action is not rendered.
+ * @returns The JSX element for the success screen UI.
+ */
 export function SuccessScreen({ referralCode }: SuccessScreenProps) {
   const [copied, setCopied] = useState(false);
 

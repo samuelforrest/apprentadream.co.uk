@@ -15,6 +15,19 @@ interface Step4AdditionalQuestionsProps {
   onUpdate: (updates: Partial<FormData>) => void;
 }
 
+/**
+ * Renders the "Additional Questions" form section used in step 4 of the join flow.
+ *
+ * Renders several select inputs (student type, educational course, main motivation,
+ * applying to university, previous application status, referral) and a confidence-level
+ * slider, showing inline validation messages and applying error styling when `errors`
+ * contains entries. User interactions call `onUpdate` with partial updates to `formData`.
+ *
+ * @param formData - Current form values for the fields rendered by this component
+ * @param errors - Mapping of field names to validation messages; presence of a key applies error styling and displays the message
+ * @param onUpdate - Callback invoked with a Partial<FormData> to update the parent form state
+ * @returns The rendered Step4AdditionalQuestions React element
+ */
 export function Step4AdditionalQuestions({
   formData,
   errors,

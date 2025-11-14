@@ -9,6 +9,15 @@ interface Step3SocialAccountsProps {
   onErrorClear: (field: string) => void;
 }
 
+/**
+ * Renders an optional social accounts section with inputs for LinkedIn URL, TikTok, Instagram, Twitter/X usernames, and a personal website.
+ *
+ * @param formData - Current form values for the social fields (e.g., `linkedinUrl`, `tiktokUsername`, `instagramUsername`, `twitterUsername`, `website`)
+ * @param errors - Mapping of field names to validation error messages; used to display and style field errors (LinkedIn field clears its error when edited)
+ * @param onUpdate - Callback invoked with partial `FormData` to update one or more form fields
+ * @param onErrorClear - Callback invoked with a field name to clear its validation error
+ * @returns The rendered JSX element containing the social accounts inputs and any inline validation UI
+ */
 export function Step3SocialAccounts({
   formData,
   errors,

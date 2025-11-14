@@ -17,6 +17,16 @@ interface Step2InterestsProps {
   onIndustryToggle: (value: string[]) => void;
 }
 
+/**
+ * Render the "Ideal Apprenticeship Level" and "Industries of Interest" form step,
+ * including a select for apprenticeship level, a multi-select for industries, and an optional custom industry input.
+ *
+ * @param formData - Current form values used to populate controls and derived state
+ * @param errors - Map of validation error messages keyed by field name
+ * @param onUpdate - Callback invoked with partial form updates (e.g., apprenticeshipLevel)
+ * @param onIndustryToggle - Callback invoked with the updated industries array when selections change
+ * @returns The rendered JSX element for this step of the form
+ */
 export function Step2Interests({
   formData,
   errors,

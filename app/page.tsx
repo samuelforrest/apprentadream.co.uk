@@ -8,6 +8,11 @@ import { CompanyHubForm } from "@/components/join-company-hub/gamified-form";
 
 type FormType = "splash" | "apprentadream" | "unidream" | "company-hub";
 
+/**
+ * Render the join page and switch between the splash, ApprentaDream, UniDream, and Company Hub flows.
+ *
+ * @returns The rendered JSX element for the currently selected form screen.
+ */
 export default function JoinPage() {
   const [currentForm, setCurrentForm] = useState<FormType>("splash");
 

@@ -4,6 +4,14 @@ interface ProgressBarProps {
   sectionName: string;
 }
 
+/**
+ * Renders a horizontal progress bar showing the current step, percentage complete, and a section title.
+ *
+ * @param currentStep - The current step number (1-based)
+ * @param totalSteps - The total number of steps
+ * @param sectionName - The label displayed below the progress bar
+ * @returns The rendered progress bar element reflecting the current progress
+ */
 export function ProgressBar({ currentStep, totalSteps, sectionName }: ProgressBarProps) {
   const progress = (currentStep / totalSteps) * 100;
 
