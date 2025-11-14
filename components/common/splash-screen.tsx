@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ArrowRight, Briefcase, GraduationCap, Building2 } from "lucide-react";
+import { ArrowRight, Briefcase, Building2 } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 import { AvatarCircles } from "../ui/avatar-circles";
 import { Highlighter } from "../ui/highlighter";
@@ -17,7 +17,7 @@ const sloganWords = [
   ["get", "the", "yes"],
 ];
 
-export function SplashScreen({ onStartApprentadream, onStartUnidream, onStartCompanyHub }: SplashScreenProps) {
+export function SplashScreen({ onStartApprentadream, onStartCompanyHub }: SplashScreenProps) {
   const [showIntro, setShowIntro] = useState(true);
   const [visibleWords, setVisibleWords] = useState<number>(0);
 
@@ -108,6 +108,33 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream, onStartCom
     },
   ];
 
+  const avatars2 = [
+    {
+      imageUrl: "https://avatar.iran.liara.run/public/2",
+      profileUrl: "https://github.com/dillionverma",
+    },
+    {
+      imageUrl: "https://avatar.iran.liara.run/public/11",
+      profileUrl: "https://github.com/tomonarifeehan",
+    },
+    {
+      imageUrl: "https://avatar.iran.liara.run/public/69",
+      profileUrl: "https://github.com/BankkRoll",
+    },
+    {
+      imageUrl: "https://avatar.iran.liara.run/public/27",
+      profileUrl: "https://github.com/safethecode",
+    },
+    {
+      imageUrl: "https://avatar.iran.liara.run/public/95",
+      profileUrl: "https://github.com/sanjay-mali",
+    },
+    {
+      imageUrl: "https://avatar.iran.liara.run/public/93",
+      profileUrl: "https://github.com/itsarghyadas",
+    },
+  ];
+
   // Main splash screen
   return (
     <div className="flex flex-col items-center justify-center animate-in fade-in duration-700">
@@ -136,9 +163,9 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream, onStartCom
           </h1>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-stretch justify-center gap-4 mb-10 max-w-4xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-stretch justify-center gap-5 mb-10 max-w-4xl mx-auto">
           <Card
-            className="bg-white/5 backdrop-blur border-white/30 hover:bg-blue-500/10 w-full lg:w-1/3 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
+            className="bg-white/5 backdrop-blur border-white/30 hover:bg-blue-500/10 w-full lg:w-1/2 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
             onClick={onStartApprentadream}
           >
             <CardContent className="flex flex-col items-center justify-center h-full">
@@ -152,7 +179,7 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream, onStartCom
                 </div>
               </div>
               <p className="text-sm text-gray-300 text-center pb-4 px-5">
-                For aspiring & current apprentices
+                The original Apprentadream community
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm text-gray-400 pt-2">
                 <div className="flex items-center gap-2">
@@ -167,40 +194,9 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream, onStartCom
               </div>
             </CardContent>
           </Card>
-          
-          <Card
-            className="bg-white/5 backdrop-blur border-white/30 hover:bg-purple-500/10 w-full lg:w-1/3 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
-            onClick={onStartUnidream}
-          >
-            <CardContent className="flex flex-col items-center justify-center h-full">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="bg-purple-500 rounded-full p-2 flex-shrink-0">
-                  <GraduationCap className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white">Unidream</h3>
-                <div className="rounded-full flex-shrink-0">
-                  <ArrowRight className="w-5 h-5 text-white" />
-                </div>
-              </div>
-              <p className="text-sm text-gray-300 text-center pb-4 px-5">
-                For aspiring university students
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm text-gray-400 pt-2">
-                <div className="flex items-center gap-2">
-                  <span className="flex flex-col items-center">
-                    <AvatarCircles
-                      avatarUrls={avatars}
-                      className="z-10 flex -space-x-3 rtl:space-x-reverse [&>a>img]:h-8 [&>a>img]:w-8"
-                    />
-                    <span className="text-sm text-gray-400 mt-1">+850 others</span>
-                  </span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
 
           <Card
-            className="bg-white/5 backdrop-blur border-white/30 hover:bg-green-500/10 w-full lg:w-1/3 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
+            className="bg-white/5 backdrop-blur border-white/30 hover:bg-green-500/10 w-full lg:w-1/2 flex flex-col min-h-[140px] rounded-3xl cursor-pointer"
             onClick={onStartCompanyHub}
           >
             <CardContent className="flex flex-col items-center justify-center h-full">
@@ -214,16 +210,16 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream, onStartCom
                 </div>
               </div>
               <p className="text-sm text-gray-300 text-center pb-4 px-5">
-                For employers & partners
+                Chat about companies & applications
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm text-gray-400 pt-2">
                 <div className="flex items-center gap-2">
                   <span className="flex flex-col items-center">
                     <AvatarCircles
-                      avatarUrls={avatars}
+                      avatarUrls={avatars2}
                       className="z-10 flex -space-x-3 rtl:space-x-reverse [&>a>img]:h-8 [&>a>img]:w-8"
                     />
-                    <span className="text-sm text-gray-400 mt-1">+120 companies</span>
+                    <span className="text-sm text-gray-400 mt-1">+400 others</span>
                   </span>
                 </div>
               </div>
@@ -236,15 +232,15 @@ export function SplashScreen({ onStartApprentadream, onStartUnidream, onStartCom
             <Link href="/terms" className="underline underline-offset-4">
               Terms apply.
             </Link>{" "}
-            Both Apprentadream and Unidream are{" "}
+            Both Apprentadream and Company Hub are{" "}
             <Link
               href="https://faq.whatsapp.com/495856382464992"
               className="underline underline-offset-4"
             >
               {" "}
               WhatsApp Communities
-            </Link>
-            . Unidream is in Beta.
+            </Link>{" "}
+            owned by Apprentadream.
           </p>
         </div>
       </div>
