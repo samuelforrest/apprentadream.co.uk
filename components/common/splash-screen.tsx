@@ -167,7 +167,7 @@ export function SplashScreen({ onStartApprentadream, onStartCompanyHub }: Splash
                 </div>
               </div>
               <p className="text-sm text-gray-300 text-center pb-4 px-5">
-                The original Apprentadream community
+                The O.G Apprentadream Community
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm text-gray-400 pt-2">
                 <div className="flex items-center gap-2">
@@ -198,7 +198,7 @@ export function SplashScreen({ onStartApprentadream, onStartCompanyHub }: Splash
                 </div>
               </div>
               <p className="text-sm text-gray-300 text-center pb-4 px-5">
-                Chat about companies & applications
+                Group chats to talk about every company
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-sm text-gray-400 pt-2">
                 <div className="flex items-center gap-2">
