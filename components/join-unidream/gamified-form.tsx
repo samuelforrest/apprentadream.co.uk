@@ -319,63 +319,52 @@ function GamifiedFormInner({ className, ...props }: React.ComponentProps<"div">)
     e.preventDefault();
     setIsSubmitting(true);
 
-    //Append all data
-    const data = new FormData();
-    //Basic Information
-    data.append("First Name", formData.firstName);
-    data.append("Last Name", formData.lastName);
-    data.append("Country Code", formData.countryCode);
-    data.append("Mobile", formData.mobile);
-    data.append("Email", formData.email);
-
-    // Interests
-    data.append("Courses", formData.courses.join(", "));
-    data.append("Degree Level", formData.degreeLevel);
-
-    //Social Accounts
-    data.append("LinkedIn URL", formData.linkedinUrl);
-    data.append("TikTok", formData.tiktokUsername);
-    data.append("Instagram", formData.instagramUsername);
-    data.append("Twitter", formData.twitterUsername);
-    data.append("Website", formData.website);
-
-    //Additional Questions
-    data.append("Student Type", formData.studentType);
-    data.append("Educational Course", formData.educationalCourse);
-    data.append("Main Motivation", formData.mainMotivation);
-    data.append("Applying Apprenticeships", formData.applyingApprenticeship);
-    data.append("University Rank", formData.universityRank);
-    data.append("Confidence Level", formData.confidenceLevel);
-    data.append("Referral Source", formData.referral);
-
-    //Referral Tracking
-    data.append("Referred By Code", referrerCode); // Who referred this user
-    data.append("User Referral Code", referralCode); // This user's own code
-    data.append("User Referral Link", getReferralLink()); // This user's own referral link
-    data.append("Referral Link Copied", referralLinkCopied ? "Yes" : "No"); //Bool
-
-    //Add client-side timestamp for backup
-    data.append("Client Timestamp", new Date().toISOString());
+    const submitData = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      countryCode: formData.countryCode,
+      mobile: formData.mobile,
+      email: formData.email,
+      courses: formData.courses,
+      degreeLevel: formData.degreeLevel,
+      linkedinUrl: formData.linkedinUrl,
+      tiktokUsername: formData.tiktokUsername,
+      instagramUsername: formData.instagramUsername,
+      twitterUsername: formData.twitterUsername,
+      website: formData.website,
+      studentType: formData.studentType,
+      educationalCourse: formData.educationalCourse,
+      mainMotivation: formData.mainMotivation,
+      applyingApprenticeship: formData.applyingApprenticeship,
+      universityRank: formData.universityRank,
+      confidenceLevel: formData.confidenceLevel,
+      referral: formData.referral,
+      referrerCode,
+      userReferralCode: referralCode,
+      userReferralLink: getReferralLink(),
+      referralLinkCopied,
+      clientTimestamp: new Date().toISOString(),
+    };
 
     try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyc-bAg4UrF377gCatdF6L0sB2T0RpPs2sHU2VFJkIZvpN3CmuMtatZNIbWFx6331fM/exec",
-        {
-          method: "POST",
-          body: data,
-          mode: "no-cors",
-        }
-      );
+      const response = await fetch("/api/submit-unidream", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submitData),
+      });
 
-      if (response.type === "opaque" || response.ok) {
+      if (response.ok) {
         console.log("Form submitted successfully!");
         // Trigger confetti from magicui
         handleClick();
         setShowSuccess(true);
         setIsSubmitting(false);
       } else {
-        console.error("Submission failed with status:", response.status);
-        alert(`Submission failed with status: ${response.status}. Please try again.`);
+        const error = await response.json();
+        console.error("Submission failed:", error);
+        alert(`Submission failed: ${error.error || "Unknown error"}. Please try again.`);
         setIsSubmitting(false);
       }
     } catch (error) {
