@@ -331,10 +331,10 @@ export default function Terms() {
               <p className="text-base sm:text-lg text-gray-300">
                 <span className="font-semibold text-white">Email:</span>{" "}
                 <a
-                  href="mailto:sam@samuelforrest.me"
-                  className="text-white hover:underline underline-offset-4"
+                  href="https://www.samuelforrest.co.uk"
+                  className="text-white hover:underline underline-offset-4 font-light"
                 >
-                  sam@samuelforrest.me
+                  Visit website samuelforrest.co.uk for email
                 </a>
               </p>
             </div>
